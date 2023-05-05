@@ -22,6 +22,9 @@
 		29976E2E29FEFD8E00DC0802 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29976E2D29FEFD8E00DC0802 /* ContentView.swift */; };
 		29976E3029FEFD8F00DC0802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29976E2F29FEFD8F00DC0802 /* Assets.xcassets */; };
 		29976E3329FEFD8F00DC0802 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29976E3229FEFD8F00DC0802 /* Preview Assets.xcassets */; };
+		D07E2B592A05B60B0092D3D7 /* SVGTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E2B582A05B60B0092D3D7 /* SVGTest.swift */; };
+		D07E2B5C2A05B6A70092D3D7 /* PocketSVG in Frameworks */ = {isa = PBXBuildFile; productRef = D07E2B5B2A05B6A70092D3D7 /* PocketSVG */; };
+		D07E2B5E2A05BEDF0092D3D7 /* amazon.svg in Resources */ = {isa = PBXBuildFile; fileRef = D07E2B5D2A05BEDF0092D3D7 /* amazon.svg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,8 @@
 		29976E2D29FEFD8E00DC0802 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		29976E2F29FEFD8F00DC0802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29976E3229FEFD8F00DC0802 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D07E2B582A05B60B0092D3D7 /* SVGTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGTest.swift; sourceTree = "<group>"; };
+		D07E2B5D2A05BEDF0092D3D7 /* amazon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = amazon.svg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EF1A7522A05AD6900C8F2A0 /* FirebaseFunctionsCombine-Community in Frameworks */,
+				D07E2B5C2A05B6A70092D3D7 /* PocketSVG in Frameworks */,
 				1EF1A74E2A05AD6900C8F2A0 /* FirebaseFirestoreSwift in Frameworks */,
 				1EF1A7462A05AD6900C8F2A0 /* FirebaseAnalyticsSwift in Frameworks */,
 				1EF1A74C2A05AD6900C8F2A0 /* FirebaseFirestoreCombine-Community in Frameworks */,
@@ -76,7 +82,9 @@
 				1EF1A7422A05ACE200C8F2A0 /* GoogleService-Info.plist */,
 				29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */,
 				29976E2D29FEFD8E00DC0802 /* ContentView.swift */,
+				D07E2B582A05B60B0092D3D7 /* SVGTest.swift */,
 				29976E2F29FEFD8F00DC0802 /* Assets.xcassets */,
+				D07E2B5D2A05BEDF0092D3D7 /* amazon.svg */,
 				29976E3129FEFD8F00DC0802 /* Preview Content */,
 				1EF1A7572A05AD7E00C8F2A0 /* Cloud.swift */,
 			);
@@ -117,6 +125,7 @@
 				1EF1A7512A05AD6900C8F2A0 /* FirebaseFunctionsCombine-Community */,
 				1EF1A7532A05AD6900C8F2A0 /* FirebaseStorage */,
 				1EF1A7552A05AD6900C8F2A0 /* FirebaseStorageCombine-Community */,
+				D07E2B5B2A05B6A70092D3D7 /* PocketSVG */,
 			);
 			productName = Moush_iOS;
 			productReference = 29976E2829FEFD8E00DC0802 /* Moush_iOS.app */;
@@ -148,6 +157,7 @@
 			mainGroup = 29976E1F29FEFD8E00DC0802;
 			packageReferences = (
 				1EF1A7442A05AD6900C8F2A0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D07E2B5A2A05B6A70092D3D7 /* XCRemoteSwiftPackageReference "PocketSVG" */,
 			);
 			productRefGroup = 29976E2929FEFD8E00DC0802 /* Products */;
 			projectDirPath = "";
@@ -165,6 +175,7 @@
 			files = (
 				29976E3329FEFD8F00DC0802 /* Preview Assets.xcassets in Resources */,
 				29976E3029FEFD8F00DC0802 /* Assets.xcassets in Resources */,
+				D07E2B5E2A05BEDF0092D3D7 /* amazon.svg in Resources */,
 				1EF1A7432A05ACE200C8F2A0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07E2B592A05B60B0092D3D7 /* SVGTest.swift in Sources */,
 				29976E2E29FEFD8E00DC0802 /* ContentView.swift in Sources */,
 				1EF1A7582A05AD7E00C8F2A0 /* Cloud.swift in Sources */,
 				29976E2C29FEFD8E00DC0802 /* Moush_iOSApp.swift in Sources */,
@@ -389,6 +401,14 @@
 				kind = branch;
 			};
 		};
+		D07E2B5A2A05B6A70092D3D7 /* XCRemoteSwiftPackageReference "PocketSVG" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pocketsvg/PocketSVG.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -436,6 +456,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1EF1A7442A05AD6900C8F2A0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		D07E2B5B2A05B6A70092D3D7 /* PocketSVG */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D07E2B5A2A05B6A70092D3D7 /* XCRemoteSwiftPackageReference "PocketSVG" */;
+			productName = PocketSVG;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
