@@ -22,6 +22,10 @@
 		29976E2E29FEFD8E00DC0802 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29976E2D29FEFD8E00DC0802 /* ContentView.swift */; };
 		29976E3029FEFD8F00DC0802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29976E2F29FEFD8F00DC0802 /* Assets.xcassets */; };
 		29976E3329FEFD8F00DC0802 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29976E3229FEFD8F00DC0802 /* Preview Assets.xcassets */; };
+		D41C4ECA2A05AF0C00DA242A /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C4EC92A05AF0C00DA242A /* FileInfo.swift */; };
+		D41C4ECC2A05BB1900DA242A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C4ECB2A05BB1900DA242A /* Login.swift */; };
+		D41C4ECE2A05BD2300DA242A /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C4ECD2A05BD2300DA242A /* SignUp.swift */; };
+		D41C4ED02A05C2E600DA242A /* UploadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C4ECF2A05C2E600DA242A /* UploadFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		29976E2D29FEFD8E00DC0802 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		29976E2F29FEFD8F00DC0802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29976E3229FEFD8F00DC0802 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D41C4EC92A05AF0C00DA242A /* FileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
+		D41C4ECB2A05BB1900DA242A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		D41C4ECD2A05BD2300DA242A /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		D41C4ECF2A05C2E600DA242A /* UploadFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +84,13 @@
 				1EF1A7422A05ACE200C8F2A0 /* GoogleService-Info.plist */,
 				29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */,
 				29976E2D29FEFD8E00DC0802 /* ContentView.swift */,
+				D41C4EC92A05AF0C00DA242A /* FileInfo.swift */,
+				D41C4ECB2A05BB1900DA242A /* Login.swift */,
+				D41C4ECD2A05BD2300DA242A /* SignUp.swift */,
 				29976E2F29FEFD8F00DC0802 /* Assets.xcassets */,
 				29976E3129FEFD8F00DC0802 /* Preview Content */,
 				1EF1A7572A05AD7E00C8F2A0 /* Cloud.swift */,
+				D41C4ECF2A05C2E600DA242A /* UploadFile.swift */,
 			);
 			path = Moush_iOS;
 			sourceTree = "<group>";
@@ -177,6 +189,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				29976E2E29FEFD8E00DC0802 /* ContentView.swift in Sources */,
+				D41C4ECE2A05BD2300DA242A /* SignUp.swift in Sources */,
+				D41C4ECC2A05BB1900DA242A /* Login.swift in Sources */,
+				D41C4ECA2A05AF0C00DA242A /* FileInfo.swift in Sources */,
+				D41C4ED02A05C2E600DA242A /* UploadFile.swift in Sources */,
 				1EF1A7582A05AD7E00C8F2A0 /* Cloud.swift in Sources */,
 				29976E2C29FEFD8E00DC0802 /* Moush_iOSApp.swift in Sources */,
 			);
