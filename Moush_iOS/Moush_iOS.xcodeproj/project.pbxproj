@@ -21,13 +21,6 @@
 		D415D3312A0EE6EA008FDC9D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D415D3302A0EE6EA008FDC9D /* FirebaseFirestoreSwift */; };
 		D415D3332A0EE6EA008FDC9D /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = D415D3322A0EE6EA008FDC9D /* FirebaseFunctions */; };
 		D415D3352A0EE6EA008FDC9D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D415D3342A0EE6EA008FDC9D /* FirebaseStorage */; };
-		D429EE092A0EE42D00EE2543 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429EE082A0EE42D00EE2543 /* Cloud.swift */; };
-		D429EE0B2A0EE43300EE2543 /* CloudError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429EE0A2A0EE43300EE2543 /* CloudError.swift */; };
-		D429EE0D2A0EE43A00EE2543 /* Cloud+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429EE0C2A0EE43A00EE2543 /* Cloud+Auth.swift */; };
-		D429EE112A0EE44600EE2543 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429EE102A0EE44600EE2543 /* Login.swift */; };
-		D429EE132A0EE44900EE2543 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429EE122A0EE44900EE2543 /* SignUp.swift */; };
-		D429EE152A0EE4EA00EE2543 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429EE142A0EE4EA00EE2543 /* ViewModel.swift */; };
-		D429EE172A0EE4EF00EE2543 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429EE162A0EE4EF00EE2543 /* Thing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,13 +30,6 @@
 		29976E2D29FEFD8E00DC0802 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		29976E2F29FEFD8F00DC0802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29976E3229FEFD8F00DC0802 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D429EE082A0EE42D00EE2543 /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cloud.swift; path = ../../../../Moush/Moush_iOS/Moush_iOS/Cloud.swift; sourceTree = "<group>"; };
-		D429EE0A2A0EE43300EE2543 /* CloudError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudError.swift; path = ../../../../Tasks/Tasks/CloudError.swift; sourceTree = "<group>"; };
-		D429EE0C2A0EE43A00EE2543 /* Cloud+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Cloud+Auth.swift"; path = "../../../../../.Trash/Cloud+Auth.swift"; sourceTree = "<group>"; };
-		D429EE102A0EE44600EE2543 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = ../../../../Moush/Moush_iOS/Moush_iOS/Login.swift; sourceTree = "<group>"; };
-		D429EE122A0EE44900EE2543 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp.swift; path = ../../../../Moush/Moush_iOS/Moush_iOS/SignUp.swift; sourceTree = "<group>"; };
-		D429EE142A0EE4EA00EE2543 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewModel.swift; path = ../../../../Tasks/Tasks/ViewModel.swift; sourceTree = "<group>"; };
-		D429EE162A0EE4EF00EE2543 /* Thing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Thing.swift; path = ../../../../Tasks/Tasks/Thing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,14 +71,7 @@
 		29976E2A29FEFD8E00DC0802 /* Moush_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D429EE162A0EE4EF00EE2543 /* Thing.swift */,
-				D429EE142A0EE4EA00EE2543 /* ViewModel.swift */,
 				1EF1A7422A05ACE200C8F2A0 /* GoogleService-Info.plist */,
-				D429EE122A0EE44900EE2543 /* SignUp.swift */,
-				D429EE102A0EE44600EE2543 /* Login.swift */,
-				D429EE0C2A0EE43A00EE2543 /* Cloud+Auth.swift */,
-				D429EE0A2A0EE43300EE2543 /* CloudError.swift */,
-				D429EE082A0EE42D00EE2543 /* Cloud.swift */,
 				29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */,
 				29976E2D29FEFD8E00DC0802 /* ContentView.swift */,
 				29976E2F29FEFD8F00DC0802 /* Assets.xcassets */,
@@ -194,15 +173,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D429EE092A0EE42D00EE2543 /* Cloud.swift in Sources */,
 				29976E2E29FEFD8E00DC0802 /* ContentView.swift in Sources */,
-				D429EE0B2A0EE43300EE2543 /* CloudError.swift in Sources */,
-				D429EE0D2A0EE43A00EE2543 /* Cloud+Auth.swift in Sources */,
-				D429EE172A0EE4EF00EE2543 /* Thing.swift in Sources */,
-				D429EE112A0EE44600EE2543 /* Login.swift in Sources */,
 				29976E2C29FEFD8E00DC0802 /* Moush_iOSApp.swift in Sources */,
-				D429EE152A0EE4EA00EE2543 /* ViewModel.swift in Sources */,
-				D429EE132A0EE44900EE2543 /* SignUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
