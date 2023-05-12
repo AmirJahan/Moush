@@ -24,6 +24,10 @@ struct HomeScreen: View
         return screenWidth / 2.0 * 1.25
     }
     
+//    var cellWidth: CGFont {
+//        return (screenWidth - 20.0) / 2.0
+//    }
+    
     var columns : [GridItem] {
         return Array(repeating: .init(.flexible(),
                                       spacing: space),
@@ -64,17 +68,26 @@ struct HomeScreen: View
                         Spacer ()
                         
                         
-                        
-                        LazyVGrid (columns: columns, // switch this to columns2
-                                   spacing: space,
-                                   pinnedViews: [.sectionHeaders])
+                        LazyVGrid (columns: columns,
+                                   spacing: space)
                         {
-                            
-                            
-                            ForEach(AppData.instance.tempSvgs, id: \.self) { svg in
-//                                Text ("g")
-                                SvgCellView(svg: svg)
+
+ 
+                            ForEach (AppData.instance.tempSvgs, id: \.self) { mySvg in
+
+                                NavigationLink {
+                                    SvgDisplayScreen(svg: mySvg)
+                                } label: {
+                                    SvgCellView(svg: mySvg)
+                                }
+
+                                
+                                
+
                             }
+                            
+                 
+   
                             
                         }.padding(.top, 8)
                     }.padding(16)

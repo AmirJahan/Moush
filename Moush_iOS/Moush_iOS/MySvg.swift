@@ -8,10 +8,12 @@
 import Foundation
 
 
-struct MySvg: Hashable // to replace by the one that Nav makes
+struct MySvg: Identifiable, Hashable // to replace by the one that Nav makes
 {
-    var image: String
-    var author: String
-    var tags: [String]
-    var rating: Float
+    let id = UUID()
+    
+    let image: String
+    let author: String
+    let tags: [String]
+    let rating: Float
 }

@@ -1,17 +1,10 @@
-//
-//  SvgCellView.swift
-//  Moush_iOS
-//
-//  Created by The Odd Institute on 2023-05-12.
-//
-
 import SwiftUI
-
 
 struct SvgCellView: View
 {
     var svg: MySvg
-    
+//    var cellWidth: CGFont
+
     
     func svgTagsString () -> String
     {
@@ -27,40 +20,44 @@ struct SvgCellView: View
     
     var body: some View
     {
-        VStack (alignment: .leading)
+        ZStack
         {
-            Image (systemName: svg.image)
-                .font(.system(size: 128))
-                .background(Color.myPrimaryColor)
+            RoundedRectangle(cornerRadius: 8)
+                .foregroundColor(.white)
+                .shadow(color: .black.opacity(0.2),
+                        radius: 4,
+                        x: 0,
+                        y: 2)
             
-            Text (svg.author)
-                .font(.title)
-            
-            
-            HStack
+            VStack (alignment: .leading)
             {
-                Text (svgTagsString())
-                    .font(.subheadline)
-            }
-            
-            
-            StarRatingView(rating: svg.rating)
-            
+                Image (systemName: svg.image)
+                    .font(.system(size: 96))
+//                    .background(Color.myPrimaryColor)
+                
+                Text (svg.author)
+                    .font(.headline)
+                
+                
+                HStack
+                {
+                    Text (svgTagsString())
+                        .font(.subheadline)
+                }
+                
+                StarRatingView(rating: svg.rating)
+            }.padding()
         }
-        
-        
-//        Text(animal)
-//            .font(.system(size: 50))
-//            .frame(maxWidth: .infinity,
-//                   minHeight: colHeight)
-//            .background(Color.myPrimaryColor)
+//        .frame(width: 200, height: 300)
+        .padding()
+    
     }
 }
 
 
 struct StarRatingView: View {
     let rating: Float
-
+    
     var body: some View {
         HStack(spacing: 5) {
             ForEach(0..<5) { index in
