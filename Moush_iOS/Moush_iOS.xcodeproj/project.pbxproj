@@ -18,20 +18,40 @@
 		1EF1A7542A05AD6900C8F2A0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1A7532A05AD6900C8F2A0 /* FirebaseStorage */; };
 		1EF1A7562A05AD6900C8F2A0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1A7552A05AD6900C8F2A0 /* FirebaseStorageCombine-Community */; };
 		1EF1A7582A05AD7E00C8F2A0 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1A7572A05AD7E00C8F2A0 /* Cloud.swift */; };
+		298615182A0D7D5900B28BAD /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298615172A0D7D5900B28BAD /* Color+Extension.swift */; };
+		2986151A2A0D7E5200B28BAD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298615192A0D7E5200B28BAD /* UIColor+Extension.swift */; };
+		298615542A0D898000B28BAD /* FilterPopOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298615532A0D898000B28BAD /* FilterPopOverView.swift */; };
 		29976E2C29FEFD8E00DC0802 /* Moush_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */; };
 		29976E2E29FEFD8E00DC0802 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29976E2D29FEFD8E00DC0802 /* ContentView.swift */; };
 		29976E3029FEFD8F00DC0802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29976E2F29FEFD8F00DC0802 /* Assets.xcassets */; };
 		29976E3329FEFD8F00DC0802 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29976E3229FEFD8F00DC0802 /* Preview Assets.xcassets */; };
+		29C0DF832A0D53700061453C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0DF822A0D53700061453C /* HomeScreen.swift */; };
+		29C0DF852A0D53B90061453C /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0DF842A0D53B90061453C /* View+Extensions.swift */; };
+		29D2236B2A0D9DF1000FF09E /* ArrowShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D2236A2A0D9DF1000FF09E /* ArrowShape.swift */; };
+		29D2236D2A0DAABA000FF09E /* SearchFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D2236C2A0DAABA000FF09E /* SearchFilters.swift */; };
+		29D2236F2A0DB0B8000FF09E /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D2236E2A0DB0B8000FF09E /* AppData.swift */; };
+		29D223712A0E2189000FF09E /* SvgCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223702A0E2189000FF09E /* SvgCellView.swift */; };
+		29D223732A0E219F000FF09E /* MySvg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223722A0E219F000FF09E /* MySvg.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1EF1A7422A05ACE200C8F2A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1EF1A7572A05AD7E00C8F2A0 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
+		298615172A0D7D5900B28BAD /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		298615192A0D7E5200B28BAD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		298615532A0D898000B28BAD /* FilterPopOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPopOverView.swift; sourceTree = "<group>"; };
 		29976E2829FEFD8E00DC0802 /* Moush_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moush_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moush_iOSApp.swift; sourceTree = "<group>"; };
 		29976E2D29FEFD8E00DC0802 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		29976E2F29FEFD8F00DC0802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29976E3229FEFD8F00DC0802 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		29C0DF822A0D53700061453C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		29C0DF842A0D53B90061453C /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		29D2236A2A0D9DF1000FF09E /* ArrowShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowShape.swift; sourceTree = "<group>"; };
+		29D2236C2A0DAABA000FF09E /* SearchFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilters.swift; sourceTree = "<group>"; };
+		29D2236E2A0DB0B8000FF09E /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		29D223702A0E2189000FF09E /* SvgCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgCellView.swift; sourceTree = "<group>"; };
+		29D223722A0E219F000FF09E /* MySvg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySvg.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +96,19 @@
 				1EF1A7422A05ACE200C8F2A0 /* GoogleService-Info.plist */,
 				29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */,
 				29976E2D29FEFD8E00DC0802 /* ContentView.swift */,
+				29C0DF822A0D53700061453C /* HomeScreen.swift */,
+				29D223702A0E2189000FF09E /* SvgCellView.swift */,
+				29D223722A0E219F000FF09E /* MySvg.swift */,
+				29D2236E2A0DB0B8000FF09E /* AppData.swift */,
+				298615532A0D898000B28BAD /* FilterPopOverView.swift */,
+				29D2236C2A0DAABA000FF09E /* SearchFilters.swift */,
+				29D2236A2A0D9DF1000FF09E /* ArrowShape.swift */,
+				298615192A0D7E5200B28BAD /* UIColor+Extension.swift */,
+				29C0DF842A0D53B90061453C /* View+Extensions.swift */,
 				29976E2F29FEFD8F00DC0802 /* Assets.xcassets */,
 				29976E3129FEFD8F00DC0802 /* Preview Content */,
 				1EF1A7572A05AD7E00C8F2A0 /* Cloud.swift */,
+				298615172A0D7D5900B28BAD /* Color+Extension.swift */,
 			);
 			path = Moush_iOS;
 			sourceTree = "<group>";
@@ -176,9 +206,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2986151A2A0D7E5200B28BAD /* UIColor+Extension.swift in Sources */,
+				29C0DF832A0D53700061453C /* HomeScreen.swift in Sources */,
+				298615182A0D7D5900B28BAD /* Color+Extension.swift in Sources */,
+				29D223732A0E219F000FF09E /* MySvg.swift in Sources */,
+				298615542A0D898000B28BAD /* FilterPopOverView.swift in Sources */,
+				29D2236F2A0DB0B8000FF09E /* AppData.swift in Sources */,
 				29976E2E29FEFD8E00DC0802 /* ContentView.swift in Sources */,
+				29D2236D2A0DAABA000FF09E /* SearchFilters.swift in Sources */,
+				29D223712A0E2189000FF09E /* SvgCellView.swift in Sources */,
 				1EF1A7582A05AD7E00C8F2A0 /* Cloud.swift in Sources */,
+				29C0DF852A0D53B90061453C /* View+Extensions.swift in Sources */,
 				29976E2C29FEFD8E00DC0802 /* Moush_iOSApp.swift in Sources */,
+				29D2236B2A0D9DF1000FF09E /* ArrowShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
