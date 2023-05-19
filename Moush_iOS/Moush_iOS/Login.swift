@@ -18,9 +18,12 @@ struct LoginView: View
     @State var success: String = ""
     
     
-    @State private var navigateToHomeScreen = false
+    @State private var navigateToUploadSVG = false
     
 
+    
+    
+    
     var body: some View{
         
         NavigationView{
@@ -54,8 +57,11 @@ struct LoginView: View
                     Cloud.inst.login(email: email, password: password) { res in
                         switch res
                         {
-                        case .success(_):
+                        case .success(let authResult):
+                            globalUid = authResult.user.uid
                             success = "success"
+                            navigateToUploadSVG = true
+                            
                         case .failure(_):
                             success = "Failed"
                         }
@@ -85,6 +91,11 @@ struct LoginView: View
                 
             }
             .padding()
+            .background(
+                NavigationLink(destination: UploadSvg().navigationBarBackButtonHidden(true), isActive: $navigateToUploadSVG) {
+                    EmptyView()
+                }
+            )
         }
     }
     

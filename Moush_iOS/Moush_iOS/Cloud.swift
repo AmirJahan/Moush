@@ -23,7 +23,7 @@ enum CloudError: Error
     case taskDeletionError
 }
 
-
+var globalUid: String = ""
 
 class Cloud
 {
@@ -35,8 +35,8 @@ class Cloud
     // I make this singleton so I can have the initial setup here.
     public init ()
     {
-        ref = Database.database().reference()
         FirebaseApp.configure()
+        ref = Database.database().reference()
         myAuth = Auth.auth()
     }
 }

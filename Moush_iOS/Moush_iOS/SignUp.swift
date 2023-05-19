@@ -45,6 +45,14 @@ struct SignUpView: View {
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
                     
+                    Text("Birthday")
+                        .font(.headline)
+                        .padding(.top)
+                    TextField("Birthdate", text: $birthdate)
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                    
                 }
                 .padding()
                 
@@ -56,8 +64,9 @@ struct SignUpView: View {
                     Cloud.inst.signUp(email: email, name: name, password: password, bday: birthdate){ res in
                         switch res
                         {
-                        case .success(_):
-                            success = "Success"
+                        case .success(let authResult):
+                            globalUid = authResult.user.uid
+                            success = "success"
                         case .failure(_):
                             success = "Failed"
                         }
