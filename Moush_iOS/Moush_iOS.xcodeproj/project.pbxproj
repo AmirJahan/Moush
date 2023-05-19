@@ -22,6 +22,7 @@
 		29976E2E29FEFD8E00DC0802 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29976E2D29FEFD8E00DC0802 /* ContentView.swift */; };
 		29976E3029FEFD8F00DC0802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29976E2F29FEFD8F00DC0802 /* Assets.xcassets */; };
 		29976E3329FEFD8F00DC0802 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29976E3229FEFD8F00DC0802 /* Preview Assets.xcassets */; };
+		D005DE1B2A1837FB000E09D4 /* test2.svg in Resources */ = {isa = PBXBuildFile; fileRef = D005DE1A2A1837FB000E09D4 /* test2.svg */; };
 		D020EDBC2A1815F4006E4399 /* SVGUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D020EDBB2A1815F4006E4399 /* SVGUIView.swift */; };
 		D020EDBE2A181791006E4399 /* amir.svg in Resources */ = {isa = PBXBuildFile; fileRef = D020EDBD2A181791006E4399 /* amir.svg */; };
 		D020EDC02A182408006E4399 /* macdonalds.svg in Resources */ = {isa = PBXBuildFile; fileRef = D020EDBF2A182408006E4399 /* macdonalds.svg */; };
@@ -38,6 +39,7 @@
 		29976E2D29FEFD8E00DC0802 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		29976E2F29FEFD8F00DC0802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29976E3229FEFD8F00DC0802 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D005DE1A2A1837FB000E09D4 /* test2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.svg; sourceTree = "<group>"; };
 		D020EDBB2A1815F4006E4399 /* SVGUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGUIView.swift; sourceTree = "<group>"; };
 		D020EDBD2A181791006E4399 /* amir.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = amir.svg; sourceTree = "<group>"; };
 		D020EDBF2A182408006E4399 /* macdonalds.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = macdonalds.svg; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				29976E2D29FEFD8E00DC0802 /* ContentView.swift */,
 				D07E2B582A05B60B0092D3D7 /* SVGTest.swift */,
 				D020EDBB2A1815F4006E4399 /* SVGUIView.swift */,
+				D005DE1A2A1837FB000E09D4 /* test2.svg */,
 				29976E2F29FEFD8F00DC0802 /* Assets.xcassets */,
 				D07E2B5D2A05BEDF0092D3D7 /* amazon.svg */,
 				D020EDBF2A182408006E4399 /* macdonalds.svg */,
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29976E3329FEFD8F00DC0802 /* Preview Assets.xcassets in Resources */,
+				D005DE1B2A1837FB000E09D4 /* test2.svg in Resources */,
 				D020EDBE2A181791006E4399 /* amir.svg in Resources */,
 				D020EDC02A182408006E4399 /* macdonalds.svg in Resources */,
 				29976E3029FEFD8F00DC0802 /* Assets.xcassets in Resources */,
