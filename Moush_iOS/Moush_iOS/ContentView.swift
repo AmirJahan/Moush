@@ -8,14 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+    var body: some View
+    {
+        NavigationStack
+        {
+            NavigationLink {
+                SwiftUI_SVG()
+            } label: {
+                Text("SVG")
+            }
+            
+            NavigationLink {
+                SVGView()
+            } label: {
+                Text("SVG")
+            }
+
+            VStack
+            {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                Text("Hello, world!")
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
