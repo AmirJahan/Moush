@@ -23,7 +23,6 @@ enum CloudError: Error
     case taskDeletionError
 }
 
-var globalUid: String = ""
 
 class Cloud
 {

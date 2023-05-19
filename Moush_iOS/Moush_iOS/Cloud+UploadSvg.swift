@@ -7,20 +7,28 @@
 
 import Foundation
 import FirebaseStorage
+import FirebaseFirestore
 import Firebase
 
 extension Cloud
 {
-    func uploadFile(fileURL: URL, completion: @escaping (Result<URL, Error>) -> Void) {
-        // Define a storage reference pointing to the desired storage location.
+    func uploadFile(fileURL: URL, completion: @escaping (Result<String, Error>) -> Void) {
+        
+        // Storing file in firebase storage
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        let fileRef = storageRef.child("\(globalUid)/\(fileURL.lastPathComponent)")
+        
+        let uid = UUID().uuidString
+        let fileId = String(uid.suffix(7))
+        
 
-        // Define the upload task.
+        guard let uid = Cloud.inst.myAuth.currentUser?.uid else { return }
+
+        let fileRef = storageRef.child("\(uid)/\(fileId).svg")
+        
+        // Uploading file reference to the firestore database
         let uploadTask = fileRef.putFile(from: fileURL, metadata: nil) { metadata, error in
             guard let _ = metadata else {
-                // An error occurred!
                 if let error = error {
                     completion(.failure(error))
                     return
@@ -28,20 +36,22 @@ extension Cloud
                 return
             }
 
-            // Metadata contains file metadata such as size, content-type.
-            fileRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                    // An error occurred!
-                    if let error = error {
-                        completion(.failure(error))
-                        return
-                    }
-                    return
+            let db = Firestore.firestore()
+            db.collection("\(uid)").document("\(fileId)").setData([
+                "userId": uid,
+                "fileName": "\(fileId).svg",
+                "filePath": "\(uid)/\(fileId).svg"
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    completion(.failure(err))
+                } else {
+                    print("Document added with ID: \(db.collection("user_files").document().documentID)")
+                    completion(.success("Success"))
                 }
-
-                // The file has successfully been uploaded, and we have the URL.
-                completion(.success(downloadURL))
             }
+            
+            
         }
     }
 }

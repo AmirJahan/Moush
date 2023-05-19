@@ -58,7 +58,6 @@ struct LoginView: View
                         switch res
                         {
                         case .success(let authResult):
-                            globalUid = authResult.user.uid
                             success = "success"
                             navigateToUploadSVG = true
                             
