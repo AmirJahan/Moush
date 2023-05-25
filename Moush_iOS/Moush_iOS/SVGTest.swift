@@ -3,52 +3,60 @@ import PocketSVG
 import Foundation
 import UIKit
 
-struct AmazonPath
-{
-    let path: Path?
-    let fill: Color?
-    let stroke: Color?
-    let strokeWidth: Float?
-    
-    var visible = true
-}
-
 struct SwiftUI_SVG: View
 {
-    
     @StateObject
     var vm = ViewModel()
     
-    var body: some View
-    {
-        VStack
-        {
-            ZStack {
-                ForEach(vm.paths.indices, id: \.self) { index in
+    var body: some View {
+        VStack {
+            PathsView(vm: vm)
+            
+            ListView(vm: vm)
+            
+            Button(action: {
+                vm.paths[0].visible.toggle()
+            }) {
+                Text("Hide")
+            }
+        }
+    }
+}
+
+struct PathsView: View {
+    @ObservedObject var vm: ViewModel
+    
+    var body: some View {
+        ZStack {
+            ForEach(vm.paths.indices, id: \.self) { index in
+                let thisPath = vm.paths[index]
+                
+                if thisPath.visible {
+                    if let f = thisPath.fill,
+                       let path = thisPath.path {
+                        path.fill(f)
+                    }
                     
-                    let thisPath = vm.paths[index]
-                    
-                    if thisPath.visible {
-                        
-                        if let f = thisPath.fill {
-                            thisPath.path?.fill(f)
-                        }
-                        
-                        if let s = thisPath.stroke,
-                           let sw = thisPath.strokeWidth
-                        {
-                            thisPath.path?.stroke (s, lineWidth: CGFloat(sw))
-                        }
+                    if let s = thisPath.stroke,
+                       let sw = thisPath.strokeWidth,
+                       let path = thisPath.path {
+                        path.stroke(s, lineWidth: CGFloat(sw))
                     }
                 }
             }
-            
-            
-            
-            Button {
-                vm.paths[0].visible.toggle()
-            } label: {
-                Text("Hide")
+        }
+    }
+}
+
+struct ListView: View {
+    @ObservedObject var vm: ViewModel
+    
+    var body: some View {
+        List {
+            ForEach(vm.paths.indices, id: \.self) { i in
+                PathCellView(path: $vm.paths[i])
+                    .listRowSeparatorTint(.black)
+                    .listRowInsets(EdgeInsets())
             }
         }
     }
@@ -59,8 +67,8 @@ class ViewModel: ObservableObject
 {
     
     @Published
-    var paths: [AmazonPath] = []
-        
+    var paths: [PathModel] = []
+    
     init ()
     {
         readFromLocalUrlAndConverToArrayOfPaths()
@@ -97,12 +105,12 @@ class ViewModel: ObservableObject
                 myStroke = (stroke as! CGColor)
             }
             
-            let amazonPath = AmazonPath(path: Path( cgP.cgPath),
-                                        fill: Color(myFill ?? UIColor.black.cgColor),
-                                        stroke: Color(myStroke ?? UIColor.clear.cgColor),
-                                        strokeWidth: 2.5)
+            let path = PathModel(path: Path( cgP.cgPath),
+                                 fill: Color(myFill ?? UIColor.black.cgColor),
+                                 stroke: Color(myStroke ?? UIColor.clear.cgColor),
+                                 strokeWidth: 2.5)
             
-            paths.append(amazonPath)
+            paths.append(path)
         }
     }
 }

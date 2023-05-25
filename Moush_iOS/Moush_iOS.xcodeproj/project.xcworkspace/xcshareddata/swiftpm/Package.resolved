@@ -12,10 +12,10 @@
     {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/firebase/firebase-ios-sdk",
+      "location" : "https://github.com/firebase/firebase-ios-sdk.git",
       "state" : {
         "branch" : "master",
-        "revision" : "8efafcb340eb097f4faa2a3c24e46185ff28b28e"
+        "revision" : "30c70f5eceb98fb8ce8dcb72ed894d742a5110e1"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleAppMeasurement.git",
       "state" : {
-        "revision" : "9209b95a2593985569918e5e5ee2bf4ef8ff3640",
-        "version" : "10.9.0"
+        "revision" : "69f5b8425dd473d2f2475bba7f88f82cd9da0e36",
+        "version" : "10.10.0"
       }
     },
     {
@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pocketsvg/PocketSVG.git",
       "state" : {
-        "revision" : "d30bf6678ae93763782a4e19973dc64762d42c4a",
-        "version" : "2.7.2"
+        "branch" : "master",
+        "revision" : "42078d1040cb35b45d9af167ad3aa88d8e69e4f2"
       }
     },
     {
