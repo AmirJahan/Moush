@@ -11,7 +11,7 @@ import SwiftUI
 struct Moush_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            TextEditorView()
+            SwiftUI_Specific()
         }
     }
 }
