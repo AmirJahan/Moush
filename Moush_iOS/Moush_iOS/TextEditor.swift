@@ -8,10 +8,13 @@
 import Foundation
 import SwiftUI
 
+
+//The AttributedTextView struct is responsible for displaying the attributed text.
+//It conforms to the UIViewRepresentable protocol, which allows it to be used as a SwiftUI view.
 struct AttributedTextView: UIViewRepresentable
 {
     let attributedString: NSAttributedString
-    
+    //It takes an attributedString as input and displays it using a UITextView.
     func makeUIView(context: Context) -> UITextView {
         let textView = UITextView()
         textView.isEditable = false
@@ -25,22 +28,22 @@ struct AttributedTextView: UIViewRepresentable
 }
 
 struct TextEditorView: View {
+    //plain text input from the user
     @State var inputText = ""
+    
+    //attributedString to store the attributed text that will be displayed.
     @State var attributedString = NSMutableAttributedString(string: "")
 
     var body: some View {
         VStack {
-            TextField("change me...", text: $inputText)
+            Text("Text Editor")
+                .padding()
+            UITextViewWrapper(text: $inputText, attributedString: $attributedString)
                 .background(Color.gray)
                 .padding()
                 .onChange(of: inputText) { newValue in
                     updateAttributedString()
                 }
-
-            AttributedTextView(attributedString: attributedString)
-                .font(.system(size: 14))
-                .multilineTextAlignment(.center)
-                .padding()
         }
         .onAppear {
             updateAttributedString()
@@ -69,12 +72,58 @@ struct TextEditorView: View {
     }
 }
 
+struct UITextViewWrapper: UIViewRepresentable {
+    @Binding var text: String
+    @Binding var attributedString: NSMutableAttributedString
+
+    func makeUIView(context: Context) -> UITextView {
+        let textView = UITextView()
+        textView.isEditable = true
+        textView.isScrollEnabled = true
+        textView.delegate = context.coordinator // Set the delegate
+        return textView
+    }
+
+    func updateUIView(_ uiView: UITextView, context: Context) {
+        uiView.text = text
+        uiView.attributedText = attributedString
+    }
+
+    // Coordinator to handle UITextViewDelegate methods
+    func makeCoordinator() -> Coordinator {
+        Coordinator(text: $text, attributedString: $attributedString)
+    }
+
+    class Coordinator: NSObject, UITextViewDelegate {
+        @Binding var text: String
+        @Binding var attributedString: NSMutableAttributedString
+
+        init(text: Binding<String>, attributedString: Binding<NSMutableAttributedString>) {
+            _text = text
+            _attributedString = attributedString
+        }
+
+        func textViewDidChange(_ textView: UITextView) {
+            text = textView.text // Update the text binding
+            attributedString = NSMutableAttributedString(string: text) // Update the attributed string binding
+        }
+    }
+}
+
+
 
 struct TextEditorView_Previews: PreviewProvider {
     static var previews: some View {
         TextEditorView()
     }
 }
+
+
+
+
+
+
+
 
 
 
