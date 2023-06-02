@@ -57,6 +57,9 @@ struct ListView: View {
                 PathCellView(path: $vm.paths[i])
                     .listRowSeparatorTint(.black)
                     .listRowInsets(EdgeInsets())
+                    .onTapGesture {
+                        vm.setSelectedPathIndex(i)
+                    }
             }
         }
     }
@@ -68,10 +71,17 @@ class ViewModel: ObservableObject
     
     @Published
     var paths: [PathModel] = []
+    @Published
+    var selectedPathIndex: Int? = nil
+
     
     init ()
     {
         readFromLocalUrlAndConverToArrayOfPaths()
+    }
+    
+    func setSelectedPathIndex(_ index: Int) {
+        selectedPathIndex = index
     }
     
     func readFromLocalUrlAndConverToArrayOfPaths ()

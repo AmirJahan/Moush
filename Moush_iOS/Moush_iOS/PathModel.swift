@@ -5,7 +5,7 @@ import UIKit
 struct PathModel
 {
     let path: Path?
-    let fill: Color?
+    var fill: Color
     let stroke: Color?
     let strokeWidth: Float?
     
