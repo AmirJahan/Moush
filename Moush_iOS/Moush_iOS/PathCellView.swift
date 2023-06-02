@@ -5,8 +5,6 @@ struct PathCellView: View {
     @State private var isEditingColor = false
     
     var body: some View {
-        let col: Color = path.visible ? .gray : .clear
-        
         HStack {
             Image(systemName: path.visible ? "checkmark.square.fill" : "square")
                 .padding(12)
@@ -35,7 +33,6 @@ struct PathCellView: View {
         }
         .frame(maxWidth: .infinity, minHeight: 64, alignment: .leading)
         .contentShape(Rectangle()) // clickable area
-        .background(col)
     }
 }
 

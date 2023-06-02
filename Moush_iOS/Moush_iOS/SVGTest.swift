@@ -13,12 +13,6 @@ struct SwiftUI_SVG: View
             PathsView(vm: vm)
             
             ListView(vm: vm)
-            
-            Button(action: {
-                vm.paths[0].visible.toggle()
-            }) {
-                Text("Hide")
-            }
         }
     }
 }

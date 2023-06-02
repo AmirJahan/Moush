@@ -15,13 +15,13 @@ struct ContentView: View {
             NavigationLink {
                 SwiftUI_SVG()
             } label: {
-                Text("SVG")
+                Text("SVG Mercedes")
             }
             
             NavigationLink {
                 SVGView()
             } label: {
-                Text("SVG")
+                Text("SVG og")
             }
 
             VStack
