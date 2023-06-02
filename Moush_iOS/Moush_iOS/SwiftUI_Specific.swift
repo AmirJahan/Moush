@@ -14,8 +14,6 @@ struct SwiftUI_Specific: View
 }
 
 
-
-
 struct CustomTextFieldView: View {
     
     let titleKey: LocalizedStringKey
