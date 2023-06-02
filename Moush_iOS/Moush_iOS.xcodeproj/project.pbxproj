@@ -22,6 +22,7 @@
 		D020EDBE2A181791006E4399 /* amir.svg in Resources */ = {isa = PBXBuildFile; fileRef = D020EDBD2A181791006E4399 /* amir.svg */; };
 		D020EDC02A182408006E4399 /* macdonalds.svg in Resources */ = {isa = PBXBuildFile; fileRef = D020EDBF2A182408006E4399 /* macdonalds.svg */; };
 		D04AED0A2A2A8BD70065E6D6 /* PocketSVG in Frameworks */ = {isa = PBXBuildFile; productRef = D04AED092A2A8BD70065E6D6 /* PocketSVG */; };
+		D04AED0C2A2A97340065E6D6 /* PathTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04AED0B2A2A97340065E6D6 /* PathTouchView.swift */; };
 		D07E2B592A05B60B0092D3D7 /* SVGTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E2B582A05B60B0092D3D7 /* SVGTest.swift */; };
 		D07E2B5E2A05BEDF0092D3D7 /* amazon.svg in Resources */ = {isa = PBXBuildFile; fileRef = D07E2B5D2A05BEDF0092D3D7 /* amazon.svg */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		D020EDBB2A1815F4006E4399 /* SVGUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGUIView.swift; sourceTree = "<group>"; };
 		D020EDBD2A181791006E4399 /* amir.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = amir.svg; sourceTree = "<group>"; };
 		D020EDBF2A182408006E4399 /* macdonalds.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = macdonalds.svg; sourceTree = "<group>"; };
+		D04AED0B2A2A97340065E6D6 /* PathTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTouchView.swift; sourceTree = "<group>"; };
 		D07E2B582A05B60B0092D3D7 /* SVGTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGTest.swift; sourceTree = "<group>"; };
 		D07E2B5D2A05BEDF0092D3D7 /* amazon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = amazon.svg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */,
 				29976E2D29FEFD8E00DC0802 /* ContentView.swift */,
 				D07E2B582A05B60B0092D3D7 /* SVGTest.swift */,
+				D04AED0B2A2A97340065E6D6 /* PathTouchView.swift */,
 				507B58952A1EE6FC00930476 /* PathModel.swift */,
 				507B58932A1EE6A000930476 /* PathCellView.swift */,
 				50543D612A2A584F009D891A /* ColorEditorView.swift */,
@@ -191,6 +194,7 @@
 				D020EDBC2A1815F4006E4399 /* SVGUIView.swift in Sources */,
 				50543D622A2A584F009D891A /* ColorEditorView.swift in Sources */,
 				507B58942A1EE6A000930476 /* PathCellView.swift in Sources */,
+				D04AED0C2A2A97340065E6D6 /* PathTouchView.swift in Sources */,
 				507B58962A1EE6FC00930476 /* PathModel.swift in Sources */,
 				507B58A82A1EECC700930476 /* StaticData.swift in Sources */,
 				1EF1A7582A05AD7E00C8F2A0 /* Cloud.swift in Sources */,

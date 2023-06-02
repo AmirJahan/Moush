@@ -19,9 +19,3 @@ struct ColorEditorView: View {
         .padding()
     }
 }
-
-
-
-
-
-

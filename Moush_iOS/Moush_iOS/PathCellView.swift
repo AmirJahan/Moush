@@ -12,10 +12,6 @@ struct PathCellView: View {
                     self.path.visible.toggle()
                 }
             
-            Text("")
-                .strikethrough(path.visible)
-                .font(.system(size: 22))
-            
             Button(action: {
                 isEditingColor = true
             }) {
@@ -32,7 +28,7 @@ struct PathCellView: View {
             }
         }
         .frame(maxWidth: .infinity, minHeight: 64, alignment: .leading)
-        .contentShape(Rectangle()) // clickable area
+        .contentShape(Rectangle())
     }
 }
 

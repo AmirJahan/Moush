@@ -8,43 +8,46 @@ struct SwiftUI_SVG: View
     @StateObject
     var vm = ViewModel()
     
-    var body: some View {
-        VStack {
-            PathsView(vm: vm)
-            
-            ListView(vm: vm)
-        }
-    }
-}
-
-struct PathsView: View {
-    @ObservedObject var vm: ViewModel
-    
-    var body: some View {
-        ZStack {
-            ForEach(vm.paths.indices, id: \.self) { index in
-                let thisPath = vm.paths[index]
-                
-                if thisPath.visible {
-                    if let f = thisPath.fill,
-                       let path = thisPath.path {
-                        path.fill(f)
-                    }
+    var body: some View
+    {
+        VStack
+        {
+            ZStack
+            {
+                ForEach(vm.paths.indices, id: \.self) { index in
+                    let thisPath = vm.paths[index]
                     
-                    if let s = thisPath.stroke,
-                       let sw = thisPath.strokeWidth,
-                       let path = thisPath.path {
-                        path.stroke(s, lineWidth: CGFloat(sw))
+                    if thisPath.visible
+                    {
+                        if let f = thisPath.fill,
+                           let path = thisPath.path
+                        {
+                            path.fill(f)
+                                .onTapGesture {
+                                    vm.setSelectedPathIndex(index)
+                                }
+                        }
+                        
+                        if let s = thisPath.stroke,
+                           let sw = thisPath.strokeWidth,
+                           let path = thisPath.path {
+                            path.stroke(s, lineWidth: CGFloat(sw))
+                                .onTapGesture {
+                                    vm.setSelectedPathIndex(index)
+                                }
+                        }
                     }
                 }
             }
+            
+            //ListView(vm: vm)
         }
     }
 }
 
 struct ListView: View {
     @ObservedObject var vm: ViewModel
-    
+
     var body: some View {
         List {
             ForEach(vm.paths.indices, id: \.self) { i in
@@ -67,7 +70,7 @@ class ViewModel: ObservableObject
     var paths: [PathModel] = []
     @Published
     var selectedPathIndex: Int? = nil
-
+    
     
     init ()
     {
@@ -112,7 +115,15 @@ class ViewModel: ObservableObject
             let path = PathModel(path: Path( cgP.cgPath),
                                  fill: Color(myFill ?? UIColor.black.cgColor),
                                  stroke: Color(myStroke ?? UIColor.clear.cgColor),
-                                 strokeWidth: 2.5)
+                                 strokeWidth: 2.5,
+                                 strokeStyle: StrokeStyle(
+                                    lineWidth: 5,
+                                    lineCap: .round,
+                                    lineJoin: .miter,
+                                    miterLimit: 0,
+                                    dash: [5, 10],
+                                    dashPhase: 0
+                                ))
             
             paths.append(path)
         }
