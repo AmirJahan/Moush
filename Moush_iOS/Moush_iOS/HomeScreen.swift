@@ -9,7 +9,8 @@ struct HomeScreen: View
     var searchFilter: SearchFilter = AppData.instance.searchFilter
     
     
-    @State private var searchText = ""
+    @State
+    private var searchText = ""
     
     @State
     var showSearchFilter = false
@@ -76,9 +77,11 @@ struct HomeScreen: View
                             ForEach (AppData.instance.tempSvgs, id: \.self) { mySvg in
 
                                 NavigationLink {
-                                    SvgDisplayScreen(svg: mySvg)
+                                    
+//                                    Text("HI")
+                                    ArtDisplayScreen(svg: mySvg)
                                 } label: {
-                                    SvgCellView(svg: mySvg)
+                                    ArtCellView(svg: mySvg)
                                 }
 
                                 
@@ -138,27 +141,7 @@ struct HomeScreen: View
                 // This must always be at the end. This is the Filters view. Overlayed on top of others
                 if self.showSearchFilter
                 {
-                    VStack
-                    {
-                        HStack
-                        {
-                            Spacer()
-                            FilterPopOverView(searchFilter: $searchFilter,
-                                              showSearchFilter: $showSearchFilter)
-                            .padding()
-                            .background(RoundedRectangle(cornerRadius: 12)
-                                .fill(Color.white)
-                                .shadow(color: .black.opacity(0.2),
-                                        radius: 5,
-                                        x: -3,
-                                        y: 3)
-                                    .overlay(RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.gray.opacity(0.25),
-                                                lineWidth: 2)))
-                            .padding()
-                        }.padding(.top, 64)
-                        Spacer()
-                    }
+                    FiltersView(searchFilter: $searchFilter, showSearchFilter: $showSearchFilter)
                 }
             }
         }
@@ -225,3 +208,38 @@ struct HomeScreen_Previews: PreviewProvider {
     }
 }
 
+
+struct FiltersView: View
+{
+    @Binding
+    var searchFilter: SearchFilter
+    
+
+    @Binding
+    var showSearchFilter: Bool
+    
+    
+    var body: some View {
+        VStack
+        {
+            HStack
+            {
+                Spacer()
+                FilterPopOverView(searchFilter: $searchFilter,
+                                  showSearchFilter: $showSearchFilter)
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.white)
+                    .shadow(color: .black.opacity(0.2),
+                            radius: 5,
+                            x: -3,
+                            y: 3)
+                        .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(.gray.opacity(0.25),
+                                    lineWidth: 2)))
+                .padding()
+            }.padding(.top, 64)
+            Spacer()
+        }
+    }
+}

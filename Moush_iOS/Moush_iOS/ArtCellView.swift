@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SvgCellView: View
+struct ArtCellView: View
 {
     var svg: MySvg
 //    var cellWidth: CGFont
@@ -70,6 +70,6 @@ struct StarRatingView: View {
 
 struct SvgCellView_Previews: PreviewProvider {
     static var previews: some View {
-        SvgCellView(svg: AppData.instance.tempSvgs.randomElement()!)
+        ArtCellView(svg: AppData.instance.tempSvgs.randomElement()!)
     }
 }

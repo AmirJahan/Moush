@@ -1,7 +1,7 @@
 import Foundation
 
 
-                // name , image name
+// name , image name
 struct SearchFilter
 {
     var name : String
