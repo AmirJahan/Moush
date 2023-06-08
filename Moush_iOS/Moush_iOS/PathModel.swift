@@ -4,10 +4,10 @@ import UIKit
 
 struct PathModel
 {
-    let path: Path?
+    let path: Path
     var fill: Color
-    let stroke: Color?
-    let strokeWidth: Float?
+    var stroke: Color
+    var strokeWidth: Float
     
     var visible = true
 }
