@@ -20,7 +20,6 @@ extension Cloud
         
         let uid = UUID().uuidString
         let fileId = String(uid.suffix(7))
-        
 
         guard let uid = Cloud.inst.myAuth.currentUser?.uid else { return }
 
@@ -50,8 +49,6 @@ extension Cloud
                     completion(.success("Success"))
                 }
             }
-            
-            
         }
     }
 }

@@ -21,9 +21,6 @@ struct LoginView: View
     @State private var navigateToUploadSVG = false
     
 
-    
-    
-    
     var body: some View{
         
         NavigationView{
@@ -97,8 +94,6 @@ struct LoginView: View
             )
         }
     }
-    
-    
 }
 
 struct LoginView_Previews: PreviewProvider {
