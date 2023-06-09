@@ -78,7 +78,14 @@ class ViewModel: ObservableObject
     }
     
     func setSelectedPathIndex(_ index: Int) {
-        selectedPathIndex = index
+        if index >= 0 && index < paths.count {
+            paths[index].selected.toggle() // Toggle the selected state
+            if paths[index].selected {
+                paths[index].strokeStyle = StrokeStyle(lineWidth: 4, dash: [5, 5], dashPhase: 0)
+            } else {
+                paths[index].strokeStyle = StrokeStyle() // Restore default stroke style
+            }
+        }
     }
     
     func readFromLocalUrlAndConverToArrayOfPaths ()
