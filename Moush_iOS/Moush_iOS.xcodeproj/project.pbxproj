@@ -59,7 +59,6 @@
 		29BC45AF2A32644600211F40 /* chat.svg in Resources */ = {isa = PBXBuildFile; fileRef = 29BC458A2A32644500211F40 /* chat.svg */; };
 		29BC45B02A32644600211F40 /* rv.svg in Resources */ = {isa = PBXBuildFile; fileRef = 29BC458B2A32644500211F40 /* rv.svg */; };
 		29BC45B12A32644600211F40 /* gift.svg in Resources */ = {isa = PBXBuildFile; fileRef = 29BC458C2A32644500211F40 /* gift.svg */; };
-		29BC45B42A3264D300211F40 /* PocketSVG in Frameworks */ = {isa = PBXBuildFile; productRef = 29BC45B32A3264D300211F40 /* PocketSVG */; };
 		29BC45F42A3273A300211F40 /* newsvolume.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 29BC45D02A3273A100211F40 /* newsvolume.jpg */; };
 		29BC45F52A3273A300211F40 /* target.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 29BC45D12A3273A100211F40 /* target.jpg */; };
 		29BC45F62A3273A300211F40 /* microsoft.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 29BC45D22A3273A100211F40 /* microsoft.jpg */; };
@@ -113,6 +112,18 @@
 		D4B73E592A33E76500C7F0E3 /* Cloud+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E4F2A33E76500C7F0E3 /* Cloud+Auth.swift */; };
 		D4B73E5A2A33E76500C7F0E3 /* Cloud+UploadSvg.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E502A33E76500C7F0E3 /* Cloud+UploadSvg.swift */; };
 		D4B73E5B2A33E76500C7F0E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B73E512A33E76500C7F0E3 /* GoogleService-Info.plist */; };
+		D4B73E602A33EA0900C7F0E3 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E5F2A33EA0900C7F0E3 /* FirebaseAnalyticsSwift */; };
+		D4B73E622A33EA0900C7F0E3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E612A33EA0900C7F0E3 /* FirebaseAuth */; };
+		D4B73E642A33EA0900C7F0E3 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E632A33EA0900C7F0E3 /* FirebaseDatabaseSwift */; };
+		D4B73E662A33EA0900C7F0E3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E652A33EA0900C7F0E3 /* FirebaseFirestoreSwift */; };
+		D4B73E682A33EA0900C7F0E3 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E672A33EA0900C7F0E3 /* FirebaseFunctions */; };
+		D4B73E6A2A33EA0900C7F0E3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E692A33EA0900C7F0E3 /* FirebaseStorage */; };
+		D4B73E6D2A33EA3E00C7F0E3 /* PocketSVG in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E6C2A33EA3E00C7F0E3 /* PocketSVG */; };
+		D4B73E702A33EAF400C7F0E3 /* GoogleAPIClientForREST_Drive in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E6F2A33EAF400C7F0E3 /* GoogleAPIClientForREST_Drive */; };
+		D4B73E722A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E712A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveActivity */; };
+		D4B73E742A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveLabels in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E732A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveLabels */; };
+		D4B73E762A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B73E752A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist */; };
+		D4B73E782A33EBCF00C7F0E3 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B73E772A33EBCF00C7F0E3 /* GoogleService-Info-3.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,6 +233,8 @@
 		D4B73E4F2A33E76500C7F0E3 /* Cloud+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cloud+Auth.swift"; sourceTree = "<group>"; };
 		D4B73E502A33E76500C7F0E3 /* Cloud+UploadSvg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cloud+UploadSvg.swift"; sourceTree = "<group>"; };
 		D4B73E512A33E76500C7F0E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D4B73E752A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
+		D4B73E772A33EBCF00C7F0E3 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +242,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29BC45B42A3264D300211F40 /* PocketSVG in Frameworks */,
+				D4B73E702A33EAF400C7F0E3 /* GoogleAPIClientForREST_Drive in Frameworks */,
+				D4B73E742A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveLabels in Frameworks */,
+				D4B73E642A33EA0900C7F0E3 /* FirebaseDatabaseSwift in Frameworks */,
+				D4B73E602A33EA0900C7F0E3 /* FirebaseAnalyticsSwift in Frameworks */,
+				D4B73E6D2A33EA3E00C7F0E3 /* PocketSVG in Frameworks */,
+				D4B73E682A33EA0900C7F0E3 /* FirebaseFunctions in Frameworks */,
+				D4B73E622A33EA0900C7F0E3 /* FirebaseAuth in Frameworks */,
+				D4B73E662A33EA0900C7F0E3 /* FirebaseFirestoreSwift in Frameworks */,
+				D4B73E722A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveActivity in Frameworks */,
+				D4B73E6A2A33EA0900C7F0E3 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +277,8 @@
 		29976E2A29FEFD8E00DC0802 /* Moush_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D4B73E772A33EBCF00C7F0E3 /* GoogleService-Info-3.plist */,
+				D4B73E752A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist */,
 				D4B73E472A33E75700C7F0E3 /* Cloud */,
 				29BC45CF2A32739700211F40 /* local_svgs_thumbs */,
 				29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */,
@@ -421,7 +445,16 @@
 			);
 			name = Moush_iOS;
 			packageProductDependencies = (
-				29BC45B32A3264D300211F40 /* PocketSVG */,
+				D4B73E5F2A33EA0900C7F0E3 /* FirebaseAnalyticsSwift */,
+				D4B73E612A33EA0900C7F0E3 /* FirebaseAuth */,
+				D4B73E632A33EA0900C7F0E3 /* FirebaseDatabaseSwift */,
+				D4B73E652A33EA0900C7F0E3 /* FirebaseFirestoreSwift */,
+				D4B73E672A33EA0900C7F0E3 /* FirebaseFunctions */,
+				D4B73E692A33EA0900C7F0E3 /* FirebaseStorage */,
+				D4B73E6C2A33EA3E00C7F0E3 /* PocketSVG */,
+				D4B73E6F2A33EAF400C7F0E3 /* GoogleAPIClientForREST_Drive */,
+				D4B73E712A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveActivity */,
+				D4B73E732A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveLabels */,
 			);
 			productName = Moush_iOS;
 			productReference = 29976E2829FEFD8E00DC0802 /* Moush_iOS.app */;
@@ -452,7 +485,9 @@
 			);
 			mainGroup = 29976E1F29FEFD8E00DC0802;
 			packageReferences = (
-				29BC45B22A3264D200211F40 /* XCRemoteSwiftPackageReference "PocketSVG" */,
+				D4B73E5E2A33EA0900C7F0E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D4B73E6B2A33EA3E00C7F0E3 /* XCRemoteSwiftPackageReference "PocketSVG" */,
+				D4B73E6E2A33EAF400C7F0E3 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
 			);
 			productRefGroup = 29976E2929FEFD8E00DC0802 /* Products */;
 			projectDirPath = "";
@@ -504,6 +539,7 @@
 				29BC45FA2A3273A300211F40 /* android.jpg in Resources */,
 				29BC45A02A32644600211F40 /* duck.svg in Resources */,
 				29BC45912A32644600211F40 /* frog.svg in Resources */,
+				D4B73E782A33EBCF00C7F0E3 /* GoogleService-Info-3.plist in Resources */,
 				29BC45F62A3273A300211F40 /* microsoft.jpg in Resources */,
 				29BC460C2A3273A300211F40 /* sunset.jpg in Resources */,
 				29BC46012A3273A300211F40 /* employeebank.jpg in Resources */,
@@ -514,6 +550,7 @@
 				1EF1A7432A05ACE200C8F2A0 /* GoogleService-Info.plist in Resources */,
 				29BC458E2A32644600211F40 /* noodle_logo.svg in Resources */,
 				29BC46082A3273A300211F40 /* oldphone.jpg in Resources */,
+				D4B73E762A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist in Resources */,
 				D4B73E572A33E76500C7F0E3 /* credentials.plist in Resources */,
 				29BC45A72A32644600211F40 /* fox.svg in Resources */,
 				29BC45AE2A32644600211F40 /* marketing.svg in Resources */,
@@ -785,7 +822,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		29BC45B22A3264D200211F40 /* XCRemoteSwiftPackageReference "PocketSVG" */ = {
+		D4B73E5E2A33EA0900C7F0E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		D4B73E6B2A33EA3E00C7F0E3 /* XCRemoteSwiftPackageReference "PocketSVG" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pocketsvg/PocketSVG.git";
 			requirement = {
@@ -793,13 +838,66 @@
 				kind = branch;
 			};
 		};
+		D4B73E6E2A33EAF400C7F0E3 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/google-api-objectivec-client-for-rest.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		29BC45B32A3264D300211F40 /* PocketSVG */ = {
+		D4B73E5F2A33EA0900C7F0E3 /* FirebaseAnalyticsSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 29BC45B22A3264D200211F40 /* XCRemoteSwiftPackageReference "PocketSVG" */;
+			package = D4B73E5E2A33EA0900C7F0E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		D4B73E612A33EA0900C7F0E3 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B73E5E2A33EA0900C7F0E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		D4B73E632A33EA0900C7F0E3 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B73E5E2A33EA0900C7F0E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		D4B73E652A33EA0900C7F0E3 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B73E5E2A33EA0900C7F0E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		D4B73E672A33EA0900C7F0E3 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B73E5E2A33EA0900C7F0E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		D4B73E692A33EA0900C7F0E3 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B73E5E2A33EA0900C7F0E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		D4B73E6C2A33EA3E00C7F0E3 /* PocketSVG */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B73E6B2A33EA3E00C7F0E3 /* XCRemoteSwiftPackageReference "PocketSVG" */;
 			productName = PocketSVG;
+		};
+		D4B73E6F2A33EAF400C7F0E3 /* GoogleAPIClientForREST_Drive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B73E6E2A33EAF400C7F0E3 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_Drive;
+		};
+		D4B73E712A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveActivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B73E6E2A33EAF400C7F0E3 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_DriveActivity;
+		};
+		D4B73E732A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveLabels */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B73E6E2A33EAF400C7F0E3 /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_DriveLabels;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
