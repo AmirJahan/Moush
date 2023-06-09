@@ -25,8 +25,6 @@ struct ArtDisplayScreen: View
             VStack
             {
                 
-
-                
                 
 //                Text("Detail View")
 //                    .navigationBarTitle("Detail", displayMode: .inline)
@@ -68,7 +66,7 @@ struct ArtDisplayScreen: View
                         StarRatingView(rating: svg.rating)
                     }.padding()
                 }
-                //        .frame(width: 200, height: 300)
+                // .frame(width: 200, height: 300)
                 .padding()
                 
                 

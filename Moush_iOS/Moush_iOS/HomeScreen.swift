@@ -55,6 +55,8 @@ struct HomeScreen: View
                 {
                     VStack
                     {
+                        Text("Write hashtags");
+                        TextAttrView();
                         HStack
                         {
                             SearchBar(text: $searchText, onSearch: performSearch)
@@ -67,6 +69,8 @@ struct HomeScreen: View
                                     .foregroundColor(.blue)
                             }
                         }
+                        
+                        
                         
                         Spacer ()
                         
@@ -111,8 +115,7 @@ struct HomeScreen: View
                             .foregroundColor(.white.opacity(0.75))
                             .padding(.top, 0)
                         
-                        
-                        
+                
                     },
                     trailing:
                         VStack (alignment: .trailing)

@@ -19,13 +19,14 @@ struct TextAttrView: View {
     
     var body: some View {
         VStack {
-            Text("Input Sentence:")
-                .font(.headline)
             ZStack(alignment: .topLeading)
             {
                 TextEditor(text: $inputSentence)
                     .padding()
-                    .foregroundColor(.white)
+                    .foregroundColor(.clear)
+                    .overlay(RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.secondary).opacity(0.5))
+                    
                 coloredText
                     .padding()
             }
