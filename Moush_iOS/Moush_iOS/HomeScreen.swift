@@ -3,7 +3,9 @@ import SwiftUI
 
 struct HomeScreen: View
 {
-    init() { setupNavBar() }
+    init() {
+        setupNavBar()
+    }
     
     @State
     var searchFilter: SearchFilter = AppData.instance.searchFilter
@@ -80,18 +82,13 @@ struct HomeScreen: View
                                     
 //                                    Text("HI")
                                     ArtDisplayScreen(svg: mySvg)
+                                    
+                                    
+                                    
                                 } label: {
                                     ArtCellView(svg: mySvg)
                                 }
-
-                                
-                                
-
                             }
-                            
-                 
-   
-                            
                         }.padding(.top, 8)
                     }.padding(16)
                     

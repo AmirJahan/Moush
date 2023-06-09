@@ -31,9 +31,20 @@ struct ArtCellView: View
             
             VStack (alignment: .leading)
             {
-                Image (systemName: svg.image)
-                    .font(.system(size: 96))
-//                    .background(Color.myPrimaryColor)
+                
+                if let imageURL = Bundle.main.url(forResource: svg.fileName, withExtension: "jpg"),
+                           let imageData = try? Data(contentsOf: imageURL),
+                   let uiImage = UIImage(data: imageData) {
+                    // Create an Image view with the loaded image
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    
+                    
+//                    Image (svg.fileName)
+                    //                    .font(.system(size: 96))
+                    //                    .background(Color.myPrimaryColor)
+                }
                 
                 Text (svg.author)
                     .font(.headline)
@@ -51,6 +62,8 @@ struct ArtCellView: View
 //        .frame(width: 200, height: 300)
         .padding()
     
+
+        
     }
 }
 
@@ -67,6 +80,10 @@ struct StarRatingView: View {
         }
     }
 }
+
+
+
+
 
 struct SvgCellView_Previews: PreviewProvider {
     static var previews: some View {

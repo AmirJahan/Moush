@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="360px" height="360px" viewBox="0 0 360 360" enable-background="new 0 0 360 360" xml:space="preserve">
+<g>
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#5B68C0" d="M41.8,271.8c0-12.9,10.3-24.5,23-25.9L180,232l115.2,13.9
+		c12.7,1.5,23,13.1,23,25.9V342H41.8V271.8z"/>
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFDD95" d="M134.3,214.7c-23-21.9-38.2-57.1-38.2-86.5
+		c0-46.3,37.5-83.9,83.9-83.9s83.9,37.5,83.9,83.9c0,29.5-15.2,64.8-38.2,86.5v51.1c0,0-31,11.1-45.9,11.1S134,265.8,134,265.8
+		v-51.1L134.3,214.7L134.3,214.7z"/>
+	<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFDD95" cx="98.9" cy="144.9" r="17.3"/>
+	
+		<ellipse transform="matrix(0.1602 -0.9871 0.9871 0.1602 76.2474 379.4181)" fill-rule="evenodd" clip-rule="evenodd" fill="#FFDD95" cx="261.1" cy="144.9" rx="17.3" ry="17.3"/>
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFAF40" d="M261.1,60.8c0-17.6-14.2-31.8-31.8-31.8H75.9v31.8
+		c0,17.6,14.2,31.8,31.8,31.8h153.4L261.1,60.8L261.1,60.8z"/>
+</g>
+</svg>
