@@ -103,6 +103,8 @@
 		29D2236F2A0DB0B8000FF09E /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D2236E2A0DB0B8000FF09E /* AppData.swift */; };
 		29D223712A0E2189000FF09E /* ArtCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223702A0E2189000FF09E /* ArtCellView.swift */; };
 		29D223732A0E219F000FF09E /* MySvg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223722A0E219F000FF09E /* MySvg.swift */; };
+		41C115DE2A33C032002E7CD5 /* UndoRedoSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C115DD2A33C032002E7CD5 /* UndoRedoSystem.swift */; };
+		41C115E02A33C6D9002E7CD5 /* UndoRedoClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C115DF2A33C6D9002E7CD5 /* UndoRedoClasses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,6 +204,8 @@
 		29D2236E2A0DB0B8000FF09E /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		29D223702A0E2189000FF09E /* ArtCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCellView.swift; sourceTree = "<group>"; };
 		29D223722A0E219F000FF09E /* MySvg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySvg.swift; sourceTree = "<group>"; };
+		41C115DD2A33C032002E7CD5 /* UndoRedoSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoRedoSystem.swift; sourceTree = "<group>"; };
+		41C115DF2A33C6D9002E7CD5 /* UndoRedoClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoRedoClasses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,7 @@
 		29976E1F29FEFD8E00DC0802 = {
 			isa = PBXGroup;
 			children = (
+				41C115DC2A33C00F002E7CD5 /* RedoSystem */,
 				29976E2A29FEFD8E00DC0802 /* Moush_iOS */,
 				29976E2929FEFD8E00DC0802 /* Products */,
 			);
@@ -364,6 +369,15 @@
 				29BC45E12A3273A200211F40 /* umbrella.jpg */,
 			);
 			path = local_svgs_thumbs;
+			sourceTree = "<group>";
+		};
+		41C115DC2A33C00F002E7CD5 /* RedoSystem */ = {
+			isa = PBXGroup;
+			children = (
+				41C115DF2A33C6D9002E7CD5 /* UndoRedoClasses.swift */,
+				41C115DD2A33C032002E7CD5 /* UndoRedoSystem.swift */,
+			);
+			path = RedoSystem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,8 +537,10 @@
 				298615542A0D898000B28BAD /* FilterPopOverView.swift in Sources */,
 				29BC455B2A32641600211F40 /* StaticData.swift in Sources */,
 				29BC45632A32641600211F40 /* PathModel.swift in Sources */,
+				41C115E02A33C6D9002E7CD5 /* UndoRedoClasses.swift in Sources */,
 				29BC455E2A32641600211F40 /* LayerCellView.swift in Sources */,
 				29BC45662A32641600211F40 /* EditSvgScreen.swift in Sources */,
+				41C115DE2A33C032002E7CD5 /* UndoRedoSystem.swift in Sources */,
 				1EE7300A2A0EE80000B859E1 /* ArtDisplayScreen.swift in Sources */,
 				29D2236F2A0DB0B8000FF09E /* AppData.swift in Sources */,
 				29BC455C2A32641600211F40 /* SvgLayersView.swift in Sources */,

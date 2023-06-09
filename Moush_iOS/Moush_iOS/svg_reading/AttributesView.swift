@@ -16,6 +16,10 @@ struct AttributesView: View
                 ColorPicker("", selection: $vm.paths[vm.selectedPathIndex].fill,
                             supportsOpacity: false)
                 .padding()
+                .onSubmit
+                {
+                    print("hello")
+                }
                 
                 ColorPicker("", selection:$vm.paths[vm.selectedPathIndex].stroke,
                             supportsOpacity: false)
