@@ -32,6 +32,17 @@ struct EditSvgScreen: View
                     AttributesView(vm: vm)
                 }
             }
+            
+            HStack
+            {
+                Button("Undo") {
+                    vm.UndoRedoStack.undo()
+                }
+                
+                Button("Redo") {
+                    vm.UndoRedoStack.redo()
+                }
+            }
         }
     }
 }

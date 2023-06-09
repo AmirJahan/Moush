@@ -10,63 +10,66 @@ import SwiftUI
 
 class ChangeFillColorCommand: Command
 {
-    var SelectedItem : PathModel
+    //Made the variables Binding to pass by reference
+    var SelectedItem : Binding<PathModel>
     var PreviousColor : Color
     var CurrentColor : Color
     
-    init(selectedItem : PathModel, previousColor : Color, currentColor : Color) {
+    init(selectedItem : Binding<PathModel>, previousColor : Color, currentColor : Color) {
         SelectedItem = selectedItem
         PreviousColor = previousColor
         CurrentColor = currentColor
     }
     
     func execute() {
-        SelectedItem.fill = CurrentColor
+        SelectedItem.wrappedValue.fill = CurrentColor
     }
     
     func undo() {
-        SelectedItem.fill = PreviousColor
+        SelectedItem.wrappedValue.fill = PreviousColor
     }
 }
 
 class ChangeStrokeColorCommand: Command
 {
-    var SelectedItem : PathModel
+    //Made the variables Binding to pass by reference
+    var SelectedItem : Binding<PathModel>
     var PreviousColor : Color
     var CurrentColor : Color
     
-    init(selectedItem : PathModel, previousColor : Color, currentColor : Color) {
+    init(selectedItem : Binding<PathModel>, previousColor : Color, currentColor : Color) {
         SelectedItem = selectedItem
         PreviousColor = previousColor
         CurrentColor = currentColor
     }
     
     func execute() {
-        SelectedItem.stroke = CurrentColor
+        SelectedItem.wrappedValue.stroke = CurrentColor
     }
     
     func undo() {
-        SelectedItem.stroke = PreviousColor
+        SelectedItem.wrappedValue.stroke = PreviousColor
     }
 }
 
 class ChangeStrokeWithCommand: Command
 {
-    var SelectedItem : PathModel
+    //Made the variables Binding to pass by reference
+    var SelectedItem : Binding<PathModel>
     var PreviousWidth : Float
     var CurrentWidth : Float
     
-    init(selectedItem : PathModel, previousWidth : Float, currentWidth : Float) {
+    init(selectedItem : Binding<PathModel>, previousWidth : Float, currentWidth : Float) {
         SelectedItem = selectedItem
         PreviousWidth = previousWidth
         CurrentWidth = currentWidth
     }
     
     func execute() {
-        SelectedItem.strokeWidth = CurrentWidth
+        SelectedItem.wrappedValue.strokeWidth = CurrentWidth
     }
     
     func undo() {
-        SelectedItem.strokeWidth = PreviousWidth
+        SelectedItem.wrappedValue.strokeWidth = PreviousWidth
     }
 }
