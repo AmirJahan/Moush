@@ -10,5 +10,5 @@ class StaticData
         path.addLine(to: CGPoint(x: 200, y: 200))
         path.addLine(to: CGPoint(x: 50, y: 200))
         path.closeSubpath()
-    }, fill: .black, stroke: .black, strokeWidth: 2, visible: true)
+    }, fill: .black, stroke: .black, strokeWidth: 2, strokeStyle: StrokeStyle(), visible: true)
 }

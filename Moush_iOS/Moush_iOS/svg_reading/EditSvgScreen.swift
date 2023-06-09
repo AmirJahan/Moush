@@ -25,11 +25,11 @@ struct EditSvgScreen: View
             
             HStack
             {
-                SvgLayersView(vm: vm)
-                
-                if vm.selectedPathIndex != -1
+                if vm.selectedPathIndices != []
                 {
-                    AttributesView(vm: vm)
+                    AttributesView(vm: vm, selectedFillColor: $vm.selectedPathFill, selectedStrokeColor: $vm.selectedPathStroke) {
+                        vm.updateSelectedPathColors(newFillColor: vm.selectedPathFill, newStrokeColor: vm.selectedPathStroke)
+                    }
                 }
             }
         }

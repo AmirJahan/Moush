@@ -6,6 +6,13 @@ struct AttributesView: View
     @ObservedObject
     var vm: ViewModel
     
+    @Binding
+    var selectedFillColor: Color
+    
+    @Binding
+    var selectedStrokeColor: Color
+    
+    let onColorSelected: () -> Void
     
     var body: some View
     {
@@ -13,22 +20,27 @@ struct AttributesView: View
         {
             HStack
             {
-                ColorPicker("", selection: $vm.paths[vm.selectedPathIndex].fill,
+                ColorPicker("Fill color", selection: $selectedFillColor,
                             supportsOpacity: false)
                 .padding()
                 
-                ColorPicker("", selection:$vm.paths[vm.selectedPathIndex].stroke,
+                ColorPicker("Stroke color", selection:$selectedStrokeColor,
                             supportsOpacity: false)
                 .padding()
             }
             .padding()
             
             
-            Slider(value: $vm.paths[vm.selectedPathIndex].strokeWidth, in: 0.0...10.0) {
-                Text("Stroke Width")
+//            Slider(value: $vm.paths[vm.selectedPathIndices].strokeWidth, in: 0.0...10.0) {
+//                Text("Stroke Width")
+//            }
+            
+            Button {
+                onColorSelected()
+            } label: {
+                Text("Apply")
             }
-            
-            
+
         }
         
     }
