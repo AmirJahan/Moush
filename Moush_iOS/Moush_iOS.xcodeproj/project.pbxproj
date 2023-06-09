@@ -103,6 +103,16 @@
 		29D2236F2A0DB0B8000FF09E /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D2236E2A0DB0B8000FF09E /* AppData.swift */; };
 		29D223712A0E2189000FF09E /* ArtCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223702A0E2189000FF09E /* ArtCellView.swift */; };
 		29D223732A0E219F000FF09E /* MySvg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223722A0E219F000FF09E /* MySvg.swift */; };
+		D4B73E522A33E76500C7F0E3 /* CloudError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E482A33E76500C7F0E3 /* CloudError.swift */; };
+		D4B73E532A33E76500C7F0E3 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E492A33E76500C7F0E3 /* Cloud.swift */; };
+		D4B73E542A33E76500C7F0E3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E4A2A33E76500C7F0E3 /* Login.swift */; };
+		D4B73E552A33E76500C7F0E3 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E4B2A33E76500C7F0E3 /* SignUp.swift */; };
+		D4B73E562A33E76500C7F0E3 /* GoogleDrive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E4C2A33E76500C7F0E3 /* GoogleDrive.swift */; };
+		D4B73E572A33E76500C7F0E3 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B73E4D2A33E76500C7F0E3 /* credentials.plist */; };
+		D4B73E582A33E76500C7F0E3 /* Uploadsvg.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E4E2A33E76500C7F0E3 /* Uploadsvg.swift */; };
+		D4B73E592A33E76500C7F0E3 /* Cloud+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E4F2A33E76500C7F0E3 /* Cloud+Auth.swift */; };
+		D4B73E5A2A33E76500C7F0E3 /* Cloud+UploadSvg.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E502A33E76500C7F0E3 /* Cloud+UploadSvg.swift */; };
+		D4B73E5B2A33E76500C7F0E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B73E512A33E76500C7F0E3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,6 +212,16 @@
 		29D2236E2A0DB0B8000FF09E /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		29D223702A0E2189000FF09E /* ArtCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCellView.swift; sourceTree = "<group>"; };
 		29D223722A0E219F000FF09E /* MySvg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySvg.swift; sourceTree = "<group>"; };
+		D4B73E482A33E76500C7F0E3 /* CloudError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudError.swift; sourceTree = "<group>"; };
+		D4B73E492A33E76500C7F0E3 /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
+		D4B73E4A2A33E76500C7F0E3 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		D4B73E4B2A33E76500C7F0E3 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		D4B73E4C2A33E76500C7F0E3 /* GoogleDrive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDrive.swift; sourceTree = "<group>"; };
+		D4B73E4D2A33E76500C7F0E3 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		D4B73E4E2A33E76500C7F0E3 /* Uploadsvg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uploadsvg.swift; sourceTree = "<group>"; };
+		D4B73E4F2A33E76500C7F0E3 /* Cloud+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cloud+Auth.swift"; sourceTree = "<group>"; };
+		D4B73E502A33E76500C7F0E3 /* Cloud+UploadSvg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cloud+UploadSvg.swift"; sourceTree = "<group>"; };
+		D4B73E512A33E76500C7F0E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +255,7 @@
 		29976E2A29FEFD8E00DC0802 /* Moush_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D4B73E472A33E75700C7F0E3 /* Cloud */,
 				29BC45CF2A32739700211F40 /* local_svgs_thumbs */,
 				29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */,
 				29BC45672A32643200211F40 /* local_svgs */,
@@ -366,6 +387,23 @@
 			path = local_svgs_thumbs;
 			sourceTree = "<group>";
 		};
+		D4B73E472A33E75700C7F0E3 /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				D4B73E492A33E76500C7F0E3 /* Cloud.swift */,
+				D4B73E4F2A33E76500C7F0E3 /* Cloud+Auth.swift */,
+				D4B73E502A33E76500C7F0E3 /* Cloud+UploadSvg.swift */,
+				D4B73E482A33E76500C7F0E3 /* CloudError.swift */,
+				D4B73E4D2A33E76500C7F0E3 /* credentials.plist */,
+				D4B73E4C2A33E76500C7F0E3 /* GoogleDrive.swift */,
+				D4B73E512A33E76500C7F0E3 /* GoogleService-Info.plist */,
+				D4B73E4A2A33E76500C7F0E3 /* Login.swift */,
+				D4B73E4B2A33E76500C7F0E3 /* SignUp.swift */,
+				D4B73E4E2A33E76500C7F0E3 /* Uploadsvg.swift */,
+			);
+			path = Cloud;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,10 +509,12 @@
 				29BC46012A3273A300211F40 /* employeebank.jpg in Resources */,
 				29BC45972A32644600211F40 /* umbrella.svg in Resources */,
 				29BC46032A3273A300211F40 /* butterfly.jpg in Resources */,
+				D4B73E5B2A33E76500C7F0E3 /* GoogleService-Info.plist in Resources */,
 				29BC45A82A32644600211F40 /* diamond.svg in Resources */,
 				1EF1A7432A05ACE200C8F2A0 /* GoogleService-Info.plist in Resources */,
 				29BC458E2A32644600211F40 /* noodle_logo.svg in Resources */,
 				29BC46082A3273A300211F40 /* oldphone.jpg in Resources */,
+				D4B73E572A33E76500C7F0E3 /* credentials.plist in Resources */,
 				29BC45A72A32644600211F40 /* fox.svg in Resources */,
 				29BC45AE2A32644600211F40 /* marketing.svg in Resources */,
 				29BC459E2A32644600211F40 /* rabbit.svg in Resources */,
@@ -526,11 +566,19 @@
 				29BC455E2A32641600211F40 /* LayerCellView.swift in Sources */,
 				29BC45662A32641600211F40 /* EditSvgScreen.swift in Sources */,
 				1EE7300A2A0EE80000B859E1 /* ArtDisplayScreen.swift in Sources */,
+				D4B73E582A33E76500C7F0E3 /* Uploadsvg.swift in Sources */,
 				29D2236F2A0DB0B8000FF09E /* AppData.swift in Sources */,
 				29BC455C2A32641600211F40 /* SvgLayersView.swift in Sources */,
+				D4B73E552A33E76500C7F0E3 /* SignUp.swift in Sources */,
+				D4B73E562A33E76500C7F0E3 /* GoogleDrive.swift in Sources */,
+				D4B73E532A33E76500C7F0E3 /* Cloud.swift in Sources */,
+				D4B73E592A33E76500C7F0E3 /* Cloud+Auth.swift in Sources */,
 				29BC45602A32641600211F40 /* ViewModel.swift in Sources */,
+				D4B73E522A33E76500C7F0E3 /* CloudError.swift in Sources */,
 				29D2236D2A0DAABA000FF09E /* SearchFilters.swift in Sources */,
+				D4B73E542A33E76500C7F0E3 /* Login.swift in Sources */,
 				29D223712A0E2189000FF09E /* ArtCellView.swift in Sources */,
+				D4B73E5A2A33E76500C7F0E3 /* Cloud+UploadSvg.swift in Sources */,
 				29C0DF852A0D53B90061453C /* View+Extensions.swift in Sources */,
 				29BC455F2A32641600211F40 /* AttributesView.swift in Sources */,
 				29976E2C29FEFD8E00DC0802 /* Moush_iOSApp.swift in Sources */,
