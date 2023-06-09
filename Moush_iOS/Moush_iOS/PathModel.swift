@@ -14,4 +14,5 @@ struct PathModel
     var strokeStyle: StrokeStyle
     
     var visible = true
+    var selected: Bool = false
 }

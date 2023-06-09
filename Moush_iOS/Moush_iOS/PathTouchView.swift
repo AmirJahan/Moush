@@ -1,47 +1,71 @@
-
 import SwiftUI
 import PocketSVG
 
-//TODO: cambiar el contorno de la figura cuando la tocas
-
-struct PathTouchView: View
-{
-    @State
-    var fill: Color = .red
+struct PathTouchView: View {
+    @StateObject var vm = TouchViewModel()
     
-    @State
-    var fill2: Color = .yellow
-    
-    var body: some View
-    {
-        ZStack
-        {
-            ForEach (StaticData.myPaths.indices, id: \.self) { index in
+    var body: some View {
+        ZStack {
+            ForEach(vm.paths.indices, id: \.self) { index in
+                var myPath = vm.paths[index]
                 
-                var myPath = StaticData.myPaths[index]
-                
-                myPath.path?.fill(myPath.fill)
-                    .onTapGesture {
-                        StaticData.myPaths[index].stroke = .purple
-                        StaticData.myPaths[index].strokeStyle = StrokeStyle(
-                            lineWidth: 5,
-                            lineCap: .round,
-                            lineJoin: .miter,
-                            miterLimit: 0,
-                            dash: [5, 10],
-                            dashPhase: 0
-                        )
+                if let path = myPath.path {
+                    Group {
+                        path.stroke(myPath.stroke!, style: myPath.strokeStyle)
+                        path.fill(myPath.fill)
                     }
-                
+                    .onTapGesture {
+                        vm.setSelectedPathIndex(index)
+                    }
+                }
             }
-                
         }
-
     }
 }
 
-struct PathTouchView_Previews: PreviewProvider {
-    static var previews: some View {
-        PathTouchView()
+class TouchViewModel: ObservableObject {
+    @Published var paths: [PathModel] = []
+    
+    init() {
+        // Initialize paths data
+        let yellowPath = PathModel(path: createYellowPath(), fill: .yellow, stroke: .yellow, strokeWidth: 0.2, strokeStyle: StrokeStyle())
+        let blackPath = PathModel(path: createBlackPath(), fill: .black, stroke: .black, strokeWidth: 0.2, strokeStyle: StrokeStyle())
+        
+        paths = [yellowPath, blackPath]
+    }
+    
+    func setSelectedPathIndex(_ index: Int) {
+        if index >= 0 && index < paths.count {
+            paths[index].selected.toggle() // Toggle the selected state
+            if paths[index].selected {
+                paths[index].strokeStyle = StrokeStyle(lineWidth: 4, dash: [5, 5], dashPhase: 0)
+            } else {
+                paths[index].strokeStyle = StrokeStyle() // Restore default stroke style
+            }
+        }
+    }
+    
+    func createYellowPath() -> Path {
+        let yellowPath = Path { path in
+            path.move(to: CGPoint(x: 50, y: 50))
+            path.addLine(to: CGPoint(x: 100, y: 50))
+            path.addLine(to: CGPoint(x: 100, y: 100))
+            path.addLine(to: CGPoint(x: 50, y: 100))
+            path.closeSubpath()
+        }
+        
+        return yellowPath
+    }
+    
+    func createBlackPath() -> Path {
+        let blackPath = Path { path in
+            path.move(to: CGPoint(x: 150, y: 150))
+            path.addLine(to: CGPoint(x: 200, y: 150))
+            path.addLine(to: CGPoint(x: 200, y: 200))
+            path.addLine(to: CGPoint(x: 150, y: 200))
+            path.closeSubpath()
+        }
+        
+        return blackPath
     }
 }
