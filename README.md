@@ -3,20 +3,28 @@
 
 PG23 Release
 
-Moush is an all-in-one image editing and conversion solution that empowers users to edit, convert, and store images as SVG (Scalable Vector Graphics) files. With its intuitive interface, secure login and authentication system, seamless integration with Firebase Cloud, and a range of powerful features, Moush simplifies SVG image editing.
+Welcome to Moush! This application allows you to browse and interact with a vast collection of vector graphics hosted on a cloud server. Whether you're an artist, designer, or simply an enthusiast, this app offers a seamless experience for exploring, customizing, and sharing vector artworks.
 
 
 ## Features
 
-- Image Editing: Moush offers an extensive set of editing tools and effects for users to enhance their images. Users can adjust colors, apply filters, and more, to achieve the desired visual outcome.
+- Browse and Search: Discover a diverse range of vector graphics through a user-friendly interface. You can easily navigate through the collection and use various filters to refine your search based on different criteria such as style, category, or artist.
+
+- Rating System: Once you find an artwork that catches your eye, you have the opportunity to provide feedback by rating it. Your ratings contribute to the overall reputation of the artwork and help other users make informed decisions when exploring the collection.
+
+- Personal Library: The app enables you to create your own personal library by saving vector artworks to your account. Once saved, you can access your library anytime, allowing you to quickly retrieve and work with your favorite graphics.
+
+- Artwork Customization: The power to modify vector artworks is at your fingertips. You can make alterations to the colors, strokes, and other attributes of the selected artwork. This flexibility enables you to tailor the graphics to your specific needs and preferences.
+
+- Publishing and Sharing: If you create a modified version of an artwork that you're particularly proud of, you have the option to publish it to the network. By doing so, you make your creation available for other users to explore, rate, and potentially incorporate into their own projects.
+
+- History Stack: To ensure a smooth and hassle-free editing experience, the app incorporates a history stack that supports undo and redo functionalities. You can confidently experiment with various modifications, knowing that you can easily revert to previous states or redo any changes as needed.
 
 - SVG Conversion: Moush streamlines the conversion process, enabling users to convert images into scalable SVG files that retain the quality and integrity of the originals.
 
 - Login and Authentication System: Moush features a robust login and authentication system, ensuring secure access to projects and data. Users can create accounts, log in securely, and protect their projects from unauthorized access.
 
 - Data Storage in Firebase Cloud: Moush seamlessly integrates with Firebase Cloud, offering reliable and scalable storage for projects. Users can securely store images, edited files, and user-specific data in the cloud, allowing easy access from any device.
-
-- Redo and Undo Functionality: Moush provides a redo and undo feature, enabling users to revert or redo previous editing actions, facilitating experimentation without the fear of losing progress.
 
 - Text Editor with Colorful Hashtags: Moush now includes a text editor with a unique feature. It identifies text enclosed within hashtags (#) and randomly changes its color. This adds a creative and dynamic element to the text, enhancing visual appeal.
 
