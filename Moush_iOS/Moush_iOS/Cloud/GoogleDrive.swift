@@ -7,9 +7,7 @@
 
 import Foundation
 import SwiftUI
-import GoogleSignInSwift
-import GoogleSignIn
-import GoogleAPIClientForREST_Drive
+import GoogleSignInimport GoogleAPIClientForREST_Drive
 
 class GoogleDrive
 {
