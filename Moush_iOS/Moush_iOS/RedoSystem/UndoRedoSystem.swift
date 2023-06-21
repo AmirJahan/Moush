@@ -14,12 +14,13 @@ protocol Command
     func undo()
 }
 
+//The commandStack needs to be an array of arrays since now the user has the ability to select various layers and make changes to thems
 class UndoRedoSystem
 {
-    private var commandStack : [Command] = []
-    private var head : Int = -1
+    var commandStack : [[Command]] = [[]]
+    var head : Int = -1
 
-    func invoke(command: Command)
+    func invoke(commands: [Command])
     {
         // needs to erase all commands after the execution
         if(head != commandStack.count - 1)
@@ -31,8 +32,10 @@ class UndoRedoSystem
             commandStack.removeFirst()
             head -= 1
         }
-        command.execute()
-        commandStack.append(command)
+        commands.forEach { currentComand in
+            currentComand.execute()
+        }
+        commandStack.append(commands)
         head += 1
     }
 
@@ -40,7 +43,9 @@ class UndoRedoSystem
     {
         if(head >= 0)
         {
-            commandStack[head].undo()
+            commandStack[head].forEach { currentComand in
+                currentComand.undo()
+            }
             head -= 1
         }
     }
@@ -50,7 +55,9 @@ class UndoRedoSystem
         if(head < commandStack.count - 1)
         {
             head += 1
-            commandStack[head].execute()
+            commandStack[head].forEach { currentComand in
+                currentComand.execute()
+            }
         }
     }
 }

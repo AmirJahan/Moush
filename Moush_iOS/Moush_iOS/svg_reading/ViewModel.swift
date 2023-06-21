@@ -53,16 +53,8 @@ class ViewModel: ObservableObject
         
         let localUrl = Bundle.main.url(forResource: resourceName, withExtension: "svg")!
         
+        //SVGBezierPath comes from the PocketSVG package
         let cgPaths: [SVGBezierPath] = SVGBezierPath.pathsFromSVG(at: localUrl)
-        
-        
-        //        dump(cgPaths[0].svgAttributes)
-        
-        //        if let fill = cgPaths[0].svgAttributes["fill"]
-        //        {
-        //            let f = fill as! CGColor
-        //            print ("stroke-width: \(f )")
-        //        }
         
         // clear the array
         paths = []

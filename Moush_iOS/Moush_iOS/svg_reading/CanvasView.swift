@@ -27,6 +27,7 @@ struct EditCanvasView: View
                             path.stroke(s, lineWidth: CGFloat(sw))
                         }
                         
+                        //show the select dashed box around the path
                         if thisPath.selected
                         {
                             if let boundingBox = thisPath.boundingBox {
