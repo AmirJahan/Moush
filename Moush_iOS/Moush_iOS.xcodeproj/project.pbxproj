@@ -103,6 +103,7 @@
 		29D2236F2A0DB0B8000FF09E /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D2236E2A0DB0B8000FF09E /* AppData.swift */; };
 		29D223712A0E2189000FF09E /* ArtCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223702A0E2189000FF09E /* ArtCellView.swift */; };
 		29D223732A0E219F000FF09E /* MySvg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223722A0E219F000FF09E /* MySvg.swift */; };
+		2BA396922A33CAC500A5EE41 /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA396912A33CAC500A5EE41 /* TextEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,6 +203,7 @@
 		29D2236E2A0DB0B8000FF09E /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		29D223702A0E2189000FF09E /* ArtCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCellView.swift; sourceTree = "<group>"; };
 		29D223722A0E219F000FF09E /* MySvg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySvg.swift; sourceTree = "<group>"; };
+		2BA396912A33CAC500A5EE41 /* TextEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 				1EE730092A0EE80000B859E1 /* ArtDisplayScreen.swift */,
 				29D223702A0E2189000FF09E /* ArtCellView.swift */,
 				29D223722A0E219F000FF09E /* MySvg.swift */,
+				2BA396912A33CAC500A5EE41 /* TextEditor.swift */,
 				29D2236E2A0DB0B8000FF09E /* AppData.swift */,
 				298615532A0D898000B28BAD /* FilterPopOverView.swift */,
 				29D2236C2A0DAABA000FF09E /* SearchFilters.swift */,
@@ -516,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2986151A2A0D7E5200B28BAD /* UIColor+Extension.swift in Sources */,
+				2BA396922A33CAC500A5EE41 /* TextEditor.swift in Sources */,
 				29C0DF832A0D53700061453C /* HomeScreen.swift in Sources */,
 				29BC45612A32641600211F40 /* CanvasView.swift in Sources */,
 				298615182A0D7D5900B28BAD /* Color+Extension.swift in Sources */,

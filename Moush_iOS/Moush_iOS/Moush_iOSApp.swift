@@ -12,7 +12,8 @@ struct Moush_iOSApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            HomeScreen ()
+//            HomeScreen ()
+            TextAttrView()
         }
     }
 }
