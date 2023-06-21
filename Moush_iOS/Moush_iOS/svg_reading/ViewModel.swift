@@ -3,7 +3,7 @@ import PocketSVG
 
 class ViewModel: ObservableObject
 {
-    
+    var UndoRedoStack = UndoRedoSystem()
     
     @Published
     var paths: [PathModel] = []

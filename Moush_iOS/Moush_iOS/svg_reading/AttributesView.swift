@@ -6,11 +6,10 @@ struct AttributesView: View
     @ObservedObject
     var vm: ViewModel
     
-    @Binding
-    var selectedFillColor: Color
-    
-    @Binding
-    var selectedStrokeColor: Color
+    //Added state variables to change the attribute through the UndoRedoSystem instead of throught the color picker
+    @State var selectedFillColor: Color
+    @State var selectedStrokeColor: Color
+    @State var selectedStorkeWidth: Float
     
     let onColorSelected: () -> Void
     
@@ -20,25 +19,43 @@ struct AttributesView: View
         {
             HStack
             {
-                ColorPicker("Fill color", selection: $selectedFillColor,
+                ColorPicker("", selection: $selectedFillColor,
                             supportsOpacity: false)
-                .padding()
+                    .padding()
+                    .onChange(of: selectedFillColor) { color in
+                        //Create a instance of the command with the necesary information
+                        //When added the stack executes the command
+                        vm.UndoRedoStack.invoke(command:
+                                ChangeFillColorCommand(selectedItem: $vm.paths[0],
+                                previousColor: vm.paths[0].fill,
+                                currentColor: selectedFillColor))
+                    }
                 
-                ColorPicker("Stroke color", selection:$selectedStrokeColor,
+                ColorPicker("", selection: $selectedStrokeColor,
                             supportsOpacity: false)
                 .padding()
+                .onChange(of: selectedStrokeColor) { color in
+                    //Create a instance of the command with the necesary information
+                    //When added the stack executes the command
+                    vm.UndoRedoStack.invoke(command:
+                        ChangeStrokeColorCommand(selectedItem: $vm.paths[0],
+                             previousColor: vm.paths[0].fill,
+                             currentColor: selectedStrokeColor))
+                }
             }
             .padding()
             
             
-//            Slider(value: $vm.paths[vm.selectedPathIndices].strokeWidth, in: 0.0...10.0) {
-//                Text("Stroke Width")
-//            }
-            
-            Button {
-                onColorSelected()
-            } label: {
-                Text("Apply")
+            Slider(value: $selectedStorkeWidth, in: 0.0...10.0) {
+                Text("Stroke Width")
+            }
+            .onChange(of: selectedStorkeWidth) { newValue in
+                //Create a instance of the command with the necesary information
+                //When added the stack executes the command
+                vm.UndoRedoStack.invoke(command:
+                    ChangeStrokeWithCommand(selectedItem: $vm.paths[0],
+                         previousWidth: vm.paths[0].strokeWidth,
+                         currentWidth: newValue))
             }
 
         }

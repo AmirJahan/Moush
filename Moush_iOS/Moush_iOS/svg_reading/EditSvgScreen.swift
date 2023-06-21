@@ -27,11 +27,23 @@ struct EditSvgScreen: View
             {
                 if vm.selectedPathIndices != []
                 {
-                    AttributesView(vm: vm, selectedFillColor: $vm.selectedPathFill, selectedStrokeColor: $vm.selectedPathStroke) {
+                    AttributesView(vm: vm, selectedFillColor: vm.selectedPathFill, selectedStrokeColor: vm.selectedPathStroke, selectedStorkeWidth: 0) {
                         vm.updateSelectedPathColors(newFillColor: vm.selectedPathFill, newStrokeColor: vm.selectedPathStroke)
                     }
                 }
             }
+            
+            HStack
+            {
+                Button("Undo") {
+                    vm.UndoRedoStack.undo()
+                }
+                
+                Button("Redo") {
+                    vm.UndoRedoStack.redo()
+                }
+            }
+            
         }
     }
 }
