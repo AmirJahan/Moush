@@ -24,12 +24,20 @@ enum CloudError: Error
 }
 
 
-class Cloud
+// the database has the functionality of making a new user from sign up.
+// creating the reference in the realtime database
+// uploading files to the storage and save the references in th firestore database.
+
+class Cloud: ObservableObject
 {
     // instance
     static let inst = Cloud()
     var ref : DatabaseReference!
     var myAuth : Auth!
+    
+    var userIds: [String] = []
+    
+    @Published var imageArray: [UIImage] = []
     
     // I make this singleton so I can have the initial setup here.
     public init ()

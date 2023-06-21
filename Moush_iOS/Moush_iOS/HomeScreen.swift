@@ -42,10 +42,12 @@ struct HomeScreen: View
     
     
     
-    
+    @State var img: UIImage?
     
     var body: some View
     {
+        
+        
         NavigationView
         {
             ZStack
@@ -75,6 +77,30 @@ struct HomeScreen: View
                                    spacing: space)
                         {
 
+                            
+                        
+                            VStack {
+                                if let img = img {
+                                    Image(uiImage: img)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                } else {
+                                    ProgressView()  // show a loading spinner while the image is loading
+                                }
+                            }
+                            .onAppear(perform: {
+                                
+                                // THIS IS HARDCODED, JUST TO SHOW HOW IT COULD WORK.
+                                // get the file and display that file.
+                                // This should also display the user name and the
+                                Cloud.inst.fetchFile(fromPath: "Thumbnails/android.jpg") { (data, error) in
+                                    if let error = error {
+                                        print("Error downloading file: \(error)")
+                                    } else if let data = data {
+                                        self.img = UIImage(data: data)
+                                    }
+                                }
+                            })
  
                             ForEach (AppData.instance.tempSvgs, id: \.self) { mySvg in
 

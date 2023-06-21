@@ -101,8 +101,8 @@
 		29D2236F2A0DB0B8000FF09E /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D2236E2A0DB0B8000FF09E /* AppData.swift */; };
 		29D223712A0E2189000FF09E /* ArtCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223702A0E2189000FF09E /* ArtCellView.swift */; };
 		29D223732A0E219F000FF09E /* MySvg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223722A0E219F000FF09E /* MySvg.swift */; };
+		D429B3232A43899800FAF0AD /* Cloud+homeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429B3222A43899800FAF0AD /* Cloud+homeScreen.swift */; };
 		D492EAD12A427F7900BE8F6D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D492EAD02A427F7900BE8F6D /* GoogleService-Info.plist */; };
-		D4B73E522A33E76500C7F0E3 /* CloudError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E482A33E76500C7F0E3 /* CloudError.swift */; };
 		D4B73E532A33E76500C7F0E3 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E492A33E76500C7F0E3 /* Cloud.swift */; };
 		D4B73E542A33E76500C7F0E3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E4A2A33E76500C7F0E3 /* Login.swift */; };
 		D4B73E552A33E76500C7F0E3 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E4B2A33E76500C7F0E3 /* SignUp.swift */; };
@@ -218,8 +218,8 @@
 		29D2236E2A0DB0B8000FF09E /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		29D223702A0E2189000FF09E /* ArtCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCellView.swift; sourceTree = "<group>"; };
 		29D223722A0E219F000FF09E /* MySvg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySvg.swift; sourceTree = "<group>"; };
+		D429B3222A43899800FAF0AD /* Cloud+homeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cloud+homeScreen.swift"; sourceTree = "<group>"; };
 		D492EAD02A427F7900BE8F6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D4B73E482A33E76500C7F0E3 /* CloudError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudError.swift; sourceTree = "<group>"; };
 		D4B73E492A33E76500C7F0E3 /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		D4B73E4A2A33E76500C7F0E3 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		D4B73E4B2A33E76500C7F0E3 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
@@ -408,10 +408,10 @@
 				D4B73E492A33E76500C7F0E3 /* Cloud.swift */,
 				D4B73E4F2A33E76500C7F0E3 /* Cloud+Auth.swift */,
 				D4B73E502A33E76500C7F0E3 /* Cloud+UploadSvg.swift */,
-				D4B73E482A33E76500C7F0E3 /* CloudError.swift */,
 				D4B73E4A2A33E76500C7F0E3 /* Login.swift */,
 				D4B73E4B2A33E76500C7F0E3 /* SignUp.swift */,
 				D4B73E4E2A33E76500C7F0E3 /* Uploadsvg.swift */,
+				D429B3222A43899800FAF0AD /* Cloud+homeScreen.swift */,
 			);
 			path = Cloud;
 			sourceTree = "<group>";
@@ -581,6 +581,7 @@
 				29C0DF832A0D53700061453C /* HomeScreen.swift in Sources */,
 				29BC45612A32641600211F40 /* CanvasView.swift in Sources */,
 				298615182A0D7D5900B28BAD /* Color+Extension.swift in Sources */,
+				D429B3232A43899800FAF0AD /* Cloud+homeScreen.swift in Sources */,
 				29D223732A0E219F000FF09E /* MySvg.swift in Sources */,
 				298615542A0D898000B28BAD /* FilterPopOverView.swift in Sources */,
 				29BC455B2A32641600211F40 /* StaticData.swift in Sources */,
@@ -595,7 +596,6 @@
 				D4B73E532A33E76500C7F0E3 /* Cloud.swift in Sources */,
 				D4B73E592A33E76500C7F0E3 /* Cloud+Auth.swift in Sources */,
 				29BC45602A32641600211F40 /* ViewModel.swift in Sources */,
-				D4B73E522A33E76500C7F0E3 /* CloudError.swift in Sources */,
 				29D2236D2A0DAABA000FF09E /* SearchFilters.swift in Sources */,
 				D4B73E542A33E76500C7F0E3 /* Login.swift in Sources */,
 				29D223712A0E2189000FF09E /* ArtCellView.swift in Sources */,

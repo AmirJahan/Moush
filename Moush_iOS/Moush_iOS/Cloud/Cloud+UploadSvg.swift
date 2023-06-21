@@ -25,7 +25,7 @@ extension Cloud
 
         let fileRef = storageRef.child("\(uid)/\(fileId).svg")
         
-        // Uploading file reference to the firestore database
+        // uploading file reference to the firestore database
         let uploadTask = fileRef.putFile(from: fileURL, metadata: nil) { metadata, error in
             guard let _ = metadata else {
                 if let error = error {
@@ -35,11 +35,13 @@ extension Cloud
                 return
             }
 
+            // store the the file reference in the firestore
             let db = Firestore.firestore()
             db.collection("\(uid)").document("\(fileId)").setData([
                 "userId": uid,
                 "fileName": "\(fileId).svg",
-                "filePath": "\(uid)/\(fileId).svg"
+                "filePath": "\(uid)/\(fileId).svg",
+                "authorName": Cloud.inst.myAuth.currentUser?.displayName
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")

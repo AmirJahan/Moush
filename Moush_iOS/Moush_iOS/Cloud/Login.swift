@@ -49,6 +49,9 @@ struct LoginView: View
                 }
                 .padding()
                 
+                
+                // login and if successful navigate to the next page,
+                // which is a view mentioned at the bottom of this view
                 Button("Login") {
                     success = ""
                     Cloud.inst.login(email: email, password: password) { res in

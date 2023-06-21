@@ -60,7 +60,7 @@ struct SignUpView: View {
                 {
                     success = ""
                     
-
+                    // call signUp on button click, also checks if the user already exists
                     Cloud.inst.signUp(email: email, name: name, password: password, bday: birthdate){ res in
                         switch res
                         {
