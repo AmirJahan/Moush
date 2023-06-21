@@ -8,6 +8,9 @@ struct PathModel
     var fill: Color
     var stroke: Color
     var strokeWidth: Float
+    var strokeStyle: StrokeStyle
+    var boundingBox: Path?
     
     var visible = true
+    var selected: Bool = false
 }

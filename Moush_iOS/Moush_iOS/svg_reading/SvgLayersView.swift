@@ -15,7 +15,7 @@ struct SvgLayersView: View
                     .listRowSeparatorTint(.black)
                     .listRowInsets(EdgeInsets())
                     .onTapGesture {
-                        vm.setSelectedPathIndex(i)
+                        vm.toggleSelectedPathIndex(i)
                     }
             }
         }
