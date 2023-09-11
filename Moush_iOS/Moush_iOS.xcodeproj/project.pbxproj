@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0563FBDA2AAFB4EE00C7A29B /* UndoRedoSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563FBD92AAFB4EE00C7A29B /* UndoRedoSystem.swift */; };
+		0563FBDC2AAFB51D00C7A29B /* UndoRedoClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563FBDB2AAFB51D00C7A29B /* UndoRedoClasses.swift */; };
 		1EE7300A2A0EE80000B859E1 /* ArtDisplayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE730092A0EE80000B859E1 /* ArtDisplayScreen.swift */; };
 		298615182A0D7D5900B28BAD /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298615172A0D7D5900B28BAD /* Color+Extension.swift */; };
 		2986151A2A0D7E5200B28BAD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298615192A0D7E5200B28BAD /* UIColor+Extension.swift */; };
@@ -123,6 +125,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0563FBD92AAFB4EE00C7A29B /* UndoRedoSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoRedoSystem.swift; sourceTree = "<group>"; };
+		0563FBDB2AAFB51D00C7A29B /* UndoRedoClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoRedoClasses.swift; sourceTree = "<group>"; };
 		1EE730092A0EE80000B859E1 /* ArtDisplayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDisplayScreen.swift; sourceTree = "<group>"; };
 		298615172A0D7D5900B28BAD /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		298615192A0D7E5200B28BAD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -289,6 +293,8 @@
 				29976E2F29FEFD8F00DC0802 /* Assets.xcassets */,
 				29976E3129FEFD8F00DC0802 /* Preview Content */,
 				298615172A0D7D5900B28BAD /* Color+Extension.swift */,
+				0563FBD92AAFB4EE00C7A29B /* UndoRedoSystem.swift */,
+				0563FBDB2AAFB51D00C7A29B /* UndoRedoClasses.swift */,
 			);
 			path = Moush_iOS;
 			sourceTree = "<group>";
@@ -601,8 +607,10 @@
 				29D223712A0E2189000FF09E /* ArtCellView.swift in Sources */,
 				D4B73E5A2A33E76500C7F0E3 /* Cloud+UploadSvg.swift in Sources */,
 				29C0DF852A0D53B90061453C /* View+Extensions.swift in Sources */,
+				0563FBDA2AAFB4EE00C7A29B /* UndoRedoSystem.swift in Sources */,
 				29BC455F2A32641600211F40 /* AttributesView.swift in Sources */,
 				29976E2C29FEFD8E00DC0802 /* Moush_iOSApp.swift in Sources */,
+				0563FBDC2AAFB51D00C7A29B /* UndoRedoClasses.swift in Sources */,
 				29D2236B2A0D9DF1000FF09E /* ArrowShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
