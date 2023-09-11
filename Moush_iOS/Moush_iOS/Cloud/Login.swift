@@ -92,7 +92,8 @@ struct LoginView: View
             .padding()
             .background(
                 NavigationLink(destination: UploadSvg().navigationBarBackButtonHidden(true), isActive: $navigateToUploadSVG) {
-                    EmptyView()
+                    HomeScreen()
+                    //EmptyView()
                 }
             )
         }
