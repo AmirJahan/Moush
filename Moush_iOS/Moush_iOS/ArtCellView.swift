@@ -17,7 +17,6 @@ struct ArtCellView: View
         return String (string.dropLast())
     }
     
-    
     var body: some View
     {
         ZStack

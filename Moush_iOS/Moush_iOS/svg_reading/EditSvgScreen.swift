@@ -17,6 +17,8 @@ struct EditSvgScreen: View
     
     var body: some View
     {
+        
+        
         VStack
         {
             EditCanvasView(vm: vm)
@@ -25,13 +27,35 @@ struct EditSvgScreen: View
             
             HStack
             {
-                SvgLayersView(vm: vm)
-                
-                if vm.selectedPathIndex != -1
-                {
-                    AttributesView(vm: vm)
+                // TODO: Make the foreground color change when the undoredostack is at the beggining or the end
+                Button {
+                    vm.UndoRedoStack.undo()
+                } label: {
+                    Image(systemName:"arrowshape.turn.up.left")
+                        .foregroundColor(.blue)
+                }
+                Button {
+                    vm.UndoRedoStack.redo()
+                } label: {
+                    Image(systemName: "arrowshape.turn.up.right")
+                        .foregroundColor(.blue)
                 }
             }
+            .padding()
+            
+            HStack
+            {
+                if vm.selectedPathIndices != []
+                {
+                    
+                    AttributesView(vm: vm, selectedFillColor: vm.paths[vm.selectedPathIndices.last!].fill, selectedStrokeColor: vm.paths[vm.selectedPathIndices.last!].stroke, selectedStorkeWidth: vm.paths[vm.selectedPathIndices.last!].strokeWidth) {
+                        vm.updateSelectedPathColors(newFillColor: vm.selectedPathFill, newStrokeColor: vm.selectedPathStroke)
+                    }
+                }
+            }
+            
+            
+            
         }
     }
 }
