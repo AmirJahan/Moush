@@ -1,9 +1,7 @@
 import SwiftUI
 
-
 // test
-struct HomeScreen: View
-{
+struct HomeScreen: View {
     init() {
         setupNavBar()
     }
@@ -11,14 +9,13 @@ struct HomeScreen: View
     @State
     var searchFilter: SearchFilter = AppData.instance.searchFilter
     
+    @State private var filteredSvgs: [MySvg] = AppData.instance.tempSvgs
     
     @State
     private var searchText = ""
     
     @State
     var showSearchFilter = false
-    
-    
     
     let screenWidth = UIScreen.main.bounds.size.width - 20
     
@@ -28,38 +25,30 @@ struct HomeScreen: View
         return screenWidth / 2.0 * 1.25
     }
     
-//    var cellWidth: CGFont {
-//        return (screenWidth - 20.0) / 2.0
-//    }
+    //    var cellWidth: CGFont {
+    //        return (screenWidth - 20.0) / 2.0
+    //    }
     
-    var columns : [GridItem] {
-        return Array(repeating: .init(.flexible(),
-                                      spacing: space),
-                     count: 2)
+    var columns: [GridItem] {
+        return Array(
+            repeating: .init(
+                .flexible(),
+                spacing: space),
+            count: 2)
     }
-    
     
     let countries = ["🇨🇦", "🇩🇿", "🇦🇲", "🇦🇷", "🇧🇹", "🇧🇮", "🇮🇨", "🇰🇲"]
     
-    
-    
     @State var img: UIImage?
     
-    var body: some View
-    {
+    var body: some View {
         
-        
-        NavigationView
-        {
-            ZStack
-            {
+        NavigationView {
+            ZStack {
                 // usually you put a grid within a Scroll View
-                ScrollView
-                {
-                    VStack
-                    {
-                        HStack
-                        {
+                ScrollView {
+                    VStack {
+                        HStack {
                             SearchBar(text: $searchText, onSearch: performSearch)
                             
                             Button(action: {
@@ -71,15 +60,20 @@ struct HomeScreen: View
                             }
                         }
                         
-                        Spacer ()
+                        Spacer()
                         
-                        
-                        LazyVGrid (columns: columns,
-                                   spacing: space)
-                        {
-
-                            
-                        
+                        LazyVGrid(
+                            columns: columns,
+                            spacing: space
+                        ) {
+                            ForEach(filteredSvgs, id: \.self) { mySvg in
+                                NavigationLink {
+                                    ArtDisplayScreen(svg: mySvg)
+                                } label: {
+                                    ArtCellView(svg: mySvg)
+                                }
+                            }
+                            .padding(.top, 8)
                             VStack {
                                 if let img = img {
                                     Image(uiImage: img)
@@ -102,15 +96,13 @@ struct HomeScreen: View
                                     }
                                 }
                             })
- 
-                            ForEach (AppData.instance.tempSvgs, id: \.self) { mySvg in
-
+                            
+                            ForEach(AppData.instance.tempSvgs, id: \.self) { mySvg in
+                                
                                 NavigationLink {
                                     
-//                                    Text("HI")
+                                    //                                    Text("HI")
                                     ArtDisplayScreen(svg: mySvg)
-                                    
-                                    
                                     
                                 } label: {
                                     ArtCellView(svg: mySvg)
@@ -119,52 +111,38 @@ struct HomeScreen: View
                         }.padding(.top, 8)
                     }.padding(16)
                     
-                    
-                    
-                }//
+                }  //
                 .navigationBarTitle("", displayMode: .large)
                 .navigationBarItems(
                     
                     leading:
                         
-                        VStack (alignment: .leading)
-                    {
-                        Text("Moush")
-                            .font(.custom("HelveticaNeue-Bold", size: 34))
-                            .foregroundColor(.white)
-                            .padding(.top, 24)
-                        Text("The Ultimate SVG Editor")
-                            .font(.custom("HelveticaNeue-Italic", size: 16))
-                            .foregroundColor(.white.opacity(0.75))
-                            .padding(.top, 0)
-                        
-                        
-                        
-                    },
-                    trailing:
-                        VStack (alignment: .trailing)
-                    {
-                        
-                        Button(action: {
-                            self.showSearchFilter.toggle()
-                        }) {
-                            Image(systemName: "archivebox.fill")
-                                .imageScale(.large)
+                        VStack(alignment: .leading) {
+                            Text("Moush")
+                                .font(.custom("HelveticaNeue-Bold", size: 34))
+                                .foregroundColor(.white)
+                                .padding(.top, 24)
+                            Text("The Ultimate SVG Editor")
+                                .font(.custom("HelveticaNeue-Italic", size: 16))
                                 .foregroundColor(.white.opacity(0.75))
-                        }
-                        
-                        
-                    })
-                
-                
-                
-                
-                
-                
+                                .padding(.top, 0)
+                            
+                        },
+                    trailing:
+                        VStack(alignment: .trailing) {
+                            
+                            Button(action: {
+                                self.showSearchFilter.toggle()
+                            }) {
+                                Image(systemName: "archivebox.fill")
+                                    .imageScale(.large)
+                                    .foregroundColor(.white.opacity(0.75))
+                            }
+                            
+                        })
                 
                 // This must always be at the end. This is the Filters view. Overlayed on top of others
-                if self.showSearchFilter
-                {
+                if self.showSearchFilter {
                     FiltersView(searchFilter: $searchFilter, showSearchFilter: $showSearchFilter)
                 }
             }
@@ -172,98 +150,104 @@ struct HomeScreen: View
         
     }
     
-    
-    
-    
     func performSearch() {
-        // Handle search action
-        print("Search triggered")
-    }
-    
-    
-}
-
-struct SearchBar: View
-{
-    @Binding var text: String
-    var onSearch: () -> Void  // Action closure
-    
-    var body: some View
-    {
-        
-        ZStack {
-            TextField("Search", text: $text, onCommit: onSearch)
-                .frame(maxWidth: .infinity)
-                .textFieldStyle(.roundedBorder)
-            
-            Button(action: {
-                // Clear search text
-                
-                
-                text = ""
-            }) {
-                Image(systemName: "xmark.circle.fill")
-                    .foregroundColor(.secondary)
-                    .opacity(text.isEmpty ? 0 : 1)
-                
+        if searchText.isEmpty {
+            // If the search text is empty, show all SVGs and reset the location
+            filteredSvgs = AppData.instance.tempSvgs
+        } else {
+            // Filter the SVGs based on the search text
+            filteredSvgs = AppData.instance.tempSvgs.filter { mySvg in
+                let lowercaseSearchText = searchText.lowercased()
+                return mySvg.fileName.lowercased().contains(lowercaseSearchText) ||
+                       mySvg.author.lowercased().contains(lowercaseSearchText) ||
+                       mySvg.tags.contains { tag in
+                           tag.lowercased().contains(lowercaseSearchText)
+                       }
             }
-            
         }
     }
 }
 
-extension HomeScreen
-{
-    func setupNavBar () {
-        // Customize the appearance of the navigation bar
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(Color.myPrimaryColor)
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white] // Customize the large title text color
-        
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+struct SearchBar: View {
+    @Binding var text: String
+    var onSearch: () -> Void
+    
+    var body: some View {
+        ZStack {
+            TextField("Search", text: $text)
+                .frame(maxWidth: .infinity)
+                .textFieldStyle(.roundedBorder)
+                .onChange(of: text) { newValue in
+                    onSearch() // Call the onSearch function whenever the text changes
+                }
+            
+            if !text.isEmpty {
+                Button(action: {
+                    text = ""
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(.secondary)
+                        .opacity(text.isEmpty ? 0 : 1)
+                }
+                .padding(.trailing, 8) // Adjust the padding as needed
+            }
+        }
     }
+}
+
+extension HomeScreen {
+  func setupNavBar() {
+    // Customize the appearance of the navigation bar
+    let appearance = UINavigationBarAppearance()
+    appearance.configureWithOpaqueBackground()
+    appearance.backgroundColor = UIColor(Color.myPrimaryColor)
+    appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]  // Customize the large title text color
+
+    UINavigationBar.appearance().standardAppearance = appearance
+    UINavigationBar.appearance().scrollEdgeAppearance = appearance
+  }
 }
 
 struct HomeScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeScreen()
-    }
+  static var previews: some View {
+    HomeScreen()
+  }
 }
 
+struct FiltersView: View {
+  @Binding
+  var searchFilter: SearchFilter
 
-struct FiltersView: View
-{
-    @Binding
-    var searchFilter: SearchFilter
-    
+  @Binding
+  var showSearchFilter: Bool
 
-    @Binding
-    var showSearchFilter: Bool
-    
-    
-    var body: some View {
-        VStack
-        {
-            HStack
-            {
-                Spacer()
-                FilterPopOverView(searchFilter: $searchFilter,
-                                  showSearchFilter: $showSearchFilter)
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.white)
-                    .shadow(color: .black.opacity(0.2),
-                            radius: 5,
-                            x: -3,
-                            y: 3)
-                        .overlay(RoundedRectangle(cornerRadius: 10)
-                            .stroke(.gray.opacity(0.25),
-                                    lineWidth: 2)))
-                .padding()
-            }.padding(.top, 64)
-            Spacer()
-        }
+  var body: some View {
+    VStack {
+      HStack {
+        Spacer()
+        FilterPopOverView(
+          searchFilter: $searchFilter,
+          showSearchFilter: $showSearchFilter
+        )
+        .padding()
+        .background(
+          RoundedRectangle(cornerRadius: 12)
+            .fill(Color.white)
+            .shadow(
+              color: .black.opacity(0.2),
+              radius: 5,
+              x: -3,
+              y: 3
+            )
+            .overlay(
+              RoundedRectangle(cornerRadius: 10)
+                .stroke(
+                  .gray.opacity(0.25),
+                  lineWidth: 2))
+        )
+        .padding()
+      }.padding(.top, 64)
+      Spacer()
     }
+  }
 }

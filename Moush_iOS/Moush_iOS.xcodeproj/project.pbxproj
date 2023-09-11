@@ -254,6 +254,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0504567D2AAFC03700A859C6 /* SearchFilters */ = {
+			isa = PBXGroup;
+			children = (
+				298615532A0D898000B28BAD /* FilterPopOverView.swift */,
+				29D2236C2A0DAABA000FF09E /* SearchFilters.swift */,
+			);
+			path = SearchFilters;
+			sourceTree = "<group>";
+		};
 		29976E1F29FEFD8E00DC0802 = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +282,8 @@
 		29976E2A29FEFD8E00DC0802 /* Moush_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				29C0DF822A0D53700061453C /* HomeScreen.swift */,
+				0504567D2AAFC03700A859C6 /* SearchFilters */,
 				D4B73E752A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist */,
 				D492EAD02A427F7900BE8F6D /* GoogleService-Info.plist */,
 				D4B73E472A33E75700C7F0E3 /* Cloud */,
@@ -280,13 +291,10 @@
 				29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */,
 				29BC45672A32643200211F40 /* local_svgs */,
 				29BC454E2A3263F600211F40 /* svg_reading */,
-				29C0DF822A0D53700061453C /* HomeScreen.swift */,
 				1EE730092A0EE80000B859E1 /* ArtDisplayScreen.swift */,
 				29D223702A0E2189000FF09E /* ArtCellView.swift */,
 				29D223722A0E219F000FF09E /* MySvg.swift */,
 				29D2236E2A0DB0B8000FF09E /* AppData.swift */,
-				298615532A0D898000B28BAD /* FilterPopOverView.swift */,
-				29D2236C2A0DAABA000FF09E /* SearchFilters.swift */,
 				29D2236A2A0D9DF1000FF09E /* ArrowShape.swift */,
 				298615192A0D7E5200B28BAD /* UIColor+Extension.swift */,
 				29C0DF842A0D53B90061453C /* View+Extensions.swift */,

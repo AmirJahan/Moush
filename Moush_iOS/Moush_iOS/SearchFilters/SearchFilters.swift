@@ -1,6 +1,5 @@
 import Foundation
 
-
 // name , image name
 struct SearchFilter
 {
