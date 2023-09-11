@@ -18,6 +18,9 @@ struct HomeScreen: View
     @State
     var showSearchFilter = false
     
+    @State
+    var showImportSettings = false;
+    
     
     
     let screenWidth = UIScreen.main.bounds.size.width - 20
@@ -146,7 +149,7 @@ struct HomeScreen: View
                     {
                         
                         Button(action: {
-                            self.showSearchFilter.toggle()
+                            self.showImportSettings.toggle()
                         }) {
                             Image(systemName: "archivebox.fill")
                                 .imageScale(.large)
@@ -166,6 +169,11 @@ struct HomeScreen: View
                 if self.showSearchFilter
                 {
                     FiltersView(searchFilter: $searchFilter, showSearchFilter: $showSearchFilter)
+                }
+                
+                if self.showImportSettings
+                {
+                    ImportView()
                 }
             }
         }
