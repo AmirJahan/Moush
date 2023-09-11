@@ -101,6 +101,8 @@
 		29D2236F2A0DB0B8000FF09E /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D2236E2A0DB0B8000FF09E /* AppData.swift */; };
 		29D223712A0E2189000FF09E /* ArtCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223702A0E2189000FF09E /* ArtCellView.swift */; };
 		29D223732A0E219F000FF09E /* MySvg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D223722A0E219F000FF09E /* MySvg.swift */; };
+		A921179B2AAFB28800C9B7E6 /* UndoRedoClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92117992AAFB28800C9B7E6 /* UndoRedoClasses.swift */; };
+		A921179C2AAFB28800C9B7E6 /* UndoRedoSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921179A2AAFB28800C9B7E6 /* UndoRedoSystem.swift */; };
 		D429B3232A43899800FAF0AD /* Cloud+homeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429B3222A43899800FAF0AD /* Cloud+homeScreen.swift */; };
 		D492EAD12A427F7900BE8F6D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D492EAD02A427F7900BE8F6D /* GoogleService-Info.plist */; };
 		D4B73E532A33E76500C7F0E3 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B73E492A33E76500C7F0E3 /* Cloud.swift */; };
@@ -218,6 +220,8 @@
 		29D2236E2A0DB0B8000FF09E /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		29D223702A0E2189000FF09E /* ArtCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCellView.swift; sourceTree = "<group>"; };
 		29D223722A0E219F000FF09E /* MySvg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySvg.swift; sourceTree = "<group>"; };
+		A92117992AAFB28800C9B7E6 /* UndoRedoClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UndoRedoClasses.swift; sourceTree = "<group>"; };
+		A921179A2AAFB28800C9B7E6 /* UndoRedoSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UndoRedoSystem.swift; sourceTree = "<group>"; };
 		D429B3222A43899800FAF0AD /* Cloud+homeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cloud+homeScreen.swift"; sourceTree = "<group>"; };
 		D492EAD02A427F7900BE8F6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4B73E492A33E76500C7F0E3 /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
@@ -289,6 +293,8 @@
 				29976E2F29FEFD8F00DC0802 /* Assets.xcassets */,
 				29976E3129FEFD8F00DC0802 /* Preview Content */,
 				298615172A0D7D5900B28BAD /* Color+Extension.swift */,
+				A92117992AAFB28800C9B7E6 /* UndoRedoClasses.swift */,
+				A921179A2AAFB28800C9B7E6 /* UndoRedoSystem.swift */,
 			);
 			path = Moush_iOS;
 			sourceTree = "<group>";
@@ -583,10 +589,12 @@
 				298615182A0D7D5900B28BAD /* Color+Extension.swift in Sources */,
 				D429B3232A43899800FAF0AD /* Cloud+homeScreen.swift in Sources */,
 				29D223732A0E219F000FF09E /* MySvg.swift in Sources */,
+				A921179B2AAFB28800C9B7E6 /* UndoRedoClasses.swift in Sources */,
 				298615542A0D898000B28BAD /* FilterPopOverView.swift in Sources */,
 				29BC455B2A32641600211F40 /* StaticData.swift in Sources */,
 				29BC45632A32641600211F40 /* PathModel.swift in Sources */,
 				29BC455E2A32641600211F40 /* LayerCellView.swift in Sources */,
+				A921179C2AAFB28800C9B7E6 /* UndoRedoSystem.swift in Sources */,
 				29BC45662A32641600211F40 /* EditSvgScreen.swift in Sources */,
 				1EE7300A2A0EE80000B859E1 /* ArtDisplayScreen.swift in Sources */,
 				D4B73E582A33E76500C7F0E3 /* Uploadsvg.swift in Sources */,
