@@ -1,111 +1,101 @@
 import SwiftUI
+import UIKit
 
-struct ArtDisplayScreen: View
-{
+struct ArtDisplayScreen: View {
     var svg: MySvg
-//    var cellWidth: CGFont
-
     
-    func svgTagsString () -> String
-    {
+    func svgTagsString() -> String {
         var string = ""
-        for aTag in svg.tags
-        {
+        for aTag in svg.tags {
             string += "#\(aTag) "
         }
         
-        return String (string.dropLast())
+        return String(string.dropLast())
     }
     
-    
-    var body: some View
-    {
-       
-            
-            VStack
-            {
-                
-
-                
-                
-//                Text("Detail View")
-//                    .navigationBarTitle("Detail", displayMode: .inline)
-//                    .navigationBarBackButtonHidden(true)
-//                    .navigationBarHidden(false)
-                
-                
-                //
-                ZStack
-                {
-                    RoundedRectangle(cornerRadius: 8)
-                        .foregroundColor(.white)
-                        .shadow(color: .black.opacity(0.2),
-                                radius: 4,
-                                x: 0,
-                                y: 2)
-                    
-                    VStack (alignment: .leading)
-                    {
-                        if let imageURL = Bundle.main.url(forResource: svg.fileName, withExtension: "jpg"),
-                                   let imageData = try? Data(contentsOf: imageURL),
-                           let uiImage = UIImage(data: imageData) {
-                            // Create an Image view with the loaded image
-                            Image(uiImage: uiImage)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                        }
-                        
-                        Text (svg.author)
-                            .font(.headline)
-                        
-                        
-                        HStack
-                        {
-                            Text (svgTagsString())
-                                .font(.subheadline)
-                        }
-                        
-                        StarRatingView(rating: svg.rating)
-                    }.padding()
-                }
-                //        .frame(width: 200, height: 300)
-                .padding()
-                
-                
-                
-                UserRatingView()
-                
-                Spacer ()
-                
-                
-                
-                
-                NavigationLink {
-                    EditSvgScreen(svgName: svg.fileName)
-                } label: {
-                    
-                    
-                    
-                    
-                    Text ("Edit this Art")
-                    .padding()
+    var body: some View {
+        VStack {
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(.white)
-                    .background(Color.myPrimaryColor)
-                    .cornerRadius(12)
+                    .shadow(color: .black.opacity(0.2),
+                            radius: 4,
+                            x: 0,
+                            y: 2)
+                
+                VStack(alignment: .leading) {
+                    if let imageURL = Bundle.main.url(forResource: svg.fileName, withExtension: "jpg"),
+                       let imageData = try? Data(contentsOf: imageURL),
+                       let uiImage = UIImage(data: imageData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                    
+                    Text(svg.author)
+                        .font(.headline)
+                    
+                    HStack {
+                        Text(svgTagsString())
+                            .font(.subheadline)
+                    }
+                    
+                    StarRatingView(rating: svg.rating)
+                }
+                .padding()
+            }
+            .padding()
+            
+            UserRatingView()
+            
+            Spacer()
+            
+            HStack {
+                NavigationLink(destination: EditSvgScreen(svgName: svg.fileName)) {
+                    Text("Edit this Art")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(12)
                 }
                 
-
-                
+                Button(action: {
+                    downloadImage()
+                }) {
+                    Text("Download SVG")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.green)
+                        .cornerRadius(10)
+                }
+                .padding()
             }
-            .navigationBarTitle("", displayMode: .inline)
-
-        
+        }
+        .navigationBarTitle("", displayMode: .inline)
+    }
     
+    func downloadImage() {
+        // Get the URL of the SVG file in the app bundle
+        if let svgURL = Bundle.main.url(forResource: svg.fileName, withExtension: "svg") {
+            let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(svg.fileName).appendingPathExtension("svg")
+            
+            do {
+                // Copy the file to the temp directory
+                try FileManager.default.copyItem(at: svgURL, to: tempURL)
+                
+                // Create a document interaction controller for the SVG file
+                let controller = UIDocumentInteractionController(url: tempURL)
+                controller.delegate = nil
+                
+                // Present the Share Sheet
+                controller.presentOptionsMenu(from: .zero, in: UIApplication.shared.windows.first { $0.isKeyWindow }!.rootViewController!.view, animated: true)
+            } catch {
+                print("Error saving the SVG file: \(error)")
+            }
+        }
     }
 }
-
-
-
 
 struct UserRatingView: View {
     @State private var rating: Int = 0
@@ -117,12 +107,15 @@ struct UserRatingView: View {
                 .padding()
 
             HStack {
-                ForEach(1...5, id: \.self) { index in
+                ForEach(1...5, id: \.self)
+                {
+                    index in
                     Image(systemName: index <= rating ? "star.fill" : "star")
                         .resizable()
                         .frame(width: 30, height: 30)
                         .foregroundColor(.yellow)
-                        .onTapGesture {
+                        .onTapGesture
+                    {
                             rating = index
                         }
                 }

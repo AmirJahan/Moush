@@ -77,9 +77,6 @@ struct HomeScreen: View
                         LazyVGrid (columns: columns,
                                    spacing: space)
                         {
-
-                            
-                        
                             VStack {
                                 if let img = img {
                                     Image(uiImage: img)
@@ -94,7 +91,8 @@ struct HomeScreen: View
                                 // THIS IS HARDCODED, JUST TO SHOW HOW IT COULD WORK.
                                 // get the file and display that file.
                                 // This should also display the user name and the
-                                Cloud.inst.fetchFile(fromPath: "Thumbnails/android.jpg") { (data, error) in
+                                Cloud.inst.fetchFile(fromPath: "Thumbnails/android.jpg")
+                                { (data, error) in
                                     if let error = error {
                                         print("Error downloading file: \(error)")
                                     } else if let data = data {

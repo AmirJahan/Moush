@@ -76,8 +76,19 @@ struct LoginView: View
                 
                 Button(action: {})
                 {
-                    NavigationLink(destination: SignUpView()) {
+                    NavigationLink(destination: SignUpView())
+                    {
                         Text("Sign Up")
+                            .font(.headline)
+                            .foregroundColor(.blue)
+                    }
+                    
+                }
+                Button(action: {})
+                {
+                    NavigationLink(destination: HomeScreen())
+                    {
+                        Text("Continue Without Account")
                             .font(.headline)
                             .foregroundColor(.blue)
                     }
@@ -92,7 +103,7 @@ struct LoginView: View
             .padding()
             .background(
                 NavigationLink(destination: UploadSvg().navigationBarBackButtonHidden(true), isActive: $navigateToUploadSVG) {
-                    HomeScreen()
+                    //HomeScreen()
                     //EmptyView()
                 }
             )
