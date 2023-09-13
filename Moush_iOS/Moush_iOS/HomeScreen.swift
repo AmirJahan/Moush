@@ -17,6 +17,14 @@ struct HomeScreen: View {
     @State
     var showSearchFilter = false
     
+<<<<<<< HEAD
+=======
+    @State
+    var showImportSettings = false;
+    
+    
+    
+>>>>>>> develop
     let screenWidth = UIScreen.main.bounds.size.width - 20
     
     let space: CGFloat = 8
@@ -117,6 +125,7 @@ struct HomeScreen: View {
                     
                     leading:
                         
+<<<<<<< HEAD
                         VStack(alignment: .leading) {
                             Text("Moush")
                                 .font(.custom("HelveticaNeue-Bold", size: 34))
@@ -124,6 +133,31 @@ struct HomeScreen: View {
                                 .padding(.top, 24)
                             Text("The Ultimate SVG Editor")
                                 .font(.custom("HelveticaNeue-Italic", size: 16))
+=======
+                        VStack (alignment: .leading)
+                    {
+                        Text("Moush")
+                            .font(.custom("HelveticaNeue-Bold", size: 34))
+                            .foregroundColor(.white)
+                            .padding(.top, 24)
+                        Text("The Ultimate SVG Editor")
+                            .font(.custom("HelveticaNeue-Italic", size: 16))
+                            .foregroundColor(.white.opacity(0.75))
+                            .padding(.top, 0)
+                        
+                        
+                        
+                    },
+                    trailing:
+                        VStack (alignment: .trailing)
+                    {
+                        
+                        Button(action: {
+                            self.showImportSettings.toggle()
+                        }) {
+                            Image(systemName: "archivebox.fill")
+                                .imageScale(.large)
+>>>>>>> develop
                                 .foregroundColor(.white.opacity(0.75))
                                 .padding(.top, 0)
                             
@@ -144,6 +178,11 @@ struct HomeScreen: View {
                 // This must always be at the end. This is the Filters view. Overlayed on top of others
                 if self.showSearchFilter {
                     FiltersView(searchFilter: $searchFilter, showSearchFilter: $showSearchFilter)
+                }
+                
+                if self.showImportSettings
+                {
+                    ImportView()
                 }
             }
         }

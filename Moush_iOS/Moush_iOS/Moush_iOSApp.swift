@@ -12,7 +12,10 @@ struct Moush_iOSApp: App {
     var body: some Scene {
         WindowGroup {
 //          ContentView()
-            HomeScreen ()
+            // let's open the login view first
+         //   LoginView()
+
+      HomeScreen ()
 //           TextAttrView()
         }
     }
