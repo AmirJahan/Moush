@@ -17,14 +17,9 @@ struct HomeScreen: View {
     @State
     var showSearchFilter = false
     
-<<<<<<< HEAD
-=======
     @State
     var showImportSettings = false;
     
-    
-    
->>>>>>> develop
     let screenWidth = UIScreen.main.bounds.size.width - 20
     
     let space: CGFloat = 8
@@ -37,12 +32,10 @@ struct HomeScreen: View {
     //        return (screenWidth - 20.0) / 2.0
     //    }
     
-    var columns: [GridItem] {
-        return Array(
-            repeating: .init(
-                .flexible(),
-                spacing: space),
-            count: 2)
+    var columns : [GridItem] {
+        return Array(repeating: .init(.flexible(),
+                                      spacing: space),
+                     count: 2)
     }
     
     let countries = ["🇨🇦", "🇩🇿", "🇦🇲", "🇦🇷", "🇧🇹", "🇧🇮", "🇮🇨", "🇰🇲"]
@@ -59,8 +52,10 @@ struct HomeScreen: View {
                         HStack {
                             SearchBar(text: $searchText, onSearch: performSearch)
                             
+                            // This is the settings menu.
                             Button(action: {
                                 self.showSearchFilter.toggle()
+                                performSearch();
                             }) {
                                 Image(systemName: "slider.horizontal.3")
                                     .imageScale(.large)
@@ -125,7 +120,6 @@ struct HomeScreen: View {
                     
                     leading:
                         
-<<<<<<< HEAD
                         VStack(alignment: .leading) {
                             Text("Moush")
                                 .font(.custom("HelveticaNeue-Bold", size: 34))
@@ -133,38 +127,13 @@ struct HomeScreen: View {
                                 .padding(.top, 24)
                             Text("The Ultimate SVG Editor")
                                 .font(.custom("HelveticaNeue-Italic", size: 16))
-=======
-                        VStack (alignment: .leading)
-                    {
-                        Text("Moush")
-                            .font(.custom("HelveticaNeue-Bold", size: 34))
-                            .foregroundColor(.white)
-                            .padding(.top, 24)
-                        Text("The Ultimate SVG Editor")
-                            .font(.custom("HelveticaNeue-Italic", size: 16))
-                            .foregroundColor(.white.opacity(0.75))
-                            .padding(.top, 0)
-                        
-                        
-                        
-                    },
-                    trailing:
-                        VStack (alignment: .trailing)
-                    {
-                        
-                        Button(action: {
-                            self.showImportSettings.toggle()
-                        }) {
-                            Image(systemName: "archivebox.fill")
-                                .imageScale(.large)
->>>>>>> develop
                                 .foregroundColor(.white.opacity(0.75))
                                 .padding(.top, 0)
                             
                         },
                     trailing:
                         VStack(alignment: .trailing) {
-                            
+                            // This is the one at the top.
                             Button(action: {
                                 self.showSearchFilter.toggle()
                             }) {
@@ -178,8 +147,8 @@ struct HomeScreen: View {
                 // This must always be at the end. This is the Filters view. Overlayed on top of others
                 if self.showSearchFilter {
                     FiltersView(searchFilter: $searchFilter, showSearchFilter: $showSearchFilter)
+                    
                 }
-                
                 if self.showImportSettings
                 {
                     ImportView()
@@ -198,11 +167,16 @@ struct HomeScreen: View {
             filteredSvgs = AppData.instance.tempSvgs.filter { mySvg in
                 let lowercaseSearchText = searchText.lowercased()
                 return mySvg.fileName.lowercased().contains(lowercaseSearchText) ||
-                       mySvg.author.lowercased().contains(lowercaseSearchText) ||
-                       mySvg.tags.contains { tag in
-                           tag.lowercased().contains(lowercaseSearchText)
-                       }
+                mySvg.author.lowercased().contains(lowercaseSearchText) ||
+                mySvg.tags.contains { tag in
+                    tag.lowercased().contains(lowercaseSearchText)
+                }
             }
+        }
+        
+        // Sort by rating if the "Popular" filter is selected
+        if searchFilter.name == "Popular" {
+            filteredSvgs.sort { $0.rating > $1.rating }
         }
     }
 }
