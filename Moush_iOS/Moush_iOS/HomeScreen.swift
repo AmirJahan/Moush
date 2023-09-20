@@ -41,7 +41,7 @@ struct HomeScreen: View
     
     let countries = ["🇨🇦", "🇩🇿", "🇦🇲", "🇦🇷", "🇧🇹", "🇧🇮", "🇮🇨", "🇰🇲"]
     
-    
+    @State private var svgs: [MySvg] = []
     
     @State var img: UIImage?
     
@@ -101,7 +101,7 @@ struct HomeScreen: View
                                 }
                             })
  
-                            ForEach (AppData.instance.tempSvgs, id: \.self) { mySvg in
+                            ForEach (svgs, id: \.self) { mySvg in
 
                                 NavigationLink {
                                     
@@ -167,11 +167,19 @@ struct HomeScreen: View
                 }
             }
         }
-        
+        .onAppear(perform: loadSvgs)
     }
     
-    
-    
+    func loadSvgs() {
+        Cloud.inst.fetchUploadedFiles { result in
+            switch result {
+            case .success(let fetchedSvgs):
+                self.svgs = fetchedSvgs
+            case .failure(let error):
+                print("Error fetching SVGs: \(error)")
+            }
+        }
+    }
     
     func performSearch() {
         // Handle search action

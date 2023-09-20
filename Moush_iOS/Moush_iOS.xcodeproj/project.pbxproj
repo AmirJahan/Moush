@@ -122,6 +122,7 @@
 		D4B73E722A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E712A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveActivity */; };
 		D4B73E742A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveLabels in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E732A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveLabels */; };
 		D4B73E762A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B73E752A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist */; };
+		D815A5072ABBA13A00D880B6 /* Cloud+FetchSvg.swift in Sources */ = {isa = PBXBuildFile; fileRef = D815A5062ABBA13A00D880B6 /* Cloud+FetchSvg.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +232,7 @@
 		D4B73E4F2A33E76500C7F0E3 /* Cloud+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cloud+Auth.swift"; sourceTree = "<group>"; };
 		D4B73E502A33E76500C7F0E3 /* Cloud+UploadSvg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cloud+UploadSvg.swift"; sourceTree = "<group>"; };
 		D4B73E752A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
+		D815A5062ABBA13A00D880B6 /* Cloud+FetchSvg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cloud+FetchSvg.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +416,7 @@
 				D4B73E492A33E76500C7F0E3 /* Cloud.swift */,
 				D4B73E4F2A33E76500C7F0E3 /* Cloud+Auth.swift */,
 				D4B73E502A33E76500C7F0E3 /* Cloud+UploadSvg.swift */,
+				D815A5062ABBA13A00D880B6 /* Cloud+FetchSvg.swift */,
 				D4B73E4A2A33E76500C7F0E3 /* Login.swift */,
 				D4B73E4B2A33E76500C7F0E3 /* SignUp.swift */,
 				D4B73E4E2A33E76500C7F0E3 /* Uploadsvg.swift */,
@@ -584,6 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2986151A2A0D7E5200B28BAD /* UIColor+Extension.swift in Sources */,
+				D815A5072ABBA13A00D880B6 /* Cloud+FetchSvg.swift in Sources */,
 				29C0DF832A0D53700061453C /* HomeScreen.swift in Sources */,
 				29BC45612A32641600211F40 /* CanvasView.swift in Sources */,
 				298615182A0D7D5900B28BAD /* Color+Extension.swift in Sources */,

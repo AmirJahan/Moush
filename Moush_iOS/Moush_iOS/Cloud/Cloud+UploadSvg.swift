@@ -26,9 +26,14 @@ extension Cloud
         let fileRef = storageRef.child("\(uid)/\(fileId).svg")
         
         // uploading file reference to the firestore database
-        let uploadTask = fileRef.putFile(from: fileURL, metadata: nil) { metadata, error in
-            guard let _ = metadata else {
-                if let error = error {
+        let uploadTask = fileRef.putFile(from: fileURL, metadata: nil)
+        {
+            metadata, error in
+            
+            guard let _ = metadata else
+            {
+                if let error = error
+                {
                     completion(.failure(error))
                     return
                 }
@@ -42,11 +47,17 @@ extension Cloud
                 "fileName": "\(fileId).svg",
                 "filePath": "\(uid)/\(fileId).svg",
                 "authorName": Cloud.inst.myAuth.currentUser?.displayName
-            ]) { err in
-                if let err = err {
+            ])
+            {
+                err in
+                
+                if let err = err
+                {
                     print("Error adding document: \(err)")
                     completion(.failure(err))
-                } else {
+                }
+                else
+                {
                     print("Document added with ID: \(db.collection("user_files").document().documentID)")
                     completion(.success("Success"))
                 }

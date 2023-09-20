@@ -47,9 +47,12 @@ extension Cloud
                             let fileName = document.documentID
                             self.fetchFile(fromPath: "Thumbnails/\(fileName).jpg") { (data, error) in
                                 
-                                if let error = error {
+                                if let error = error
+                                {
                                     print("Error downloading file: \(error)")
-                                } else if let data = data {
+                                } else if let data = data
+                                {
+                                    print("downloaded file: \(data)")
                                     // Do something with `data`
                                 }
                             }
