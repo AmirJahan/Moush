@@ -54,13 +54,22 @@ struct HomeScreen: View {
                             
                             // This is the settings menu.
                             Button(action: {
-                                self.showSearchFilter.toggle()
-                                performSearch();
+                                if !self.showSearchFilter {
+                                    self.showSearchFilter.toggle()
+                                    performSearch()
+                                } else {
+                                    self.showSearchFilter.toggle()
+                                    performSearch()
+                                }
                             }) {
                                 Image(systemName: "slider.horizontal.3")
                                     .imageScale(.large)
                                     .foregroundColor(.blue)
                             }
+                        }
+                        .onChange(of: showSearchFilter) { newValue in
+                            performSearch()
+                            
                         }
                         
                         Spacer()
@@ -136,6 +145,7 @@ struct HomeScreen: View {
                             // This is the one at the top.
                             Button(action: {
                                 self.showSearchFilter.toggle()
+                                performSearch()
                             }) {
                                 Image(systemName: "archivebox.fill")
                                     .imageScale(.large)
@@ -143,15 +153,18 @@ struct HomeScreen: View {
                             }
                             
                         })
-                
-                // This must always be at the end. This is the Filters view. Overlayed on top of others
-                if self.showSearchFilter {
-                    FiltersView(searchFilter: $searchFilter, showSearchFilter: $showSearchFilter)
-                    
-                }
                 if self.showImportSettings
                 {
                     ImportView()
+                }
+                
+                // This must always be at the end. This is the Filters view. Overlayed on top of others
+                if self.showSearchFilter {
+                    FiltersView(
+                                        searchFilter: $searchFilter,
+                                        showSearchFilter: $showSearchFilter,
+                                        onFilterSelected: performSearch)
+                    
                 }
             }
         }
@@ -159,6 +172,7 @@ struct HomeScreen: View {
     }
     
     func performSearch() {
+        print("called")
         if searchText.isEmpty {
             // If the search text is empty, show all SVGs and reset the location
             filteredSvgs = AppData.instance.tempSvgs
@@ -233,14 +247,20 @@ struct FiltersView: View {
 
   @Binding
   var showSearchFilter: Bool
+    
+var onFilterSelected: () -> Void
 
   var body: some View {
     VStack {
       HStack {
         Spacer()
-        FilterPopOverView(
-          searchFilter: $searchFilter,
-          showSearchFilter: $showSearchFilter
+          FilterPopOverView(
+                searchFilter: $searchFilter,
+                showSearchFilter: $showSearchFilter,
+                onFilterSelected: {
+                    onFilterSelected()
+                    print("Filter tapped")
+                }
         )
         .padding()
         .background(
