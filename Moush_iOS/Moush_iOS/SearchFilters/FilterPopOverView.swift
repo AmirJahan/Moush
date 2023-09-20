@@ -15,6 +15,9 @@ struct FilterPopOverView : View
                                imageName: "star.circle.fill")
     var myFiles = SearchFilter(name: "My Files",
                                imageName: "doc.circle.fill")
+    
+    var defaultSort = SearchFilter(name: "Default",
+                                   imageName: "")
 
     var body : some View
     {
@@ -24,6 +27,11 @@ struct FilterPopOverView : View
                          showSearchFilter: $showSearchFilter,
                          filter: recent,
                          onFilterSelected: {})
+            .onTapGesture {
+                searchFilter = recent
+                withAnimation { showSearchFilter.toggle() }
+                onFilterSelected()
+            }
             Divider()
             
             FilterButton(searchFilter: $searchFilter,
@@ -41,6 +49,11 @@ struct FilterPopOverView : View
                          showSearchFilter: $showSearchFilter,
                          filter: myFiles,
                          onFilterSelected: {})
+            .onTapGesture {
+                searchFilter = myFiles
+                withAnimation { showSearchFilter.toggle() }
+                onFilterSelected()
+            }
         }
         .frame(width: 120)
         .padding(6)

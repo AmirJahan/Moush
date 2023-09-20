@@ -66,6 +66,10 @@ struct ArtDisplayScreen: View
                         }
                         
                         StarRatingView(rating: svg.rating)
+                        Text("Uploaded on: \(formattedUploadDate())")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.top, 8)
                     }.padding()
                 }
                 //        .frame(width: 200, height: 300)
@@ -102,6 +106,13 @@ struct ArtDisplayScreen: View
         
     
     }
+    
+    // A helper method to format the upload date nicely
+        func formattedUploadDate() -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd, yyyy" // You can customize the date format as needed
+            return dateFormatter.string(from: svg.uploadDate)
+        }
 }
 
 
@@ -143,6 +154,7 @@ struct UserRatingView: View {
             .padding()
         }
     }
+    
 
     func saveRating() {
         // Perform save rating logic here

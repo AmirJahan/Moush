@@ -6,6 +6,8 @@ struct HomeScreen: View {
         setupNavBar()
     }
     
+    let userName = "Jane Smith";
+    
     @State
     var searchFilter: SearchFilter = AppData.instance.searchFilter
     
@@ -54,17 +56,12 @@ struct HomeScreen: View {
                             
                             // This is the settings menu.
                             Button(action: {
-                                if !self.showSearchFilter {
-                                    self.showSearchFilter.toggle()
-                                    performSearch()
-                                } else {
-                                    self.showSearchFilter.toggle()
-                                    performSearch()
-                                }
-                            }) {
-                                Image(systemName: "slider.horizontal.3")
-                                    .imageScale(.large)
-                                    .foregroundColor(.blue)
+                                                           self.showSearchFilter.toggle()
+                                                           // performSearch();
+                                                       }) {
+                                                           Image(systemName: "slider.horizontal.3")
+                                                               .imageScale(.large)
+                                                               .foregroundColor(.blue)
                             }
                         }
                         .onChange(of: showSearchFilter) { newValue in
@@ -190,8 +187,24 @@ struct HomeScreen: View {
         
         // Sort by rating if the "Popular" filter is selected
         if searchFilter.name == "Popular" {
-            filteredSvgs.sort { $0.rating > $1.rating }
-        }
+               filteredSvgs.sort { $0.rating > $1.rating }
+           } else if searchFilter.name == "Recent" {
+               filteredSvgs.sort { $0.uploadDate > $1.uploadDate }
+           } else if searchFilter.name == "My Files" {
+               // Replace "YourUserName" with the actual user name
+               filteredSvgs = filteredSvgs.filter { $0.author == userName }
+           } else if searchFilter.name == "Default" {
+               filteredSvgs = AppData.instance.tempSvgs.filter { mySvg in
+                   let lowercaseSearchText = searchText.lowercased()
+                   return mySvg.fileName.lowercased().contains(lowercaseSearchText) ||
+                   mySvg.author.lowercased().contains(lowercaseSearchText) ||
+                   mySvg.tags.contains { tag in
+                       tag.lowercased().contains(lowercaseSearchText)
+                   }
+               }
+           }
+    
+        print(searchFilter.name)
     }
 }
 
