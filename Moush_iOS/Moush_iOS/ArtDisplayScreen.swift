@@ -1,8 +1,10 @@
 import SwiftUI
-import UIKit
+import FirebaseStorage
 
 struct ArtDisplayScreen: View {
     var svg: MySvg
+    
+    @State private var uiImage: UIImage?
     
     func svgTagsString() -> String {
         var string = ""
@@ -24,10 +26,8 @@ struct ArtDisplayScreen: View {
                             y: 2)
                 
                 VStack(alignment: .leading) {
-                    if let imageURL = Bundle.main.url(forResource: svg.fileName, withExtension: "jpg"),
-                       let imageData = try? Data(contentsOf: imageURL),
-                       let uiImage = UIImage(data: imageData) {
-                        Image(uiImage: uiImage)
+                    if let image = uiImage {
+                        Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                     }
@@ -73,29 +73,35 @@ struct ArtDisplayScreen: View {
             }
         }
         .navigationBarTitle("", displayMode: .inline)
+        .onAppear(perform: loadSVGFromCloud)
     }
     
     func downloadImage() {
-        // Get the URL of the SVG file in the app bundle
-        if let svgURL = Bundle.main.url(forResource: svg.fileName, withExtension: "svg") {
-            let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(svg.fileName).appendingPathExtension("svg")
-            
-            do {
-                // Copy the file to the temp directory
-                try FileManager.default.copyItem(at: svgURL, to: tempURL)
-                
-                // Create a document interaction controller for the SVG file
-                let controller = UIDocumentInteractionController(url: tempURL)
-                controller.delegate = nil
-                
-                // Present the Share Sheet
-                controller.presentOptionsMenu(from: .zero, in: UIApplication.shared.windows.first { $0.isKeyWindow }!.rootViewController!.view, animated: true)
-            } catch {
-                print("Error saving the SVG file: \(error)")
+        if let validPath = svg.filePath {
+            Cloud.inst.fetchFile(fromPath: validPath) { (data, error) in
+                if let error = error {
+                    print("Error downloading SVG file: \(error)")
+                } else if let data = data {
+                    // We will do evil things with this data
+                }
+            }
+        } else {
+            print("Invalid filePath in svg object")
+        }
+    }
+
+    
+    func loadSVGFromCloud() {
+        Cloud.inst.fetchFile(fromPath: "\(svg.filePath)") { (data, error) in
+            if let error = error {
+                print("Error downloading image from cloud: \(error)")
+            } else if let data = data, let image = UIImage(data: data) {
+                self.uiImage = image
             }
         }
     }
 }
+
 
 struct UserRatingView: View {
     @State private var rating: Int = 0

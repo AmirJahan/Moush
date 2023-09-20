@@ -9,13 +9,10 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-extension Cloud
-{
-    func fetchUploadedFiles(completion: @escaping (Result<[MySvg], Error>) -> Void)
-    {
+extension Cloud {
+    func fetchUploadedFiles(completion: @escaping (Result<[MySvg], Error>) -> Void) {
         
-        guard let uid = Cloud.inst.myAuth.currentUser?.uid else
-        {
+        guard let uid = Cloud.inst.myAuth.currentUser?.uid else {
             completion(.failure(NSError(domain: "CloudError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "User not authenticated"])))
             return
         }
@@ -40,30 +37,22 @@ extension Cloud
             print("Fetched \(documents.count) documents for user \(uid)")
             
             // Transforming the documents into the MySvg struct
-            let svgs: [MySvg] = documents.compactMap
-            {
+            let svgs: [MySvg] = documents.compactMap {
                 document in
                 
                 let data = document.data()
                 
-                print("data = document.data() succeeded")
-                
                 guard let fileName = data["fileName"] as? String,
-                      let authorName = data["authorName"] as? String else
-                {
+                      let authorName = data["authorName"] as? String,
+                      let filePath = data["filePath"] as? String else {  // Ensure we fetch the filePath
                     return nil
                 }
                 
                 let thumbName = fileName
+                print("Data fetch for fileName: \(fileName), thumbName: \(thumbName), author: \(authorName), filePath: \(filePath) succeeded")
                 
-                print("fileName and authorName fetch succeeded")
-                
-                print("fileName: \(fileName), thumbName: \(thumbName), author: \(authorName)")
-                
-                return MySvg(fileName: fileName, thumbName: thumbName, author: authorName, tags: [], rating: 0.0)
+                return MySvg(fileName: fileName, thumbName: thumbName, author: authorName, tags: [], rating: 0.0, filePath: filePath)
             }
-            
-            print("completion succeeded")
             
             completion(.success(svgs))
         }

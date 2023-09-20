@@ -49,6 +49,6 @@ struct EditCanvasView: View
 
 struct EditCanvasView_Previews: PreviewProvider {
     static var previews: some View {
-        EditCanvasView(vm: ViewModel(resourceName: "sample_01"))
+        EditCanvasView(vm: ViewModel(svgName: "sample_01"))
     }
 }

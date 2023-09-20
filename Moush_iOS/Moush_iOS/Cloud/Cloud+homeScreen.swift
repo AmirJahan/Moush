@@ -66,6 +66,7 @@ extension Cloud
 
     // fetch all the stored files form the database from the storage
     func fetchFile(fromPath path: String, completion: @escaping (Data?, Error?) -> Void) {
+        print("Fetching from Firebase Storage path: \(path)")
         let storageRef = Storage.storage().reference()
         let fileRef = storageRef.child(path)
 

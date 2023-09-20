@@ -1,18 +1,16 @@
 import SwiftUI
 
 
-
-struct EditSvgScreen: View
-{
+struct EditSvgScreen: View {
     var svgName: String
 
-        @StateObject
-        var vm: ViewModel
-        
-        init(svgName: String) {
-            self.svgName = svgName
-            _vm = StateObject(wrappedValue: ViewModel(resourceName: svgName))
-        }
+    @StateObject
+    var vm: ViewModel
+    
+    init(svgName: String) {
+        self.svgName = svgName
+        _vm = StateObject(wrappedValue: ViewModel(svgName: svgName))
+    }
     
     
     var body: some View
