@@ -15,9 +15,12 @@ struct ArtDisplayScreen: View {
         return String(string.dropLast())
     }
     
-    var body: some View {
-        VStack {
-            ZStack {
+    var body: some View
+    {
+        VStack
+        {
+            ZStack
+            {
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(.white)
                     .shadow(color: .black.opacity(0.2),
@@ -25,8 +28,10 @@ struct ArtDisplayScreen: View {
                             x: 0,
                             y: 2)
                 
-                VStack(alignment: .leading) {
-                    if let image = uiImage {
+                VStack(alignment: .leading)
+                {
+                    if let image = uiImage
+                    {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -35,7 +40,8 @@ struct ArtDisplayScreen: View {
                     Text(svg.author)
                         .font(.headline)
                     
-                    HStack {
+                    HStack
+                    {
                         Text(svgTagsString())
                             .font(.subheadline)
                     }
@@ -51,7 +57,8 @@ struct ArtDisplayScreen: View {
             Spacer()
             
             HStack {
-                NavigationLink(destination: EditSvgScreen(svgName: svg.filePath!)) {
+                NavigationLink(destination: EditSvgScreen(svgName: svg.filePath!))
+                {
                     Text("Edit this Art")
                         .padding()
                         .foregroundColor(.white)
@@ -61,7 +68,8 @@ struct ArtDisplayScreen: View {
                 
                 Button(action: {
                     downloadImage()
-                }) {
+                })
+                {
                     Text("Download SVG")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -76,12 +84,19 @@ struct ArtDisplayScreen: View {
         .onAppear(perform: loadSVGFromCloud)
     }
     
-    func downloadImage() {
-        if let validPath = svg.filePath {
-            Cloud.inst.fetchFile(fromPath: validPath) { (data, error) in
-                if let error = error {
+    func downloadImage()
+    {
+        if let validPath = svg.filePath
+        {
+            Cloud.inst.fetchFile(fromPath: validPath)
+            {
+                (data, error) in
+                
+                if let error = error
+                {
                     print("Error downloading SVG file: \(error)")
-                } else if let data = data {
+                }
+                else if let data = data {
                     // We will do evil things with this data
                 }
             }
