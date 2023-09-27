@@ -56,7 +56,7 @@ extension Cloud
                         for document in querySnapshot!.documents
                         {
                             let fileName = document.documentID
-                            self.fetchFile(fromPath: "Thumbnails/\(fileName).jpg") { (data, error) in
+                            self.fetchImage(fromPath: "Thumbnails/\(fileName).jpg") { (data, error) in
                                 
                                 if let error = error
                                 {
@@ -77,7 +77,7 @@ extension Cloud
     }
     
     // fetch all the stored files form the database from the storage
-    func fetchFile(fromPath path: String, completion: @escaping (Data?, Error?) -> Void)
+    func fetchImage(fromPath path: String, completion: @escaping (Data?, Error?) -> Void)
     {
         let storageRef = Storage.storage().reference()
         let fileRef = storageRef.child(path)
@@ -119,14 +119,14 @@ extension Cloud
             else
             {
                 completion(data, nil)
-                if let data = data {
+                //if let data = data {
                     // here, we ave the SVG as data
                     // how do we convert it
                     
-                    let str = String (data: data, encoding: String.Encoding.utf8)
-                    
-                    dump (str)
-                }
+                    // Code for debugging
+                    // let str = String (data: data, encoding: String.Encoding.utf8)
+                    // dump (str)
+                //}
             }
         }
     }

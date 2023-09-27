@@ -10,7 +10,6 @@ import Firebase
 
 extension Cloud
 {
-    
     // signUp function checks if the user exists, and creates a new user
     func signUp(
         email: String,
@@ -22,7 +21,7 @@ extension Cloud
         
         // go into the database and create the user
         myAuth.createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error
+            if let _ = error
             {
                 completion(.failure(.signUpError))
                 return
@@ -47,7 +46,7 @@ extension Cloud
             {
                 error, _ in
                 
-                if let error = error
+                if let _ = error
                 {
                     completion(.failure(.signUpError))
                 }
@@ -70,7 +69,7 @@ extension Cloud
     {
         // login to the app
         myAuth.signIn(withEmail: email, password: password){ result, error in
-            if let error = error
+            if let _ = error
             {
                 completion(.failure(.loginError))
             }

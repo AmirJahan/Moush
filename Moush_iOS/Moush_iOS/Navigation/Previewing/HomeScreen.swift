@@ -91,7 +91,7 @@ struct HomeScreen: View
                                 // THIS IS HARDCODED, JUST TO SHOW HOW IT COULD WORK.
                                 // get the file and display that file.
                                 // This should also display the user name and the
-                                Cloud.inst.fetchFile(fromPath: "Thumbnails/acvarium.jpg")
+                                Cloud.inst.fetchImage(fromPath: "Thumbnails/acvarium.jpg")
                                 { (data, error) in
                                     if let error = error {
                                         print("Error downloading file: \(error)")

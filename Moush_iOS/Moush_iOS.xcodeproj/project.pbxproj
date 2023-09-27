@@ -122,6 +122,7 @@
 		D4B73E722A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E712A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveActivity */; };
 		D4B73E742A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveLabels in Frameworks */ = {isa = PBXBuildFile; productRef = D4B73E732A33EAF400C7F0E3 /* GoogleAPIClientForREST_DriveLabels */; };
 		D4B73E762A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B73E752A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist */; };
+		D85DEB0E2AC4E1F0001D20B8 /* Cloud+Downloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85DEB0D2AC4E1F0001D20B8 /* Cloud+Downloading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +232,7 @@
 		D4B73E4F2A33E76500C7F0E3 /* Cloud+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cloud+Auth.swift"; sourceTree = "<group>"; };
 		D4B73E502A33E76500C7F0E3 /* Cloud+UploadSvg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cloud+UploadSvg.swift"; sourceTree = "<group>"; };
 		D4B73E752A33EB6A00C7F0E3 /* client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_133653199403-f0gjm2c7f56vpasvfg00gut74sbs6174.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
+		D85DEB0D2AC4E1F0001D20B8 /* Cloud+Downloading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cloud+Downloading.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +404,7 @@
 				D4B73E4F2A33E76500C7F0E3 /* Cloud+Auth.swift */,
 				D4B73E502A33E76500C7F0E3 /* Cloud+UploadSvg.swift */,
 				D429B3222A43899800FAF0AD /* Cloud+FetchData.swift */,
+				D85DEB0D2AC4E1F0001D20B8 /* Cloud+Downloading.swift */,
 			);
 			path = Cloud;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				D4B73E552A33E76500C7F0E3 /* SignUpScreen.swift in Sources */,
 				D4B73E532A33E76500C7F0E3 /* Cloud.swift in Sources */,
 				D4B73E592A33E76500C7F0E3 /* Cloud+Auth.swift in Sources */,
+				D85DEB0E2AC4E1F0001D20B8 /* Cloud+Downloading.swift in Sources */,
 				29BC45602A32641600211F40 /* ViewModel.swift in Sources */,
 				29D2236D2A0DAABA000FF09E /* SearchFilters.swift in Sources */,
 				D4B73E542A33E76500C7F0E3 /* LoginScreen.swift in Sources */,

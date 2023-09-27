@@ -88,7 +88,7 @@ struct ArtDisplayScreen: View {
     {
         if let validPath = svg.filePath
         {
-            Cloud.inst.fetchFile(fromPath: validPath)
+            Cloud.inst.fetchSvg(fromPath: validPath)
             {
                 (data, error) in
                 
@@ -97,7 +97,7 @@ struct ArtDisplayScreen: View {
                     print("Error downloading SVG file: \(error)")
                 }
                 else if let data = data {
-                    // We will do evil things with this data
+                    Cloud.inst.saveImage(data: data, fileName: "\(svg.fileName).svg")
                 }
             }
         } else {
