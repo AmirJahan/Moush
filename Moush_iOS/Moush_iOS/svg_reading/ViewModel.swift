@@ -50,8 +50,11 @@ class ViewModel: ObservableObject {
     }
     
     func fetchSVGFromCloud(svgFileName: String) {
-        Cloud.inst.fetchFile(fromPath: "\(svgFileName)") { (data, error) in
-            if let error = error {
+        
+        Cloud.inst.fetchSvg(fromPath:svgFileName) { data, err in
+      
+            
+            if let error = err {
                 print("Error downloading SVG file: \(error)")
             } else if let data = data, let svgString = String(data: data, encoding: .utf8) {
                 self.parseSVG(svgString: svgString)

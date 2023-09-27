@@ -9,7 +9,10 @@ struct EditCanvasView: View
     {
         ZStack
         {
-            ForEach(vm.paths.indices, id: \.self) { index in
+            ForEach(vm.paths.indices, id: \.self)
+            {
+                index in
+                
                 let thisPath = vm.paths[index]
                 
                 Group
@@ -17,20 +20,23 @@ struct EditCanvasView: View
                     if thisPath.visible
                     {
                         if let f = thisPath.fill,
-                           let path = thisPath.path {
+                           let path = thisPath.path
+                        {
                             path.fill(f)
                         }
                         
                         if let s = thisPath.stroke,
                            let sw = thisPath.strokeWidth,
-                           let path = thisPath.path {
+                           let path = thisPath.path
+                        {
                             path.stroke(s, lineWidth: CGFloat(sw))
                         }
                         
                         //show the select dashed box around the path
                         if thisPath.selected
                         {
-                            if let boundingBox = thisPath.boundingBox {
+                            if let boundingBox = thisPath.boundingBox
+                            {
                                 boundingBox
                                     .stroke(style: StrokeStyle(lineWidth: 2, dash: [5]))
                                     .foregroundColor(.red)
@@ -39,7 +45,8 @@ struct EditCanvasView: View
                         
                     }
                 }
-                .onTapGesture {
+                .onTapGesture
+                {
                     vm.toggleSelectedPathIndex(index)
                 }
             }

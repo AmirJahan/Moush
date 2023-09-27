@@ -22,7 +22,8 @@ extension Cloud
         
         // go into the database and create the user
         myAuth.createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
+            if let error = error
+            {
                 completion(.failure(.signUpError))
                 return
             }
@@ -42,13 +43,21 @@ extension Cloud
             ]
             
             // create e displayName to make a author for the svgs
-            userRef.setValue(userInfo) { error, _ in
-                if let error = error {
+            userRef.setValue(userInfo)
+            {
+                error, _ in
+                
+                if let error = error
+                {
                     completion(.failure(.signUpError))
-                } else {
+                }
+                else
+                {
                     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                     changeRequest?.displayName = "Your Username"
-                    changeRequest?.commitChanges { (error) in
+                    changeRequest?.commitChanges
+                    {
+                        (error) in
                         // handle error
                     }
                     completion(.success(authResult!))

@@ -13,27 +13,38 @@ import Firebase
 extension Cloud
 {
     // fetch all IDs from the realtime database
-    func fetchAllIds(completion: @escaping () -> Void) {
-            ref.child("users").observeSingleEvent(of: .value) { (snapshot) in
-                guard let value = snapshot.value as? NSDictionary,
-                      let userIds = value.allKeys as? [String] else {
+    func fetchAllIds(completion: @escaping () -> Void)
+    {
+        ref.child("users").observeSingleEvent(of: .value)
+        {
+            (snapshot) in
+            
+            guard let value = snapshot.value as? NSDictionary,
+                  let userIds = value.allKeys as? [String] else
+            {
                     print("Error retrieving user IDs.")
                     return
-                }
+            }
+            
                 self.userIds = userIds
                 completion()
-            }
         }
+    }
 
     // fetch the documents from the firestore
-    func fetchFirestoreData() {
-        fetchAllIds {
+    func fetchFirestoreData()
+    {
+        fetchAllIds
+        {
             let db = Firestore.firestore()
 
             for userId in self.userIds
             {
                 // go to the database and get all of the docs
-                db.collection(userId).getDocuments { (querySnapshot, err) in
+                db.collection(userId).getDocuments
+                {
+                    (querySnapshot, err) in
+                    
                     if let err = err
                     {
                         print("Error getting documents: \(err)")
@@ -50,7 +61,8 @@ extension Cloud
                                 if let error = error
                                 {
                                     print("Error downloading file: \(error)")
-                                } else if let data = data
+                                }
+                                else if let data = data
                                 {
                                     print("downloaded file: \(data)")
                                     // Do something with `data`
@@ -65,20 +77,55 @@ extension Cloud
     }
 
     // fetch all the stored files form the database from the storage
-    func fetchFile(fromPath path: String, completion: @escaping (Data?, Error?) -> Void) {
-        print("Fetching from Firebase Storage path: \(path)")
+    func fetchFile(fromPath path: String, completion: @escaping (Data?, Error?) -> Void)
+    {
         let storageRef = Storage.storage().reference()
         let fileRef = storageRef.child(path)
+//
+        print("Fetching from Firebase Storage path: \(fileRef)")
 
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if let error = error {
+        fileRef.getData(maxSize: 100 * 1024 * 1024) { data, error in
+            if let error = error
+            {
                 completion(nil, error)
             } else {
                 completion(data, nil)
                 if let data = data {
                     self.imageArray.append(UIImage(data: data)!)
                     print(self.imageArray.count)
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    // fetch all the stored files form the database from the storage
+    func fetchSvg(fromPath path: String, completion: @escaping (Data?, Error?) -> Void)
+    {
+        let storageRef = Storage.storage().reference()
+        let fileRef = storageRef.child(path)
+//
+        print("Fetching from Firebase Storage path: \(fileRef)")
+
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        fileRef.getData(maxSize: 100 * 1024 * 1024) { data, error in
+            if let error = error
+            {
+                completion(nil, error)
+            }
+            else
+            {
+                completion(data, nil)
+                if let data = data {
+                   // here, we ave the SVG as data
+                    // how do we convert it
+                    
+                    let str = String (data: data, encoding: String.Encoding.utf8)
+                    
+                    dump (str)
                 }
             }
         }

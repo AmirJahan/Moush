@@ -12,8 +12,8 @@ import Firebase
 
 extension Cloud
 {
-    func uploadFile(fileURL: URL, completion: @escaping (Result<String, Error>) -> Void) {
-        
+    func uploadFile(fileURL: URL, completion: @escaping (Result<String, Error>) -> Void)
+    {
         // Storing file in firebase storage
         let storage = Storage.storage()
         let storageRef = storage.reference()

@@ -51,7 +51,7 @@ struct ArtDisplayScreen: View {
             Spacer()
             
             HStack {
-                NavigationLink(destination: EditSvgScreen(svgName: svg.fileName)) {
+                NavigationLink(destination: EditSvgScreen(svgName: svg.filePath!)) {
                     Text("Edit this Art")
                         .padding()
                         .foregroundColor(.white)
@@ -92,12 +92,20 @@ struct ArtDisplayScreen: View {
 
     
     func loadSVGFromCloud() {
-        Cloud.inst.fetchFile(fromPath: "\(svg.filePath)") { (data, error) in
-            if let error = error {
-                print("Error downloading image from cloud: \(error)")
-            } else if let data = data, let image = UIImage(data: data) {
-                self.uiImage = image
+        
+        if let path = svg.filePath {
+            
+            Cloud.inst.fetchSvg(fromPath: path) { (data, error) in
+                if let error = error {
+                    print("Error downloading image from cloud: \(error)")
+                } else if let data = data, let image = UIImage(data: data) {
+                    self.uiImage = image
+                }
             }
+        }
+        else
+        {
+            print ("failed to prouce path")
         }
     }
 }

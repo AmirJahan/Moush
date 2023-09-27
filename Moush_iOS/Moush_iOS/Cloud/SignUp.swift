@@ -12,14 +12,18 @@ struct SignUpView: View {
     @State private var navigateToHomeScreen : Bool = false
     
     
-    var body: some View {
-        NavigationView{
-            VStack {
+    var body: some View
+    {
+        NavigationView
+        {
+            VStack
+            {
                 Text("Sign Up")
                     .font(.largeTitle)
                     .padding(.bottom, 40)
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading)
+                {
                     Text("Name")
                         .font(.headline)
                     TextField("Name", text: $name)
@@ -90,8 +94,10 @@ struct SignUpView: View {
 
 
 
-struct SignUpView_Previews: PreviewProvider {
-    static var previews: some View {
+struct SignUpView_Previews: PreviewProvider
+{
+    static var previews: some View
+    {
         SignUpView()
     }
 }
