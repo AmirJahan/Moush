@@ -9,12 +9,14 @@ import SwiftUI
 
 extension View
 {
-    func embedInNavigationView() -> some View {
+    func embedInNavigationView() -> some View
+    {
         NavigationView { self }
     }
     
     
-    func embedInScrollView () -> some View {
+    func embedInScrollView () -> some View
+    {
         ScrollView { self }
     }
 }

@@ -57,7 +57,7 @@ struct LoginView: View
                     Cloud.inst.login(email: email, password: password) { res in
                         switch res
                         {
-                        case .success(let authResult):
+                        case .success(_):
                             success = "success"
                             navigateToUploadSVG = true
                             

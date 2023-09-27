@@ -12,7 +12,7 @@ import Firebase
 
 extension Cloud
 {
-    // fetch all the stored files form the database from the storage
+    // Fetch raster image (usually jpg) from the Cloud
     func fetchImage(fromPath path: String, completion: @escaping (Data?, Error?) -> Void)
     {
         let storageRef = Storage.storage().reference()
@@ -39,9 +39,7 @@ extension Cloud
     }
     
     
-    
-    
-    // fetch all the stored files form the database from the storage
+    // Fetch SVG from the Cloud
     func fetchSvg(fromPath path: String, completion: @escaping (Data?, Error?) -> Void)
     {
         let storageRef = Storage.storage().reference()//
@@ -62,9 +60,8 @@ extension Cloud
         }
     }
     
-    func fetchUploadedFiles(completion: @escaping (Result<[MySvg], Error>) -> Void)
+    func fetchPosts(completion: @escaping (Result<[MySvg], Error>) -> Void)
     {
-        
         guard let uid = Cloud.inst.myAuth.currentUser?.uid else//
         {
             completion(.failure(NSError(domain: "CloudError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "User not authenticated"])))
@@ -75,7 +72,7 @@ extension Cloud
         let db = Firestore.firestore()
         
         // Fetching the documents from the user's collection
-        db.collection("\(uid)").getDocuments
+        db.collection(uid).getDocuments
         {
             (snapshot, error) in
             

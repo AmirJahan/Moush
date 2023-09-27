@@ -171,7 +171,7 @@ struct HomeScreen: View
     }
     
     func loadSvgs() {
-        Cloud.inst.fetchUploadedFiles { result in
+        Cloud.inst.fetchPosts { result in
             switch result {
             case .success(let fetchedSvgs):
                 self.svgs = fetchedSvgs

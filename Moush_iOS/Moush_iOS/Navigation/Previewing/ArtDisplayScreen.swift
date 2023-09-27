@@ -110,10 +110,16 @@ struct ArtDisplayScreen: View {
         
         if let path = svg.filePath {
             
-            Cloud.inst.fetchSvg(fromPath: path) { (data, error) in
-                if let error = error {
+            Cloud.inst.fetchSvg(fromPath: path)
+            {
+                (data, error) in
+                
+                if let error = error
+                {
                     print("Error downloading image from cloud: \(error)")
-                } else if let data = data, let image = UIImage(data: data) {
+                }
+                else if let data = data, let image = UIImage(data: data)
+                {
                     self.uiImage = image
                 }
             }
@@ -126,16 +132,20 @@ struct ArtDisplayScreen: View {
 }
 
 
-struct UserRatingView: View {
+struct UserRatingView: View
+{
     @State private var rating: Int = 0
 
-    var body: some View {
-        VStack {
+    var body: some View
+    {
+        VStack
+        {
             Text("Rate this Art")
                 .font(.title)
                 .padding()
 
-            HStack {
+            HStack
+            {
                 ForEach(1...5, id: \.self)
                 {
                     index in
@@ -146,7 +156,7 @@ struct UserRatingView: View {
                         .onTapGesture
                     {
                             rating = index
-                        }
+                    }
                 }
             }
             .padding()
@@ -166,15 +176,19 @@ struct UserRatingView: View {
         }
     }
 
-    func saveRating() {
+    // TODO !!! -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    func saveRating()
+    {
         // Perform save rating logic here
         print("Rating saved: \(rating)")
     }
 }
 
 
-struct SvgDisplayScreen_Previews: PreviewProvider {
-    static var previews: some View {
+struct SvgDisplayScreen_Previews: PreviewProvider
+{
+    static var previews: some View
+    {
         ArtDisplayScreen(svg: AppData.instance.tempSvgs.randomElement()!)
     }
 }

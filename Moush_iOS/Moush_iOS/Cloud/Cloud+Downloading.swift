@@ -17,14 +17,16 @@ extension Cloud {
         if let documentsDirectory = documentsDirectory
         {
             let filePath = documentsDirectory.appendingPathComponent(fileName)
+            // Make sure our document directory and our file path are valid
+            
             do
             {
+                // Using file popup menu,
                 try data.write(to: filePath)
-                
                 let documentPicker = UIDocumentPickerViewController(url: filePath, in: .exportToService)
                 documentPicker.allowsMultipleSelection = false
                 UIApplication.shared.windows.first?.rootViewController?.present(documentPicker, animated: true, completion: nil)
-                // ignore these warnings 😅😅😅
+                // ignore these warnings 😅😅😅 If this isn't working later you're going to have to do file saving popup in a separate view
                 
                 print("File saved at \(filePath)")
             }

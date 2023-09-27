@@ -68,7 +68,7 @@ struct SignUpView: View {
                     Cloud.inst.signUp(email: email, name: name, password: password, bday: birthdate){ res in
                         switch res
                         {
-                        case .success(let authResult):
+                        case .success(_):
                             success = "success"
                         case .failure(_):
                             success = "Failed"

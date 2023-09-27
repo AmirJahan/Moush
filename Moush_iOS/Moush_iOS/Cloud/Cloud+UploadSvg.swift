@@ -26,7 +26,8 @@ extension Cloud
         let fileRef = storageRef.child("\(uid)/\(fileId).svg")
         
         // uploading file reference to the firestore database
-        let uploadTask = fileRef.putFile(from: fileURL, metadata: nil)
+        _ = fileRef.putFile(from: fileURL, metadata: nil)
+        // FileRef is also available to save but we are not using it atm
         {
             metadata, error in
             
