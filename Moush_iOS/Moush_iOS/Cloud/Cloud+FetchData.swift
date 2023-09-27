@@ -12,98 +12,8 @@ import Firebase
 
 extension Cloud
 {
-    // fetch all IDs from the realtime database
-    func fetchAllIds(completion: @escaping () -> Void)
-    {
-        ref.child("users").observeSingleEvent(of: .value)
-        {
-            (snapshot) in
-            
-            guard let value = snapshot.value as? NSDictionary,
-                  let userIds = value.allKeys as? [String] else
-            {
-                print("Error retrieving user IDs.")
-                return
-            }
-            
-            self.userIds = userIds
-            completion()
-        }
-    }
-    
-    // fetch the documents from the firestore
-    func fetchFirestoreData()
-    {
-        fetchAllIds
-        {
-            let db = Firestore.firestore()
-            
-            for userId in self.userIds
-            {
-                // go to the database and get all of the docs
-                db.collection(userId).getDocuments
-                {
-                    (querySnapshot, err) in
-                    
-                    if let err = err
-                    {
-                        print("Error getting documents: \(err)")
-                    }
-                    else
-                    {
-                        // for all documents received go through all of them and display them or store them, CAVEATS: Still have not finished working on this.
-                        // maybe store them in a array
-                        for document in querySnapshot!.documents
-                        {
-                            let fileName = document.documentID
-                            self.fetchImage(fromPath: "Thumbnails/\(fileName).jpg") { (data, error) in
-                                
-                                if let error = error
-                                {
-                                    print("Error downloading file: \(error)")
-                                }
-                                else if let data = data
-                                {
-                                    print("downloaded file: \(data)")
-                                    // Do something with `data`
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
-    }
-    
     // fetch all the stored files form the database from the storage
     func fetchImage(fromPath path: String, completion: @escaping (Data?, Error?) -> Void)
-    {
-        let storageRef = Storage.storage().reference()
-        let fileRef = storageRef.child(path)
-        //
-        print("Fetching from Firebase Storage path: \(fileRef)")
-        
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        fileRef.getData(maxSize: 100 * 1024 * 1024) { data, error in
-            if let error = error
-            {
-                completion(nil, error)
-            } else {
-                completion(data, nil)
-                if let data = data {
-                    self.imageArray.append(UIImage(data: data)!)
-                    print(self.imageArray.count)
-                }
-            }
-        }
-    }
-    
-    
-    
-    
-    // fetch all the stored files form the database from the storage
-    func fetchSvg(fromPath path: String, completion: @escaping (Data?, Error?) -> Void)
     {
         let storageRef = Storage.storage().reference()
         let fileRef = storageRef.child(path)
@@ -119,14 +29,35 @@ extension Cloud
             else
             {
                 completion(data, nil)
-                //if let data = data {
-                    // here, we ave the SVG as data
-                    // how do we convert it
-                    
-                    // Code for debugging
-                    // let str = String (data: data, encoding: String.Encoding.utf8)
-                    // dump (str)
-                //}
+                if let data = data
+                {
+                    self.imageArray.append(UIImage(data: data)!)
+                    print(self.imageArray.count)
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    // fetch all the stored files form the database from the storage
+    func fetchSvg(fromPath path: String, completion: @escaping (Data?, Error?) -> Void)
+    {
+        let storageRef = Storage.storage().reference()//
+        let fileRef = storageRef.child(path)
+        //
+        print("Fetching from Firebase Storage path: \(fileRef)")
+        
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        fileRef.getData(maxSize: 100 * 1024 * 1024) { data, error in
+            if let error = error
+            {
+                completion(nil, error)
+            }
+            else
+            {
+                completion(data, nil)
             }
         }
     }
@@ -134,7 +65,7 @@ extension Cloud
     func fetchUploadedFiles(completion: @escaping (Result<[MySvg], Error>) -> Void)
     {
         
-        guard let uid = Cloud.inst.myAuth.currentUser?.uid else
+        guard let uid = Cloud.inst.myAuth.currentUser?.uid else//
         {
             completion(.failure(NSError(domain: "CloudError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "User not authenticated"])))
             return
