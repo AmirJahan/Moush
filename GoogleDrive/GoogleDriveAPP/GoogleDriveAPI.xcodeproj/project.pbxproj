@@ -16,6 +16,9 @@
 		A9C246ED2AB259000063C76A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C246EC2AB259000063C76A /* Assets.xcassets */; };
 		A9C246F02AB259000063C76A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C246EF2AB259000063C76A /* Preview Assets.xcassets */; };
 		A9C246F82AB25D040063C76A /* GoogleDriveTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C246F72AB25D040063C76A /* GoogleDriveTest.swift */; };
+		A9D74EF52AC4DC4D0058BC02 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A9D74EF42AC4DC4D0058BC02 /* GoogleSignIn */; };
+		A9D74EF72AC4DC4D0058BC02 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A9D74EF62AC4DC4D0058BC02 /* GoogleSignInSwift */; };
+		A9D74EF92AC4E0530058BC02 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D74EF82AC4E0530058BC02 /* AppData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,7 @@
 		A9C246EF2AB259000063C76A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A9C246F62AB25CB30063C76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A9C246F72AB25D040063C76A /* GoogleDriveTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveTest.swift; sourceTree = "<group>"; };
+		A9D74EF82AC4E0530058BC02 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +39,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D74EF72AC4DC4D0058BC02 /* GoogleSignInSwift in Frameworks */,
 				A942815E2AB26C5700F279E4 /* GoogleAPIClientForREST_Oauth2 in Frameworks */,
+				A9D74EF52AC4DC4D0058BC02 /* GoogleSignIn in Frameworks */,
 				A94281622AB26E8100F279E4 /* GoogleAPIClientForRESTCore in Frameworks */,
 				A94281602AB26E8100F279E4 /* GoogleAPIClientForREST_ServiceUsage in Frameworks */,
 			);
@@ -92,6 +98,7 @@
 				A9C246F62AB25CB30063C76A /* Info.plist */,
 				A9C246E82AB258FE0063C76A /* GoogleDriveAPIApp.swift */,
 				A9C246EA2AB258FE0063C76A /* ContentView.swift */,
+				A9D74EF82AC4E0530058BC02 /* AppData.swift */,
 				A979B8782ABBAB6E00BAA583 /* GoogleItems */,
 				A9C246EC2AB259000063C76A /* Assets.xcassets */,
 				A9C246EE2AB259000063C76A /* Preview Content */,
@@ -127,6 +134,8 @@
 				A942815D2AB26C5700F279E4 /* GoogleAPIClientForREST_Oauth2 */,
 				A942815F2AB26E8100F279E4 /* GoogleAPIClientForREST_ServiceUsage */,
 				A94281612AB26E8100F279E4 /* GoogleAPIClientForRESTCore */,
+				A9D74EF42AC4DC4D0058BC02 /* GoogleSignIn */,
+				A9D74EF62AC4DC4D0058BC02 /* GoogleSignInSwift */,
 			);
 			productName = GoogleDriveAPI;
 			productReference = A9C246E52AB258FE0063C76A /* GoogleDriveAPI.app */;
@@ -156,6 +165,9 @@
 				Base,
 			);
 			mainGroup = A9C246DC2AB258FE0063C76A;
+			packageReferences = (
+				A9D74EF32AC4DC4D0058BC02 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			productRefGroup = A9C246E62AB258FE0063C76A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -186,6 +198,7 @@
 				A9C246EB2AB258FE0063C76A /* ContentView.swift in Sources */,
 				A9C246F82AB25D040063C76A /* GoogleDriveTest.swift in Sources */,
 				A9C246E92AB258FE0063C76A /* GoogleDriveAPIApp.swift in Sources */,
+				A9D74EF92AC4E0530058BC02 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +400,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		A9D74EF32AC4DC4D0058BC02 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		A942815D2AB26C5700F279E4 /* GoogleAPIClientForREST_Oauth2 */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -399,6 +423,16 @@
 		A94281612AB26E8100F279E4 /* GoogleAPIClientForRESTCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GoogleAPIClientForRESTCore;
+		};
+		A9D74EF42AC4DC4D0058BC02 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9D74EF32AC4DC4D0058BC02 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		A9D74EF62AC4DC4D0058BC02 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9D74EF32AC4DC4D0058BC02 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

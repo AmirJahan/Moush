@@ -1,15 +1,18 @@
-//
-//  ContentView.swift
-//  GoogleDriveAPI
-//
-//  Created by Micaella Langit on 2023-09-13.
-//
-
 import SwiftUI
+import GoogleSignIn
 
 struct ContentView: View {
     var body: some View {
         VStack (spacing: 20) {
+            
+            Button {
+                //this is where we put the functionality
+                OpenURLAction { url in
+                    GIDSignIn.sharedInstance.handle(url)
+                }
+            } label: {
+                Text("Google Drive - Login")
+            }
             Button {
                 //this is where we put the functionality
             } label: {
