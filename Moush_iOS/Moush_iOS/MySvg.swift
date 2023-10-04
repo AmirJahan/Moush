@@ -12,18 +12,19 @@ struct MySvg: Identifiable, Hashable
     var filePath: String?
     
     // The main initializer that includes all properties
-    init(fileName: String, thumbName: String, author: String, tags: [String], rating: Float, filePath: String? = nil) {
+    init(fileName: String, thumbName: String, author: String, tags: [String], rating: Float, uploadDate: Date, filePath: String? = nil) {
         self.fileName = fileName
         self.thumbName = thumbName
         self.author = author
         self.tags = tags
         self.rating = rating
+        self.uploadDate = uploadDate
         self.filePath = filePath
     }
     
     // Another initializer without filePath
-    init(fileName: String, thumbName: String, author: String, tags: [String], rating: Float)
+    init(fileName: String, thumbName: String, author: String, tags: [String], uploadDate: Date, rating: Float)
     {
-        self.init(fileName: fileName, thumbName: thumbName, author: author, tags: tags, rating: rating, filePath: nil)
+        self.init(fileName: fileName, thumbName: thumbName, author: author, tags: tags, rating: rating, uploadDate: uploadDate, filePath: nil)
     }
 }

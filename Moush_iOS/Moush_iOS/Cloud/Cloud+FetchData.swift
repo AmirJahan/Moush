@@ -101,17 +101,17 @@ extension Cloud
                 
                 guard let fileName = data["fileName"] as? String,
                       let authorName = data["authorName"] as? String,
+                      let uploadDate = data["uploadDate"] as? Date,
                       let filePath = data["filePath"] as? String else
                 {  // Ensure we fetch the filePath
                     return nil
                 }
                 
                 let thumbName = fileName
-                print("Data fetch for fileName: \(fileName), thumbName: \(thumbName), author: \(authorName), filePath: \(filePath) succeeded")
+                print("Data fetch for fileName: \(fileName), thumbName: \(thumbName), author: \(authorName), uploadDate \(uploadDate), filePath: \(filePath) succeeded")
                 
-                return MySvg(fileName: fileName, thumbName: thumbName, author: authorName, tags: [], rating: 0.0, filePath: filePath)
+                return MySvg(fileName: fileName, thumbName: thumbName, author: authorName, tags: [], rating: 0.0, uploadDate: uploadDate, filePath: filePath)
             }
-            
             completion(.success(svgs))
         }
     }

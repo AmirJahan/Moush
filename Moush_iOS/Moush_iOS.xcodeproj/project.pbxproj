@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05238E5D2ACE077E00E12F7A /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05238E5C2ACE077E00E12F7A /* ImportView.swift */; };
 		0563FBDA2AAFB4EE00C7A29B /* UndoRedoSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563FBD92AAFB4EE00C7A29B /* UndoRedoSystem.swift */; };
 		0563FBDC2AAFB51D00C7A29B /* UndoRedoClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563FBDB2AAFB51D00C7A29B /* UndoRedoClasses.swift */; };
 		1EE7300A2A0EE80000B859E1 /* ArtDisplayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE730092A0EE80000B859E1 /* ArtDisplayScreen.swift */; };
@@ -126,6 +127,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05238E5C2ACE077E00E12F7A /* ImportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImportView.swift; path = ../../../Downloads/ImportView.swift; sourceTree = "<group>"; };
 		0563FBD92AAFB4EE00C7A29B /* UndoRedoSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoRedoSystem.swift; sourceTree = "<group>"; };
 		0563FBDB2AAFB51D00C7A29B /* UndoRedoClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoRedoClasses.swift; sourceTree = "<group>"; };
 		1EE730092A0EE80000B859E1 /* ArtDisplayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDisplayScreen.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				29BC45672A32643200211F40 /* local_svgs */,
 				29BC45CF2A32739700211F40 /* local_svgs_thumbs */,
 				29D2236E2A0DB0B8000FF09E /* AppData.swift */,
+				05238E5C2ACE077E00E12F7A /* ImportView.swift */,
 				29D223722A0E219F000FF09E /* MySvg.swift */,
 				29D2236A2A0D9DF1000FF09E /* ArrowShape.swift */,
 				29976E2F29FEFD8F00DC0802 /* Assets.xcassets */,
@@ -634,6 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05238E5D2ACE077E00E12F7A /* ImportView.swift in Sources */,
 				2986151A2A0D7E5200B28BAD /* UIColor+Extension.swift in Sources */,
 				29C0DF832A0D53700061453C /* HomeScreen.swift in Sources */,
 				29BC45612A32641600211F40 /* CanvasView.swift in Sources */,
