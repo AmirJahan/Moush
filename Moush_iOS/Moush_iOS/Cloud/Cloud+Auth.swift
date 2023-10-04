@@ -10,7 +10,6 @@ import Firebase
 
 extension Cloud
 {
-    
     // signUp function checks if the user exists, and creates a new user
     func signUp(
         email: String,
@@ -22,7 +21,8 @@ extension Cloud
         
         // go into the database and create the user
         myAuth.createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
+            if let _ = error
+            {
                 completion(.failure(.signUpError))
                 return
             }
@@ -42,13 +42,21 @@ extension Cloud
             ]
             
             // create e displayName to make a author for the svgs
-            userRef.setValue(userInfo) { error, _ in
-                if let error = error {
+            userRef.setValue(userInfo)
+            {
+                error, _ in
+                
+                if let _ = error
+                {
                     completion(.failure(.signUpError))
-                } else {
+                }
+                else
+                {
                     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                     changeRequest?.displayName = "Your Username"
-                    changeRequest?.commitChanges { (error) in
+                    changeRequest?.commitChanges
+                    {
+                        (error) in
                         // handle error
                     }
                     completion(.success(authResult!))
@@ -61,7 +69,7 @@ extension Cloud
     {
         // login to the app
         myAuth.signIn(withEmail: email, password: password){ result, error in
-            if let error = error
+            if let _ = error
             {
                 completion(.failure(.loginError))
             }

@@ -26,7 +26,9 @@ struct AttributesView: View
                 ColorPicker("Fill color", selection: $selectedFillColor,
                             supportsOpacity: false)
                 .padding()
-                .onChange(of: selectedFillColor) { color in
+                .onChange(of: selectedFillColor)
+                {
+                    color in
                     
                     //Need a variable to use timeIntervalSince method
                     let now = Date.now
@@ -38,7 +40,10 @@ struct AttributesView: View
                         var Commands : [Command] = []
                         
                         //Add a individual command for each selected layer
-                        vm.selectedPathIndices.forEach { currentIndex in
+                        vm.selectedPathIndices.forEach
+                        {
+                            currentIndex in
+                            
                             Commands.append(ChangeFillColorCommand(selectedItem: $vm.paths[currentIndex],
                                                                    previousColor:vm.paths[currentIndex].fill,
                                                                    currentColor: selectedFillColor))
@@ -54,7 +59,9 @@ struct AttributesView: View
                 ColorPicker("Stroke color", selection: $selectedStrokeColor,
                             supportsOpacity: false)
                 .padding()
-                .onChange(of: selectedStrokeColor) { color in
+                .onChange(of: selectedStrokeColor)
+                {
+                    color in
                     
                     //Need a variable to use timeIntervalSince method
                     let now = Date.now
@@ -66,7 +73,10 @@ struct AttributesView: View
                         var Commands : [Command] = []
                         
                         //Add a individual command for each selected layer
-                        vm.selectedPathIndices.forEach { currentIndex in
+                        vm.selectedPathIndices.forEach
+                        {
+                            currentIndex in
+                            
                             Commands.append(ChangeStrokeColorCommand(selectedItem: $vm.paths[currentIndex],
                                                                      previousColor: vm.paths[currentIndex].stroke,
                                                                      currentColor: selectedStrokeColor))

@@ -13,9 +13,9 @@ struct Moush_iOSApp: App {
         WindowGroup {
 //          ContentView()
             // let's open the login view first
-         //   LoginView()
+          LoginView()
 
-      HomeScreen ()
+  //    HomeScreen ()
 //           TextAttrView()
         }
     }

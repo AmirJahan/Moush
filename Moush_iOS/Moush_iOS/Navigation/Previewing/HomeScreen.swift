@@ -42,6 +42,8 @@ struct HomeScreen: View {
     
     let countries = ["🇨🇦", "🇩🇿", "🇦🇲", "🇦🇷", "🇧🇹", "🇧🇮", "🇮🇨", "🇰🇲"]
     
+    @State private var svgs: [MySvg] = []
+    
     @State var img: UIImage?
     
     var body: some View {
@@ -83,6 +85,13 @@ struct HomeScreen: View {
                                 }
                             }
                             .padding(.top, 8)
+                            
+                        Spacer ()
+                        
+                        
+                        LazyVGrid (columns: columns,
+                                   spacing: space)
+                        {
                             VStack {
                                 if let img = img {
                                     Image(uiImage: img)
@@ -97,7 +106,8 @@ struct HomeScreen: View {
                                 // THIS IS HARDCODED, JUST TO SHOW HOW IT COULD WORK.
                                 // get the file and display that file.
                                 // This should also display the user name and the
-                                Cloud.inst.fetchFile(fromPath: "Thumbnails/android.jpg") { (data, error) in
+                                Cloud.inst.fetchImage(fromPath: "Thumbnails/acvarium.jpg")
+                                { (data, error) in
                                     if let error = error {
                                         print("Error downloading file: \(error)")
                                     } else if let data = data {
@@ -108,6 +118,8 @@ struct HomeScreen: View {
                             
                             ForEach(AppData.instance.tempSvgs, id: \.self) { mySvg in
                                 
+                            ForEach (svgs, id: \.self) { mySvg in
+
                                 NavigationLink {
                                     
                                     //                                    Text("HI")
@@ -162,10 +174,60 @@ struct HomeScreen: View {
                                         showSearchFilter: $showSearchFilter,
                                         onFilterSelected: performSearch)
                     
+                        VStack (alignment: .leading)
+                    {
+                        Text("Moush")
+                            .font(.custom("HelveticaNeue-Bold", size: 34))
+                            .foregroundColor(.white)
+                            .padding(.top, 24)
+                        Text("The Ultimate SVG Editor")
+                            .font(.custom("HelveticaNeue-Italic", size: 16))
+                            .foregroundColor(.white.opacity(0.75))
+                            .padding(.top, 0)
+                        
+                        
+                        
+                    },
+                    trailing:
+                        VStack (alignment: .trailing)
+                    {
+                        
+                        Button(action: {
+                            self.showSearchFilter.toggle()
+                        }) {
+                            Image(systemName: "archivebox.fill")
+                                .imageScale(.large)
+                                .foregroundColor(.white.opacity(0.75))
+                        }
+                        
+                        
+                    })
+                
+                
+                
+                
+                
+                
+                
+                // This must always be at the end. This is the Filters view. Overlayed on top of others
+                if self.showSearchFilter
+                {
+                    FiltersView(searchFilter: $searchFilter, showSearchFilter: $showSearchFilter)
                 }
             }
         }
-        
+        .onAppear(perform: loadSvgs)
+    }
+    
+    func loadSvgs() {
+        Cloud.inst.fetchPosts { result in
+            switch result {
+            case .success(let fetchedSvgs):
+                self.svgs = fetchedSvgs
+            case .failure(let error):
+                print("Error fetching SVGs: \(error)")
+            }
+        }
     }
     
     func performSearch() {
