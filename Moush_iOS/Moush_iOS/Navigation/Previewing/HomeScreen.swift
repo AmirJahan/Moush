@@ -116,8 +116,8 @@ struct HomeScreen: View {
                                     }
                                 })
                                 
-                                //ForEach (svgs, id: \.self) { mySvg in
-                                ForEach(AppData.instance.tempSvgs, id: \.self) { mySvg in
+                                ForEach (svgs, id: \.self) { mySvg in
+                               // ForEach(AppData.instance.tempSvgs, id: \.self) { mySvg in
                                     NavigationLink {
                                         
                                         //                                    Text("HI")
