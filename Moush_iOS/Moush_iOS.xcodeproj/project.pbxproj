@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E1C61EA2ACE010E0081121E /* ThumbMakerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C61E92ACE010E0081121E /* ThumbMakerScreen.swift */; };
 		1EE7300A2A0EE80000B859E1 /* ArtDisplayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE730092A0EE80000B859E1 /* ArtDisplayScreen.swift */; };
 		1EF1A7432A05ACE200C8F2A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1A7422A05ACE200C8F2A0 /* GoogleService-Info.plist */; };
 		298615182A0D7D5900B28BAD /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298615172A0D7D5900B28BAD /* Color+Extension.swift */; };
@@ -106,6 +107,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E1C61E92ACE010E0081121E /* ThumbMakerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbMakerScreen.swift; sourceTree = "<group>"; };
 		1EE730092A0EE80000B859E1 /* ArtDisplayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDisplayScreen.swift; sourceTree = "<group>"; };
 		1EF1A7422A05ACE200C8F2A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		298615172A0D7D5900B28BAD /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		29976E2A29FEFD8E00DC0802 /* Moush_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1E1C61E92ACE010E0081121E /* ThumbMakerScreen.swift */,
 				29BC45CF2A32739700211F40 /* local_svgs_thumbs */,
 				29976E2B29FEFD8E00DC0802 /* Moush_iOSApp.swift */,
 				29BC45672A32643200211F40 /* local_svgs */,
@@ -530,6 +533,7 @@
 				29BC455C2A32641600211F40 /* SvgLayersView.swift in Sources */,
 				29BC45602A32641600211F40 /* ViewModel.swift in Sources */,
 				29D2236D2A0DAABA000FF09E /* SearchFilters.swift in Sources */,
+				1E1C61EA2ACE010E0081121E /* ThumbMakerScreen.swift in Sources */,
 				29D223712A0E2189000FF09E /* ArtCellView.swift in Sources */,
 				29C0DF852A0D53B90061453C /* View+Extensions.swift in Sources */,
 				29BC455F2A32641600211F40 /* AttributesView.swift in Sources */,
