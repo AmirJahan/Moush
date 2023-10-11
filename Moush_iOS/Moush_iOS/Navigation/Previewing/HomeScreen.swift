@@ -7,7 +7,7 @@ struct HomeScreen: View {
     }
     
     // Replace the userName with actual current Cloud user ID:
-    let userName = "Jane Smith";
+    let userName = Cloud.inst.myAuth.currentUser?.displayName;
     
     @State
     var searchFilter: SearchFilter = AppData.instance.searchFilter
