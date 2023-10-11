@@ -1,10 +1,18 @@
 import SwiftUI
 
+import GoogleSignIn
+import GoogleSignInSwift
+import GoogleAPIClientForRESTCore
+import GTMSessionFetcherCore
+
 // test
 struct HomeScreen: View {
     init() {
         setupNavBar()
     }
+    
+    // store driveID
+    @State var driveID: String?
     
     // Replace the userName with actual current Cloud user ID:
     let userName = "Jane Smith";
@@ -22,6 +30,7 @@ struct HomeScreen: View {
     
     @State
     var showImportSettings = false;
+    
     
     let screenWidth = UIScreen.main.bounds.size.width - 20
     
@@ -145,8 +154,14 @@ struct HomeScreen: View {
                             VStack(alignment: .trailing) {
                                 // This is the one at the top.
                                 Button(action: {
-                                    self.showSearchFilter.toggle()
-                                    performSearch()
+                                    GoogleSignIn()
+                                    // try to open google drive
+                                    // TODO: get file and open. also opposite
+                                    if(driveID == nil){
+                                        if let url = URL(string: "https://www.googleapis.com/drive/v3/drives/\(driveID)") {
+                                            UIApplication.shared.open(url)
+                                        }
+                                    }
                                 }) {
                                     Image(systemName: "archivebox.fill")
                                         .imageScale(.large)
@@ -220,6 +235,28 @@ struct HomeScreen: View {
         
         print(searchFilter.name)
     }
+    
+    // this opens a new window that brings us to the google login window. Then it saves your ID
+    // for future use.
+    func GoogleSignIn() {
+        GIDSignIn.sharedInstance.signIn(withPresenting: (UIApplication.shared.windows.first?.rootViewController)!) { signInResult, error in
+                
+                guard let result = signInResult else {
+                    // Inspect error
+                    
+                    return
+                }
+                
+                dump(result)
+                
+                driveID = result.user.idToken?.tokenString
+                dump (driveID)
+            
+                // If sign in succeeded, display the app's main content View.
+                let newRootView = UIHostingController(rootView: HomeScreen())
+                UIApplication.shared.windows.first?.rootViewController = newRootView
+            }
+        }
     
     struct SearchBar: View {
         @Binding var text: String
