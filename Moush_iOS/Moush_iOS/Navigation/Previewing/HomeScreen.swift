@@ -5,21 +5,19 @@ import GoogleSignInSwift
 import GoogleAPIClientForRESTCore
 import GTMSessionFetcherCore
 
-// test
+// IMPORTANT INFO: WE (PG24's) ONLY GOT TO A POINT OF CREATING THE CLOUD RELATED CODE (FETCH, UPLOAD, ETC.) BUT WERE NOT ABLE TO DISPLAY THE CLOUD SVG'S IN THE ACTUAL HOME SCREEN, SEARCH FILTERS WORK WITH THE LOCAL APPDATA SVG'S. BUT YOU WILL NEED TO MAKE IT ALL WORK WITH THE FIREBASE CLOUD STORED SVG'S INSTEAD OF THE LOCAL ONES. Good luck :). - PG24's.
 struct HomeScreen: View {
     init() {
         setupNavBar()
     }
     
-    // store driveID
-    @State var driveID: String?
-    
-    // Replace the userName with actual current Cloud user ID:
+    // userName filter works but there is no currentUser?, that's why it is not showing any Svg's when you filter by "my files". You can try changing to let userName = "John Doe"
     let userName = Cloud.inst.myAuth.currentUser?.displayName;
     
     @State
     var searchFilter: SearchFilter = AppData.instance.searchFilter
     
+    // INSTEAD OF USING AppData.instance.tempSvgs, you will need to find a way to display the cloud svgs.
     @State private var filteredSvgs: [MySvg] = AppData.instance.tempSvgs
     
     @State
@@ -30,7 +28,6 @@ struct HomeScreen: View {
     
     @State
     var showImportSettings = false;
-    
     
     let screenWidth = UIScreen.main.bounds.size.width - 20
     
@@ -87,6 +84,7 @@ struct HomeScreen: View {
                             columns: columns,
                             spacing: space
                         ) {
+                            // Replace filteredSvgs to svgs once you got the idea on how to fetch the actual cloud svg's.
                             ForEach(filteredSvgs, id: \.self) { mySvg in
                                 NavigationLink {
                                     ArtDisplayScreen(svg: mySvg)
@@ -106,9 +104,8 @@ struct HomeScreen: View {
                                 }
                                 .onAppear(perform: {
                                     
-                                    // THIS IS HARDCODED, JUST TO SHOW HOW IT COULD WORK.
-                                    // get the file and display that file.
-                                    // This should also display the user name and the
+                                    
+                                    // THE acvarium.jpg IS BEING FETCHED FROM THE CLOUD SERVER, SOMETHING SIMILAR HAS TO BE DONE IN ORDER TO ONLY DISPLAY THE CLOUD SVG'S INSTEAD THE LOCAL ONES:
                                     Cloud.inst.fetchImage(fromPath: "Svgs/acvarium.jpg")
                                     { (data, error) in
                                         if let error = error {
@@ -245,6 +242,7 @@ struct HomeScreen: View {
         
         print(searchFilter.name)
     }
+    
     
     // this opens a new window that brings us to the google login window. Then it saves your ID
     // for future use.
