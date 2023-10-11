@@ -57,7 +57,7 @@ struct LoginView: View
                     Cloud.inst.login(email: email, password: password) { res in
                         switch res
                         {
-                        case .success(let authResult):
+                        case .success(_):
                             success = "success"
                             navigateToUploadSVG = true
                             
@@ -76,8 +76,19 @@ struct LoginView: View
                 
                 Button(action: {})
                 {
-                    NavigationLink(destination: SignUpView()) {
+                    NavigationLink(destination: SignUpView())
+                    {
                         Text("Sign Up")
+                            .font(.headline)
+                            .foregroundColor(.blue)
+                    }
+                    
+                }
+                Button(action: {})
+                {
+                    NavigationLink(destination: HomeScreen())
+                    {
+                        Text("Continue Without Account")
                             .font(.headline)
                             .foregroundColor(.blue)
                     }
@@ -92,7 +103,8 @@ struct LoginView: View
             .padding()
             .background(
                 NavigationLink(destination: UploadSvg().navigationBarBackButtonHidden(true), isActive: $navigateToUploadSVG) {
-                    EmptyView()
+                    //HomeScreen()
+                    //EmptyView()
                 }
             )
         }

@@ -24,6 +24,6 @@ struct SvgLayersView: View
 
 struct SvgLayersView_Previews: PreviewProvider {
     static var previews: some View {
-        SvgLayersView(vm: ViewModel(resourceName: "sample_01"))
+        SvgLayersView(vm: ViewModel(svgName: "sample_01"))
     }
 }

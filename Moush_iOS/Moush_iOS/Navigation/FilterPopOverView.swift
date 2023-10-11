@@ -5,6 +5,8 @@ struct FilterPopOverView : View
             
     @Binding var searchFilter: SearchFilter
     @Binding var showSearchFilter : Bool
+    var onFilterSelected: () -> Void
+    
 //    var onSearch: () -> Void  // Action closure
     
     var recent = SearchFilter(name: "Recent",
@@ -13,6 +15,9 @@ struct FilterPopOverView : View
                                imageName: "star.circle.fill")
     var myFiles = SearchFilter(name: "My Files",
                                imageName: "doc.circle.fill")
+    
+    var defaultSort = SearchFilter(name: "Default",
+                                   imageName: "")
 
     var body : some View
     {
@@ -20,17 +25,35 @@ struct FilterPopOverView : View
         {
             FilterButton(searchFilter: $searchFilter,
                          showSearchFilter: $showSearchFilter,
-                         filter: recent)
+                         filter: recent,
+                         onFilterSelected: {})
+            .onTapGesture {
+                searchFilter = recent
+                withAnimation { showSearchFilter.toggle() }
+                onFilterSelected()
+            }
+            Divider()
+            
+            FilterButton(searchFilter: $searchFilter,
+                                     showSearchFilter: $showSearchFilter,
+                                     filter: popular,
+                         onFilterSelected: {})
+                            .onTapGesture {
+                                searchFilter = popular
+                                withAnimation { showSearchFilter.toggle() }
+                                onFilterSelected() // Call the callback when "Popular" is tapped
+                            }
             Divider()
             
             FilterButton(searchFilter: $searchFilter,
                          showSearchFilter: $showSearchFilter,
-                         filter: popular)
-            Divider()
-            
-            FilterButton(searchFilter: $searchFilter,
-                         showSearchFilter: $showSearchFilter,
-                         filter: myFiles)
+                         filter: myFiles,
+                         onFilterSelected: {})
+            .onTapGesture {
+                searchFilter = myFiles
+                withAnimation { showSearchFilter.toggle() }
+                onFilterSelected()
+            }
         }
         .frame(width: 120)
         .padding(6)
@@ -41,8 +64,11 @@ struct FilterPopOverView : View
 
 struct FilterPopOverView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterPopOverView(searchFilter: .constant(AppData.instance.searchFilter),
-                          showSearchFilter: .constant(true))
+        FilterPopOverView(
+            searchFilter: .constant(AppData.instance.searchFilter),
+            showSearchFilter: .constant(true),
+            onFilterSelected: {}
+        )
     }
 }
 
@@ -55,10 +81,14 @@ struct FilterButton: View
     // this is the filter for this view
     var filter : SearchFilter
     
+    
+    var onFilterSelected: () -> Void
+    
     var body: some View {
         Button {
             searchFilter = filter
             withAnimation { showSearchFilter.toggle() }
+            onFilterSelected()
         } label: {
             
             HStack(spacing : 15)

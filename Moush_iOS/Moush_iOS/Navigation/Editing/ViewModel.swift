@@ -1,8 +1,8 @@
 import SwiftUI
 import PocketSVG
+import FirebaseStorage
 
-class ViewModel: ObservableObject
-{
+class ViewModel: ObservableObject {
     var UndoRedoStack = UndoRedoSystem()
     
     @Published
@@ -16,8 +16,6 @@ class ViewModel: ObservableObject
     
     @Published
     var selectedPathStroke: Color = .clear
-    
-    
     
     func toggleSelectedPathIndex(_ index: Int) {
         if index >= 0 && index < paths.count {
@@ -40,42 +38,51 @@ class ViewModel: ObservableObject
         }
     }
     
-    func updateSelectedPathColors(newFillColor: Color, newStrokeColor: Color)
-    {
+    func updateSelectedPathColors(newFillColor: Color, newStrokeColor: Color) {
         for(_, pathIndex) in selectedPathIndices.enumerated() {
             paths[pathIndex].fill = newFillColor
             paths[pathIndex].stroke = newStrokeColor
         }
     }
     
-    init(resourceName: String)
-    {
+    init(svgName: String) {
+            fetchSVGFromCloud(svgFileName: svgName)
+    }
+    
+    func fetchSVGFromCloud(svgFileName: String) {
         
-        let localUrl = Bundle.main.url(forResource: resourceName, withExtension: "svg")!
-        
-        //SVGBezierPath comes from the PocketSVG package
-        let cgPaths: [SVGBezierPath] = SVGBezierPath.pathsFromSVG(at: localUrl)
+        Cloud.inst.fetchSvg(fromPath:svgFileName) { data, err in
+      
+            
+            if let error = err {
+                print("Error downloading SVG file: \(error)")
+            } else if let data = data, let svgString = String(data: data, encoding: .utf8) {
+                self.parseSVG(svgString: svgString)
+            }
+        }
+    }
+    
+    func parseSVG(svgString: String) {
+        // Parse the SVG string using PocketSVG
+        let cgPaths = SVGBezierPath.paths(fromSVGString: svgString)
         
         // clear the array
         paths = []
         
-        for cgP in cgPaths
-        {
+        for cgP in cgPaths {
             var myFill: CGColor?
             
-            if let fill = cgP.svgAttributes["fill"]
-            {
+            if let fill = cgP.svgAttributes["fill"] {
                 myFill = (fill as! CGColor)
             }
             
             var myStroke: CGColor?
             
-            if let stroke = cgP.svgAttributes["stroke"]
-            {
+            if let stroke = cgP.svgAttributes["stroke"] {
                 myStroke = (stroke as! CGColor)
             }
             
-            let path = PathModel(path: Path( cgP.cgPath),
+            let path = PathModel(path: Path(cgP.cgPath),
                                  fill: Color(myFill ?? UIColor.black.cgColor),
                                  stroke: Color(myStroke ?? UIColor.clear.cgColor),
                                  strokeWidth: 2.5,
@@ -85,3 +92,4 @@ class ViewModel: ObservableObject
         }
     }
 }
+
