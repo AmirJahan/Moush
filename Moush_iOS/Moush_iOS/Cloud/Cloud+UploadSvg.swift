@@ -12,13 +12,13 @@ import Firebase
 
 extension Cloud
 {
-    func uploadFile(fileURL: URL, completion: @escaping (Result<String, Error>) -> Void)
+    func uploadFile(fileURL: URL, svg: MySvg, completion: @escaping (Result<String, Error>) -> Void)
     {
         // Storing file in firebase storage
-        let storage = Storage.storage()
+        let storage    = Storage.storage()
         let storageRef = storage.reference()
         
-        let uid = UUID().uuidString
+        let uid    = UUID().uuidString
         let fileId = String(uid.suffix(7))
 
         guard let uid = Cloud.inst.myAuth.currentUser?.uid else { return }
@@ -44,10 +44,15 @@ extension Cloud
             // store the the file reference in the firestore
             let db = Firestore.firestore()
             db.collection("\(uid)").document("\(fileId)").setData([
-                "userId": uid,
-                "fileName": "\(fileId).svg",
-                "filePath": "\(uid)/\(fileId).svg",
-                "authorName": Cloud.inst.myAuth.currentUser?.displayName
+                "userId"      : uid,
+                "fileName"    : "\(fileId).svg",
+                "thumbnail"   : "Thumbnails/\(fileId).svg",
+                "filePath"    : "\(uid)/\(fileId).svg",
+                "rating"      : 3,
+                "ratingCount" : 0,
+                "tags"        : svg.tags,
+                "uploadDate"  : Date(),
+                "authorName"  : Cloud.inst.myAuth.currentUser?.displayName as Any
             ])
             {
                 err in
