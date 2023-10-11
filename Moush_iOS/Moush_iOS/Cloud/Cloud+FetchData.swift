@@ -99,10 +99,10 @@ extension Cloud
                 
                 let data = document.data()
                 
-                guard let fileName = data["fileName"] as? String,
+                guard let fileName   = data["fileName"]   as? String,
                       let authorName = data["authorName"] as? String,
                       let uploadDate = data["uploadDate"] as? Date,
-                      let filePath = data["filePath"] as? String else
+                      let filePath   = data["filePath"]   as? String else
                 {  // Ensure we fetch the filePath
                     return nil
                 }

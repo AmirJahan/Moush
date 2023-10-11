@@ -166,12 +166,12 @@ struct HomeScreen: View {
                     }
                     
                     // This must always be at the end. This is the Filters view. Overlayed on top of others
-                    if self.showSearchFilter {
+                    if self.showSearchFilter
+                    {
                         FiltersView(
                             searchFilter: $searchFilter,
                             showSearchFilter: $showSearchFilter,
                             onFilterSelected: performSearch)
-                        
                     }
                 }
             }.onAppear(perform: loadSvgs)
@@ -207,15 +207,25 @@ struct HomeScreen: View {
         }
         
         // Sort by rating if the "Popular" filter is selected
-        if searchFilter.name == "Popular" {
+        if searchFilter.name == "Popular"
+        {
             filteredSvgs.sort { $0.rating > $1.rating }
-        } else if searchFilter.name == "Recent" {
+        }
+        else if searchFilter.name == "Recent"
+        {
             filteredSvgs.sort { $0.uploadDate > $1.uploadDate }
-        } else if searchFilter.name == "My Files" {
+        }
+        else if searchFilter.name == "My Files"
+        {
             // Replace "YourUserName" with the actual user name
             filteredSvgs = filteredSvgs.filter { $0.author == userName }
-        } else if searchFilter.name == "Default" {
-            filteredSvgs = AppData.instance.tempSvgs.filter { mySvg in
+        }
+        else if searchFilter.name == "Default"
+        {
+            filteredSvgs = AppData.instance.tempSvgs.filter
+            {
+                mySvg in
+                
                 let lowercaseSearchText = searchText.lowercased()
                 return mySvg.fileName.lowercased().contains(lowercaseSearchText) ||
                 mySvg.author.lowercased().contains(lowercaseSearchText) ||
