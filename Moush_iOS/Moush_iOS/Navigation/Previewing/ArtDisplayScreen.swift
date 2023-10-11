@@ -2,6 +2,7 @@ import SwiftUI
 import FirebaseStorage
 
 struct ArtDisplayScreen: View {
+    
     var svg: MySvg
     
     @State private var uiImage: UIImage?
@@ -61,6 +62,7 @@ struct ArtDisplayScreen: View {
             Spacer()
             
             HStack {
+                // THE EDIT SVG'S PART IS BROKEN BECAUSE WE'RE TRYING TO ACCESS THE FILE PATH OF THE CLOUD SVG'S. It used to worked before with the local svg's.
                 NavigationLink(destination: EditSvgScreen(svgName: svg.filePath!))
                 {
                     Text("Edit this Art")

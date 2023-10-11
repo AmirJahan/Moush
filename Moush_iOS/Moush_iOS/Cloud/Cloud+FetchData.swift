@@ -100,6 +100,7 @@ extension Cloud
                 let data = document.data()
                 
                 guard let fileName   = data["fileName"]   as? String,
+                      let thumbName  = data["thumbName"]  as? String,
                       let authorName = data["authorName"] as? String,
                       let uploadDate = data["uploadDate"] as? Date,
                       let filePath   = data["filePath"]   as? String else
@@ -107,7 +108,7 @@ extension Cloud
                     return nil
                 }
                 
-                let thumbName = fileName
+                // let thumbName = fileName
                 print("Data fetch for fileName: \(fileName), thumbName: \(thumbName), author: \(authorName), uploadDate \(uploadDate), filePath: \(filePath) succeeded")
                 
                 return MySvg(fileName: fileName, thumbName: thumbName, author: authorName, tags: [], rating: 0.0, uploadDate: uploadDate, filePath: filePath)
