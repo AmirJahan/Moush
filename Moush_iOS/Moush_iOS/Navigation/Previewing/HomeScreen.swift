@@ -6,6 +6,7 @@ struct HomeScreen: View {
         setupNavBar()
     }
     
+    // Replace the userName with actual current Cloud user ID:
     let userName = "Jane Smith";
     
     @State
@@ -85,13 +86,6 @@ struct HomeScreen: View {
                                 }
                             }
                             .padding(.top, 8)
-                            
-                            Spacer ()
-                            
-                            
-                            LazyVGrid (columns: columns,
-                                       spacing: space)
-                            {
                                 VStack {
                                     if let img = img {
                                         Image(uiImage: img)
@@ -106,7 +100,7 @@ struct HomeScreen: View {
                                     // THIS IS HARDCODED, JUST TO SHOW HOW IT COULD WORK.
                                     // get the file and display that file.
                                     // This should also display the user name and the
-                                    Cloud.inst.fetchImage(fromPath: "Thumbnails/acvarium.jpg")
+                                    Cloud.inst.fetchImage(fromPath: "Svgs/acvarium.jpg")
                                     { (data, error) in
                                         if let error = error {
                                             print("Error downloading file: \(error)")
@@ -176,7 +170,6 @@ struct HomeScreen: View {
                 }
             }.onAppear(perform: loadSvgs)
         }
-    }
     
     func loadSvgs() {
         Cloud.inst.fetchPosts { result in
