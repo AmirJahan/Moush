@@ -1,5 +1,20 @@
 import SwiftUI
 
+//
+// Hello PG25s it's Gavin, sorry for the awful code
+// Our search filters & our firebase functionality were working before we merged them,
+// so you can check this for reference when you try to merge the two properly
+//
+// If youre working in this branch and dont yet have access to the firebase server,
+// definitely ask Amir asap for him to invite you
+//
+// Most of the cloud functionality is working & in the Cloud folder, there is some redundancy
+// and in this current version we dont get rating/upload date/thumbnail data.
+// The functionality is there in the main branch but not this one
+//
+// This also has functionality for logging in, uploading, & downloading but not tagging like main
+//
+// Good luck and have fun
 
 // test
 struct HomeScreen: View
