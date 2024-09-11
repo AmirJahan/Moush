@@ -1,27 +1,20 @@
-
-
 import Foundation
 import SwiftUI
 
-class AppData
-{
+class AppData {
     static let instance = AppData()
-    init () {}
-    
-    
-    
+
+    init() {}
+
     let searchFilter = SearchFilter(name: "Default", imageName: "arrow.clockwise.circle.fill")
-    
-    
-    
-    
+
     let tempSvgs: [MySvg] = [
         MySvg(fileName: "calendar",
               thumbName: "calendar",
               author: "John Doe",
               tags: ["Great", "Red", "Weird"],
               rating: 5.24,
-              uploadDate: Calendar.current.date(byAdding: .day, value: -7, to: Date())!), // For testing: Set the upload date to 7 days ago),
+              uploadDate: Calendar.current.date(byAdding: .day, value: -7, to: Date())!),
         MySvg(fileName: "acuarium",
               thumbName: "acuarium",
               author: "Jane Smith",
@@ -183,7 +176,7 @@ class AppData
               author: "Henry King",
               tags: ["Brilliant", "Teal", "Inspiring"],
               rating: 4.96,
-        uploadDate: Date()),
+              uploadDate: Date()),
         MySvg(fileName: "paperplane",
               thumbName: "paperplane",
               author: "Zoe Harris",

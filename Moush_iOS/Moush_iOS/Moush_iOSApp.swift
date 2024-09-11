@@ -11,12 +11,11 @@ import SwiftUI
 struct Moush_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-//          ContentView()
+            // ContentView()
             // let's open the login view first
-          LoginView()
-
-  //    HomeScreen ()
-//           TextAttrView()
+            LoginView()
+            // HomeScreen()
+            // TextAttrView()
         }
     }
 }

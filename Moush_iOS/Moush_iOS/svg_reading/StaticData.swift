@@ -1,9 +1,6 @@
 import SwiftUI
 
-
-
-class StaticData
-{
+class StaticData {
     static let examplePath = PathModel(path: Path { path in
         path.move(to: CGPoint(x: 50, y: 50))
         path.addLine(to: CGPoint(x: 200, y: 50))

@@ -10,51 +10,46 @@ struct HomeScreen: View {
     init() {
         setupNavBar()
     }
-    
+
     // userName filter works but there is no currentUser?, that's why it is not showing any Svg's when you filter by "my files". You can try changing to let userName = "John Doe"
-    let userName = Cloud.inst.myAuth.currentUser?.displayName;
-    
+    let userName = Cloud.inst.myAuth.currentUser?.displayName
+
     @State
     var searchFilter: SearchFilter = AppData.instance.searchFilter
-    
+
     // INSTEAD OF USING AppData.instance.tempSvgs, you will need to find a way to display the cloud svgs.
     @State private var filteredSvgs: [MySvg] = AppData.instance.tempSvgs
-    
+
     @State
     private var searchText = ""
-    
+
     @State
     var showSearchFilter = false
-    
+
     @State
-    var showImportSettings = false;
-    
+    var showImportSettings = false
+
     let screenWidth = UIScreen.main.bounds.size.width - 20
-    
+
     let space: CGFloat = 8
-    
+
     var colHeight: CGFloat {
         return screenWidth / 2.0 * 1.25
     }
-    
-    //    var cellWidth: CGFont {
-    //        return (screenWidth - 20.0) / 2.0
-    //    }
-    
-    var columns : [GridItem] {
+
+    var columns: [GridItem] {
         return Array(repeating: .init(.flexible(),
                                       spacing: space),
                      count: 2)
     }
-    
-    let countries = ["🇨🇦", "🇩🇿", "🇦🇲", "🇦🇷", "🇧🇹", "🇧🇮", "🇮🇨", "🇰🇲"]
-    
+
+    let countries = ["CA", "DZ", "AM", "AR", "BT", "BI", "IC", "KM"]
+
     @State private var svgs: [MySvg] = []
-    
+
     @State var img: UIImage?
-    
+
     var body: some View {
-        
         NavigationView {
             ZStack {
                 // usually you put a grid within a Scroll View
@@ -62,11 +57,10 @@ struct HomeScreen: View {
                     VStack {
                         HStack {
                             SearchBar(text: $searchText, onSearch: performSearch)
-                            
+
                             // This is the settings menu.
                             Button(action: {
                                 self.showSearchFilter.toggle()
-                                // performSearch();
                             }) {
                                 Image(systemName: "slider.horizontal.3")
                                     .imageScale(.large)
@@ -75,11 +69,10 @@ struct HomeScreen: View {
                         }
                         .onChange(of: showSearchFilter) { newValue in
                             performSearch()
-                            
                         }
-                        
+
                         Spacer()
-                        
+
                         LazyVGrid(
                             columns: columns,
                             spacing: space
@@ -93,96 +86,84 @@ struct HomeScreen: View {
                                 }
                             }
                             .padding(.top, 8)
-                                VStack {
-                                    if let img = img {
-                                        Image(uiImage: img)
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                    } else {
-                                        ProgressView()  // show a loading spinner while the image is loading
+
+                            VStack {
+                                if let img = img {
+                                    Image(uiImage: img)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                } else {
+                                    ProgressView()
+                                }
+                            }
+                            .onAppear(perform: {
+                                // THE acvarium.jpg IS BEING FETCHED FROM THE CLOUD SERVER, SOMETHING SIMILAR HAS TO BE DONE IN ORDER TO ONLY DISPLAY THE CLOUD SVG'S INSTEAD THE LOCAL ONES:
+                                Cloud.inst.fetchImage(fromPath: "Svgs/acvarium.jpg") { (data, error) in
+                                    if let error = error {
+                                        print("Error downloading file: \(error)")
+                                    } else if let data = data {
+                                        self.img = UIImage(data: data)
                                     }
                                 }
-                                .onAppear(perform: {
-                                    
-                                    
-                                    // THE acvarium.jpg IS BEING FETCHED FROM THE CLOUD SERVER, SOMETHING SIMILAR HAS TO BE DONE IN ORDER TO ONLY DISPLAY THE CLOUD SVG'S INSTEAD THE LOCAL ONES:
-                                    Cloud.inst.fetchImage(fromPath: "Svgs/acvarium.jpg")
-                                    { (data, error) in
-                                        if let error = error {
-                                            print("Error downloading file: \(error)")
-                                        } else if let data = data {
-                                            self.img = UIImage(data: data)
-                                        }
-                                    }
-                                })
-                                
-                                ForEach (svgs, id: \.self) { mySvg in
-                               // ForEach(AppData.instance.tempSvgs, id: \.self) { mySvg in
-                                    NavigationLink {
-                                        
-                                        //                                    Text("HI")
-                                        ArtDisplayScreen(svg: mySvg)
-                                        
-                                    } label: {
-                                        ArtCellView(svg: mySvg)
-                                    }
-                                }
-                            }.padding(.top, 8)
-                        }.padding(16)
-                        
-                    }  //
-                    .navigationBarTitle("", displayMode: .large)
-                    .navigationBarItems(
-                        
-                        leading:
-                            
-                            VStack(alignment: .leading) {
-                                Text("Moush")
-                                    .font(.custom("HelveticaNeue-Bold", size: 34))
-                                    .foregroundColor(.white)
-                                    .padding(.top, 24)
-                                Text("The Ultimate SVG Editor")
-                                    .font(.custom("HelveticaNeue-Italic", size: 16))
-                                    .foregroundColor(.white.opacity(0.75))
-                                    .padding(.top, 0)
-                                
-                            },
-                        trailing:
-                            VStack(alignment: .trailing) {
-                                // This is the one at the top.
-                                Button(action: {
-                                    GoogleSignIn()
-                                    // try to open google drive
-                                    // TODO: get file and open. also opposite
-                                    if(driveID == nil){
-                                        if let url = URL(string: "https://www.googleapis.com/drive/v3/drives/\(driveID)") {
-                                            UIApplication.shared.open(url)
-                                        }
-                                    }
-                                }) {
-                                    Image(systemName: "archivebox.fill")
-                                        .imageScale(.large)
-                                        .foregroundColor(.white.opacity(0.75))
-                                }
-                                
                             })
-                    if self.showImportSettings
-                    {
-                        ImportView()
-                    }
-                    
-                    // This must always be at the end. This is the Filters view. Overlayed on top of others
-                    if self.showSearchFilter
-                    {
-                        FiltersView(
-                            searchFilter: $searchFilter,
-                            showSearchFilter: $showSearchFilter,
-                            onFilterSelected: performSearch)
-                    }
+
+                            ForEach(svgs, id: \.self) { mySvg in
+                                NavigationLink {
+                                    ArtDisplayScreen(svg: mySvg)
+                                } label: {
+                                    ArtCellView(svg: mySvg)
+                                }
+                            }
+                        }.padding(.top, 8)
+                    }.padding(16)
                 }
-            }.onAppear(perform: loadSvgs)
-        }
-    
+                .navigationBarTitle("", displayMode: .large)
+                .navigationBarItems(
+                    leading:
+                        VStack(alignment: .leading) {
+                            Text("Moush")
+                                .font(.custom("HelveticaNeue-Bold", size: 34))
+                                .foregroundColor(.white)
+                                .padding(.top, 24)
+                            Text("The Ultimate SVG Editor")
+                                .font(.custom("HelveticaNeue-Italic", size: 16))
+                                .foregroundColor(.white.opacity(0.75))
+                                .padding(.top, 0)
+                        },
+                    trailing:
+                        VStack(alignment: .trailing) {
+                            // This is the one at the top.
+                            Button(action: {
+                                GoogleSignIn()
+                                // try to open google drive
+                                // TODO: get file and open. also opposite
+                                if driveID == nil {
+                                    if let url = URL(string: "https://www.googleapis.com/drive/v3/drives/\(driveID)") {
+                                        UIApplication.shared.open(url)
+                                    }
+                                }
+                            }) {
+                                Image(systemName: "archivebox.fill")
+                                    .imageScale(.large)
+                                    .foregroundColor(.white.opacity(0.75))
+                            }
+                        })
+
+                if self.showImportSettings {
+                    ImportView()
+                }
+
+                // This must always be at the end. This is the Filters view. Overlayed on top of others
+                if self.showSearchFilter {
+                    FiltersView(
+                        searchFilter: $searchFilter,
+                        showSearchFilter: $showSearchFilter,
+                        onFilterSelected: performSearch)
+                }
+            }
+        }.onAppear(perform: loadSvgs)
+    }
+
     func loadSvgs() {
         Cloud.inst.fetchPosts { result in
             switch result {
@@ -193,7 +174,7 @@ struct HomeScreen: View {
             }
         }
     }
-    
+
     func performSearch() {
         print("called")
         if searchText.isEmpty {
@@ -210,27 +191,17 @@ struct HomeScreen: View {
                 }
             }
         }
-        
+
         // Sort by rating if the "Popular" filter is selected
-        if searchFilter.name == "Popular"
-        {
+        if searchFilter.name == "Popular" {
             filteredSvgs.sort { $0.rating > $1.rating }
-        }
-        else if searchFilter.name == "Recent"
-        {
+        } else if searchFilter.name == "Recent" {
             filteredSvgs.sort { $0.uploadDate > $1.uploadDate }
-        }
-        else if searchFilter.name == "My Files"
-        {
+        } else if searchFilter.name == "My Files" {
             // Replace "YourUserName" with the actual user name
             filteredSvgs = filteredSvgs.filter { $0.author == userName }
-        }
-        else if searchFilter.name == "Default"
-        {
-            filteredSvgs = AppData.instance.tempSvgs.filter
-            {
-                mySvg in
-                
+        } else if searchFilter.name == "Default" {
+            filteredSvgs = AppData.instance.tempSvgs.filter { mySvg in
                 let lowercaseSearchText = searchText.lowercased()
                 return mySvg.fileName.lowercased().contains(lowercaseSearchText) ||
                 mySvg.author.lowercased().contains(lowercaseSearchText) ||
@@ -239,46 +210,43 @@ struct HomeScreen: View {
                 }
             }
         }
-        
+
         print(searchFilter.name)
     }
-    
-    
+
     // this opens a new window that brings us to the google login window. Then it saves your ID
     // for future use.
     func GoogleSignIn() {
         GIDSignIn.sharedInstance.signIn(withPresenting: (UIApplication.shared.windows.first?.rootViewController)!) { signInResult, error in
-                
-                guard let result = signInResult else {
-                    // Inspect error
-                    
-                    return
-                }
-                
-                dump(result)
-                
-                driveID = result.user.idToken?.tokenString
-                dump (driveID)
-            
-                // If sign in succeeded, display the app's main content View.
-                let newRootView = UIHostingController(rootView: HomeScreen())
-                UIApplication.shared.windows.first?.rootViewController = newRootView
+            guard let result = signInResult else {
+                // Inspect error
+                return
             }
+
+            dump(result)
+
+            driveID = result.user.idToken?.tokenString
+            dump(driveID)
+
+            // If sign in succeeded, display the app's main content View.
+            let newRootView = UIHostingController(rootView: HomeScreen())
+            UIApplication.shared.windows.first?.rootViewController = newRootView
         }
-    
+    }
+
     struct SearchBar: View {
         @Binding var text: String
         var onSearch: () -> Void
-        
+
         var body: some View {
             ZStack {
                 TextField("Search", text: $text)
                     .frame(maxWidth: .infinity)
                     .textFieldStyle(.roundedBorder)
                     .onChange(of: text) { newValue in
-                        onSearch() // Call the onSearch function whenever the text changes
+                        onSearch()
                     }
-                
+
                 if !text.isEmpty {
                     Button(action: {
                         text = ""
@@ -287,72 +255,72 @@ struct HomeScreen: View {
                             .foregroundColor(.secondary)
                             .opacity(text.isEmpty ? 0 : 1)
                     }
-                    .padding(.trailing, 8) // Adjust the padding as needed
+                    .padding(.trailing, 8)
                 }
             }
         }
     }
 }
 
-    extension HomeScreen {
-      func setupNavBar() {
+extension HomeScreen {
+    func setupNavBar() {
         // Customize the appearance of the navigation bar
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(Color.myPrimaryColor)
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]  // Customize the large title text color
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
-      }
     }
+}
 
-    struct HomeScreen_Previews: PreviewProvider {
-      static var previews: some View {
+struct HomeScreen_Previews: PreviewProvider {
+    static var previews: some View {
         HomeScreen()
-      }
     }
-        
-        struct FiltersView: View {
-            @Binding
-            var searchFilter: SearchFilter
-            
-            @Binding
-            var showSearchFilter: Bool
-            
-            var onFilterSelected: () -> Void
-            
-            var body: some View {
-                VStack {
-                    HStack {
-                        Spacer()
-                        FilterPopOverView(
-                            searchFilter: $searchFilter,
-                            showSearchFilter: $showSearchFilter,
-                            onFilterSelected: {
-                                onFilterSelected()
-                                print("Filter tapped")
-                            }
+}
+
+struct FiltersView: View {
+    @Binding
+    var searchFilter: SearchFilter
+
+    @Binding
+    var showSearchFilter: Bool
+
+    var onFilterSelected: () -> Void
+
+    var body: some View {
+        VStack {
+            HStack {
+                Spacer()
+                FilterPopOverView(
+                    searchFilter: $searchFilter,
+                    showSearchFilter: $showSearchFilter,
+                    onFilterSelected: {
+                        onFilterSelected()
+                        print("Filter tapped")
+                    }
+                )
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.white)
+                        .shadow(
+                            color: .black.opacity(0.2),
+                            radius: 5,
+                            x: -3,
+                            y: 3
                         )
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color.white)
-                                .shadow(
-                                    color: .black.opacity(0.2),
-                                    radius: 5,
-                                    x: -3,
-                                    y: 3
-                                )
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(
-                                            .gray.opacity(0.25),
-                                            lineWidth: 2))
-                        )
-                        .padding()
-                    }.padding(.top, 64)
-                    Spacer()
-                }
-            }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(
+                                    .gray.opacity(0.25),
+                                    lineWidth: 2))
+                )
+                .padding()
+            }.padding(.top, 64)
+            Spacer()
         }
+    }
+}

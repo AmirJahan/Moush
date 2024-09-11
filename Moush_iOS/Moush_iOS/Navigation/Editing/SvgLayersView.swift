@@ -1,15 +1,11 @@
 import SwiftUI
 
-struct SvgLayersView: View
-{
+struct SvgLayersView: View {
     @ObservedObject
     var vm: ViewModel
-    
-    
-    var body: some View
-    {
-        List
-        {
+
+    var body: some View {
+        List {
             ForEach(vm.paths.indices, id: \.self) { i in
                 LayerCellView(pathModel: $vm.paths[i])
                     .listRowSeparatorTint(.black)

@@ -10,5 +10,4 @@ import Firebase
 import FirebaseFirestore
 
 extension Cloud {
-    }
 }

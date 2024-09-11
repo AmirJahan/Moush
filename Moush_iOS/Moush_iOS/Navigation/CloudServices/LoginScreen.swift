@@ -7,28 +7,24 @@
 import SwiftUI
 import Foundation
 
-struct LoginView: View
-{
+struct LoginView: View {
     @State
     private var email: String = ""
-    
+
     @State
     private var password: String = ""
-    
-    @State var success: String = ""
-    
-    
-    @State private var navigateToUploadSVG = false
-    
 
-    var body: some View{
-        
-        NavigationView{
+    @State var success: String = ""
+
+    @State private var navigateToUploadSVG = false
+
+    var body: some View {
+        NavigationView {
             VStack {
                 Text("Login")
                     .font(.largeTitle)
                     .padding(.bottom, 40)
-                
+
                 VStack(alignment: .leading) {
                     Text("Email")
                         .font(.headline)
@@ -38,7 +34,7 @@ struct LoginView: View
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
-                    
+
                     Text("Password")
                         .font(.headline)
                         .padding(.top)
@@ -48,19 +44,17 @@ struct LoginView: View
                         .cornerRadius(8)
                 }
                 .padding()
-                
-                
+
                 // login and if successful navigate to the next page,
                 // which is a view mentioned at the bottom of this view
                 Button("Login") {
                     success = ""
                     Cloud.inst.login(email: email, password: password) { res in
-                        switch res
-                        {
+                        switch res {
                         case .success(_):
                             success = "success"
                             navigateToUploadSVG = true
-                            
+
                         case .failure(_):
                             success = "Failed"
                         }
@@ -73,32 +67,27 @@ struct LoginView: View
                 .background(Color.blue)
                 .cornerRadius(8)
                 .padding()
-                
-                Button(action: {})
-                {
-                    NavigationLink(destination: SignUpView())
-                    {
+
+                Button(action: {}) {
+                    NavigationLink(destination: SignUpView()) {
                         Text("Sign Up")
                             .font(.headline)
                             .foregroundColor(.blue)
                     }
-                    
                 }
-                Button(action: {})
-                {
-                    NavigationLink(destination: HomeScreen())
-                    {
+
+                Button(action: {}) {
+                    NavigationLink(destination: HomeScreen()) {
                         Text("Continue Without Account")
                             .font(.headline)
                             .foregroundColor(.blue)
                     }
-                    
                 }
                 .padding()
+
                 Text(success)
                     .font(.headline)
                     .padding(.top)
-                
             }
             .padding()
             .background(
@@ -116,4 +105,3 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
-

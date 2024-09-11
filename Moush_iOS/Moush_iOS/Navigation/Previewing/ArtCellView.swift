@@ -1,71 +1,54 @@
 import SwiftUI
 
-struct ArtCellView: View
-{
+struct ArtCellView: View {
     var svg: MySvg
-//    var cellWidth: CGFont
 
-    
-    func svgTagsString () -> String
-    {
+    func svgTagsString() -> String {
         var string = ""
-        for aTag in svg.tags
-        {
+        for aTag in svg.tags {
             string += "#\(aTag) "
         }
-        
-        return String (string.dropLast())
+
+        return String(string.dropLast())
     }
-    
-    var body: some View
-    {
-        ZStack
-        {
+
+    var body: some View {
+        ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .foregroundColor(.white)
                 .shadow(color: .black.opacity(0.2),
                         radius: 4,
                         x: 0,
                         y: 2)
-            
-            VStack (alignment: .leading)
-            {
-                
+
+            VStack(alignment: .leading) {
                 if let imageURL = Bundle.main.url(forResource: svg.fileName, withExtension: "jpg"),
-                           let imageData = try? Data(contentsOf: imageURL),
+                   let imageData = try? Data(contentsOf: imageURL),
                    let uiImage = UIImage(data: imageData) {
                     // Create an Image view with the loaded image
                     Image(uiImage: uiImage)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                    
-                    
-//                    Image (svg.fileName)
-                    //                    .font(.system(size: 96))
-                    //                    .background(Color.myPrimaryColor)
                 }
-                
-                Text (svg.author)
+
+                Text(svg.author)
                     .font(.headline)
-                
-                
-                HStack
-                {
-                    Text (svgTagsString())
+
+                HStack {
+                    Text(svgTagsString())
                         .font(.subheadline)
                 }
-                
+
                 StarRatingView(rating: svg.rating)
             }.padding()
         }
-//        .frame(width: 200, height: 300)
         .padding()
     }
 }
 
 struct StarRatingView: View {
     let rating: Float
-    
+
     var body: some View {
         HStack(spacing: 5) {
             ForEach(0..<5) { index in
