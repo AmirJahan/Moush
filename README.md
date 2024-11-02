@@ -75,3 +75,9 @@ Moush_iOS/
 4. **View** detailed SVG information
 5. **Edit** by selecting paths and modifying properties
 6. **Upload** your edited artwork to the cloud
+
+---
+
+## Image Generation Prompt
+
+A creative digital art studio interface on a modern iPhone displaying an SVG editing workspace. The screen shows a vibrant canvas with colorful vector artwork—geometric shapes, icons, and illustrations—with one path selected showing bounding box handles and control points. A floating color palette offers fill and stroke options in a rainbow spectrum. The sidebar reveals layer thumbnails stacked for multi-layer editing. Behind the device, a cloud visualization connects to a gallery grid showing community artwork thumbnails with star ratings and artist avatars. The undo/redo arrows curve elegantly near the top. Small UI elements indicate authentication—a user profile circle with initials. The background blends from creative purple gradients to deep blue, with subtle vector path curves floating as decorative elements. Firebase and SwiftUI iconography subtly integrates into corner accents. The overall aesthetic combines artistic creativity with professional editing tools—clean iOS design language meets digital art studio functionality. Style: app store promotional art, creative software showcase, modern iOS design aesthetic, emphasizing community sharing and professional vector editing capabilities.
